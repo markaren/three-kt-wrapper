@@ -1,8 +1,6 @@
 package org.three
 
-external class Constants {
-
-    companion object {
+     external object THREE {
 
         val REVISION: String
         val CullFaceNone: Int
@@ -131,4 +129,3 @@ external class Constants {
         
     }
 
-}

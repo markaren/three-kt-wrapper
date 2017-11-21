@@ -1,57 +1,159 @@
-@file:JsQualifier("THREE")
-
 package org.three.materials
 
-import org.three.core.Object3D
-import org.w3c.dom.MimeTypeArray
+open class Material : MaterialProxy {
 
-open external class Material {
+    constructor() : super()
+    constructor(params : MaterialParams) : super(params.params)
+}
 
-    companion object {
-        var materialId: Int
+abstract class MaterialParams(
+
+        fog: Boolean? = null,
+        lights: Boolean? = null,
+
+        blending: Int? = null,
+        side: Int? = null,
+        flatShading: Boolean? = null,
+        /**
+         *THREE.NoColors, THREE.VertexColors, THREE.FaceColors
+         */
+        vertexColors: Int? = null,
+
+        opacity: Float? = null,
+        transparent: Boolean? = null,
+
+        blendSrc: Int? = null,
+        blendDst: Int? = null,
+        blendEquation: Int? = null,
+        blendSrcAlpha: Int? = null,
+        blendDstAlpha: Int? = null,
+        blendEquationAlpha: Int? = null,
+
+        depthFunc: Int? = null,
+        depthTest: Boolean? = null,
+        depthWrite: Boolean? = null,
+
+        colorWrite: Boolean? = null,
+
+        precision: String? = null,
+
+        polygonOffset: Boolean? = null,
+        polygonOffsetFactor: Number? = null,
+        polygonOffsetUnits: Number? = null,
+
+        dithering: Boolean? = null,
+
+        alphaTest: Float? = null,
+        premultipliedAlpha: Boolean? = null,
+
+        overdraw: Float? = null,
+
+        visible: Boolean? = null
+
+) {
+
+    val params : dynamic
+
+    init {
+
+        params = js("new Object()")
+
+        if (fog != null) {
+            params.fog = fog
+        }
+        if (lights != null) {
+            params.lights = lights
+        }
+        if (blending != null) {
+            params.blending = blending
+        }
+        if (side != null) {
+            params.side = side
+        }
+        if (flatShading != null) {
+            params.flatShading = flatShading
+        }
+        if (vertexColors != null) {
+            params.vertexColors = vertexColors
+        }
+        if (opacity != null) {
+            params.opacity = opacity
+        }
+        if (transparent != null) {
+            params.transparent = transparent
+        }
+
+        if (blendSrc != null) {
+            params.blendSrc = blendSrc
+        }
+        if (blendDst != null) {
+            params.blendDst = blendDst
+        }
+        if (blendEquation != null) {
+            params.blendEquation = blendEquation
+        }
+        if (blendSrcAlpha != null) {
+            params.blendSrcAlpha = blendSrcAlpha
+        }
+        if (blendDstAlpha != null) {
+            params.blendDstAlpha = blendDstAlpha
+        }
+        if (blendEquationAlpha != null) {
+            params.blendEquationAlpha = blendEquationAlpha
+        }
+
+
+        if (depthFunc != null) {
+            params.depthFunc = depthFunc
+        }
+        if (depthTest != null) {
+            params.depthTest = depthTest
+        }
+        if (depthWrite != null) {
+            params.depthWrite = depthWrite
+        }
+
+        if (colorWrite != null) {
+            params.colorWrite = colorWrite
+        }
+
+        if (precision != null) {
+            params.precision = precision
+        }
+
+        if (polygonOffset != null) {
+            params.polygonOffset = polygonOffset
+        }
+
+        if (polygonOffsetFactor != null) {
+            params.polygonOffsetFactor = polygonOffsetFactor
+        }
+
+        if (polygonOffsetUnits != null) {
+            params.polygonOffsetUnits = polygonOffsetUnits
+        }
+
+        if (dithering != null) {
+            params.dithering = dithering
+        }
+
+        if (alphaTest != null) {
+            params.alphaTest = alphaTest
+        }
+
+        if (premultipliedAlpha != null) {
+            params.premultipliedAlpha = premultipliedAlpha
+        }
+
+        if (overdraw != null) {
+            params.overdraw = overdraw
+        }
+
+        if (visible != null) {
+            params.visible = visible
+        }
+
     }
 
-    val id: Int
-
-    var uuid : String
-    var name : String
-    open var type: String
-
-    var fog: Boolean
-    var lights: Boolean
-
-    var blending: Int
-    var side: Int
-    var flatShading: Boolean
-    var vertexColors: Int
-
-    var opacity: Double
-    var transparent: Boolean
-
-    var blendSrc: Int;
-    var blendDst: Int;
-    var blendEquation: Int;
-    var blendSrcAlpha: dynamic
-    var blendDstAlpha: dynamic
-    var blendEquationAlpha: dynamic
-
-
-    var overdraw: Double
-
-    var visible: Boolean
-
-    var userData: Map<String, Any>
-
-    var needsUpdate: Boolean
-
-
-    fun setValues(values: Any)
-
-    fun toJSON(meta: String = definedExternally): String
-
-    open fun clone() : Material
-    fun copy(material: Material): Material
-
-    fun dispose()
-
 }
+

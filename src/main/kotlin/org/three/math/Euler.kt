@@ -5,11 +5,14 @@ package org.three.math
 open external class Euler {
 
     constructor()
-    constructor(x: Double, y: Double, z: Double)
+    constructor(x: Float, y: Float, z: Float)
 
-    var x: Double
-    var y: Double
-    var z: Double
+    var x: Float
+    var y: Float
+    var z: Float
+
+    fun clone() : Euler
+    fun copy(euler: Euler): Euler
 
 }
 

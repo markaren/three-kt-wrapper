@@ -1,36 +1,39 @@
-@file:JsQualifier("THREE")
-
 package org.three.renderers
 
-import org.three.cameras.Camera
-import org.three.scenes.Scene
 import org.w3c.dom.Node
 
+class WebGLRendererParams (
 
-open external class WebGLRenderer {
+        canvas: Node? = null,
+        alpha: Boolean? = null,
+        depth: Boolean? = null,
+        stencil: Boolean? = null,
+        antialias: Boolean? = null,
+        premultipliedAlpha: Boolean? = null,
+        preserveDrawingBuffer: Boolean? = null
 
-    constructor()
-    constructor(parameters: WebGLRendererParameters)
+) {
 
-    var domElement: Node
+    val params: dynamic = {}
 
-    var autoClear: Boolean
-    var autoClearColor: Boolean
-    var autoClearDepth: Boolean
-    var autoClearStencil: Boolean
+    init {
 
-    var sortObjects: Boolean
+        params.canvas = canvas ?: undefined
+        params.alpha = alpha ?: undefined
+        params.depth = depth ?: undefined
+        params.stencil = stencil ?: undefined
+        params.antialias = antialias ?: undefined
+        params.premultipliedAlpha  = premultipliedAlpha ?: undefined
+        params.preserveDrawingBuffer  = preserveDrawingBuffer ?: undefined
 
-    var gammaFactor: Double
-    var gammaInput: Boolean
-    var gammaOutput: Boolean
+    }
 
-    var maxMorphTargets: Int
-    var maxMorphNormals: Int
 
-    fun getSize() : dynamic
-    fun setSize(width: Int, height: Int, updateStyle: Boolean = definedExternally)
+}
 
-    fun render(scene: Scene, camera: Camera, renderTarget: dynamic = definedExternally, forceClear: Boolean = definedExternally)
+class WebGLRenderer : WebGLRendererProxy {
+
+    constructor() : super()
+    constructor(params: WebGLRendererParams) : super(params.params)
 
 }

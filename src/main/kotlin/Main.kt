@@ -1,10 +1,10 @@
 import org.three.cameras.PerspectiveCamera
-import org.three.core.Object3D
 import org.three.geometries.BoxBufferGeometry
+import org.three.geometries.SphereBufferGeometry
+import org.three.lights.AmbientLight
+import org.three.materials.*
 import org.three.scenes.Scene
-import org.three.materials.MeshBasicMaterial
-import org.three.math.Color
-import org.three.math.Vector3
+import org.three.math.ColorConstants
 import org.three.objects.Mesh
 import org.three.renderers.WebGLRenderer
 import kotlin.browser.document
@@ -33,22 +33,33 @@ class HelloWorld {
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
-        val geometry = BoxBufferGeometry(1.0,1.0,1.0)
-        val material = MeshBasicMaterial()
-        material.color = Color(0,0,1)
-        material.transparent = true
-        material.opacity = 0.5
-
-        cube = Mesh(geometry, material)
+        cube = Mesh(BoxBufferGeometry(1f,1f,1f), MeshBasicMaterial(
+                MeshBasicMaterialParams(
+                        transparent = false,
+                        opacity = 0.5f,
+                        wireframe = true,
+                        color = ColorConstants.burlywood
+                )))
         scene.add(cube)
 
-        camera.position.z = 5.0
+        val sphere = Mesh(SphereBufferGeometry(1f, 32, 32), MeshPongMaterial(
+                MeshPhongMaterialParams(
+                        color = ColorConstants.aliceblue
+                )))
+
+        sphere.position.set(0f,2f,-5f)
+        scene.add(sphere)
+
+        val light = AmbientLight(ColorConstants.aliceblue)
+        scene.add(light)
+
+        camera.position.z = 5f
     }
 
     fun animate() {
         window.requestAnimationFrame {
-            cube.rotation.x += 0.01
-            cube.rotation.y += 0.01
+            cube.rotation.x += 0.01f
+            cube.rotation.y += 0.01f
             animate()
         }
         renderer.render(scene, camera)

@@ -56,6 +56,10 @@ gradle-app.setting
 
 ## Plugin-specific files:
 
+*.idea
+
+*.iml
+
 # IntelliJ
 out/
 

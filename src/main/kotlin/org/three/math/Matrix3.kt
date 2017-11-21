@@ -6,4 +6,6 @@ open external class Matrix3 {
 
     constructor()
 
+    var elements: List<Float>
+
 }
