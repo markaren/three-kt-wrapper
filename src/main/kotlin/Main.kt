@@ -42,17 +42,6 @@ class HelloWorld {
                 )))
         scene.add(cube)
 
-        val sphere = Mesh(SphereBufferGeometry(1.0, 32, 32), MeshPongMaterial(
-                MeshPhongMaterialParams(
-                        color = ColorConstants.aliceblue
-                )))
-
-        sphere.position.set(0.0,2.0,-5.0)
-        scene.add(sphere)
-
-        val light = AmbientLight(ColorConstants.aliceblue)
-        scene.add(light)
-
         camera.position.z = 5.0
     }
 
