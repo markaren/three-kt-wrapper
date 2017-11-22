@@ -1,7 +1,8 @@
 @file:JsQualifier("THREE")
 
-package org.three.materials
+package org.three.materials.basic
 
+import org.three.materials.MaterialProxy
 import org.three.math.Color
 
 @JsName("MeshBasicMaterial")

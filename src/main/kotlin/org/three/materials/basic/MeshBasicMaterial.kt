@@ -1,6 +1,15 @@
-package org.three.materials
+package org.three.materials.basic
 
-class MeshPhongMaterialParams(
+import org.three.materials.MaterialParams
+
+class MeshBasicMaterial : MeshBasicMaterialProxy {
+
+    constructor() : super()
+    constructor(params: MeshBasicMaterialParams) : super(params.params)
+
+}
+
+class MeshBasicMaterialParams(
 
         fog: Boolean? = null,
         lights: Boolean? = null,
@@ -10,7 +19,7 @@ class MeshPhongMaterialParams(
         flatShading: Boolean? = null,
         vertexColors: Int? = null,
 
-        opacity: Float? = null,
+        opacity: Double? = null,
         transparent: Boolean? = null,
 
         blendSrc: Int? = null,
@@ -34,27 +43,28 @@ class MeshPhongMaterialParams(
 
         dithering: Boolean? = null,
 
-        alphaTest: Float? = null,
+        alphaTest: Double? = null,
         premultipliedAlpha: Boolean? = null,
 
-        overdraw: Float? = null,
+        overdraw: Double? = null,
 
         visible: Boolean? = null,
 
         //
 
         color: Int? = null,
-        specular: Int? = null,
-        shininess: Float? = null,
 
-    //    wireframe: Boolean? = null,
-        wireframeLinewidth: Float? = null,
+        reflectivity: Double? = null,
+        refractionRatio: Double? = null,
+
+        val wireframe: Boolean? = null,
+        wireframeLinewidth: Double? = null,
         wireframeLinecap: String? = null,
         wireframeLinejoin: String? = null,
 
         skinning: Boolean? = null,
-        morphTargets: Boolean? = null,
-        morphNormals: Boolean? = null
+        morphTargets: Boolean? = null
+
 
 ) : MaterialParams(
         fog, lights, blending, side, flatShading, vertexColors, opacity, transparent,
@@ -67,15 +77,16 @@ class MeshPhongMaterialParams(
         if (color != null) {
             params.color = color
         }
-        if (specular != null) {
-            params.specular = specular
+
+        if (reflectivity != null) {
+            params.reflectivity = reflectivity
         }
-        if (shininess != null) {
-            params.shininess = shininess
+        if (refractionRatio != null) {
+            params.refractionRatio = refractionRatio
         }
-//        if (wireframe != null) {
-//            params.wireframe = wireframe
-//        }
+        if (wireframe != null) {
+            params.wireframe = wireframe
+        }
         if (wireframeLinewidth != null) {
             params.wireframeLinewidth = wireframeLinewidth
         }
@@ -91,17 +102,7 @@ class MeshPhongMaterialParams(
         if (morphTargets != null) {
             params.morphTargets = morphTargets
         }
-        if (morphNormals != null) {
-            params.morphNormals = morphNormals
-        }
 
     }
 
-}
-
-class MeshPongMaterial : MeshPhongMaterialProxy {
-
-    constructor() : super()
-    constructor(params : MeshPhongMaterialParams) : super(params.params
-    )
 }

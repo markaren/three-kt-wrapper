@@ -19,7 +19,7 @@ abstract class MaterialParams(
          */
         vertexColors: Int? = null,
 
-        opacity: Float? = null,
+        opacity: Double? = null,
         transparent: Boolean? = null,
 
         blendSrc: Int? = null,
@@ -43,10 +43,10 @@ abstract class MaterialParams(
 
         dithering: Boolean? = null,
 
-        alphaTest: Float? = null,
+        alphaTest: Double? = null,
         premultipliedAlpha: Boolean? = null,
 
-        overdraw: Float? = null,
+        overdraw: Double? = null,
 
         visible: Boolean? = null
 
@@ -56,63 +56,27 @@ abstract class MaterialParams(
 
     init {
 
-        fog.let { params.fog = it }
-        lights.let { params.light = it }
-        blending.let { params.blending = it }
+        fog?.let { params.fog = it }
+        lights?.let { params.light = it }
+        blending?.let { params.blending = it }
+        side?.let { params.side = it }
+        flatShading?.let{ params.flatShading = it}
+        vertexColors?.let { params.vertexColors = it }
+        opacity?.let { params.opacity = it }
 
-        if (side != null) {
-            params.side = side
-        }
-        if (flatShading != null) {
-            params.flatShading = flatShading
-        }
-        if (vertexColors != null) {
-            params.vertexColors = vertexColors
-        }
-        if (opacity != null) {
-            params.opacity = opacity
-        }
-        if (transparent != null) {
-            params.transparent = transparent
-        }
+        transparent?.let { params.transparent = it }
+        blendSrc?.let { params.blendSrc = it }
+        blendDst?.let { params.blendDst = it }
+        blendEquation?.let { params.blendEquation = it }
+        blendSrcAlpha?.let { params.blendSrcAlpha = it }
+        blendDstAlpha?.let { params.blendDstAlpha = it }
+        blendEquationAlpha?.let { params.blendEquationAlpha = it }
+        depthFunc?.let { params.depthFunc = it }
+        depthTest?.let { params.depthTest = it }
+        depthWrite?.let { params.depthWrite = it }
+        colorWrite?.let { params.colorWrite = it }
+        precision?.let { params.precision = it }
 
-        if (blendSrc != null) {
-            params.blendSrc = blendSrc
-        }
-        if (blendDst != null) {
-            params.blendDst = blendDst
-        }
-        if (blendEquation != null) {
-            params.blendEquation = blendEquation
-        }
-        if (blendSrcAlpha != null) {
-            params.blendSrcAlpha = blendSrcAlpha
-        }
-        if (blendDstAlpha != null) {
-            params.blendDstAlpha = blendDstAlpha
-        }
-        if (blendEquationAlpha != null) {
-            params.blendEquationAlpha = blendEquationAlpha
-        }
-
-
-        if (depthFunc != null) {
-            params.depthFunc = depthFunc
-        }
-        if (depthTest != null) {
-            params.depthTest = depthTest
-        }
-        if (depthWrite != null) {
-            params.depthWrite = depthWrite
-        }
-
-        if (colorWrite != null) {
-            params.colorWrite = colorWrite
-        }
-
-        if (precision != null) {
-            params.precision = precision
-        }
 
         if (polygonOffset != null) {
             params.polygonOffset = polygonOffset

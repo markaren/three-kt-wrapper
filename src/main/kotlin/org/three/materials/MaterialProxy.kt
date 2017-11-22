@@ -32,11 +32,11 @@ open external class MaterialProxy {
     var vertexColors: Int
 
     /**
-     * Float in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.
+     * Double in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.
     If the material's # .transparent property is not set to true, the material will remain fully opaque and this value will only affect its color.
     Default is 1.0.
      */
-    var opacity: Float
+    var opacity: Double
     var transparent: Boolean
 
     var blendSrc: Int
@@ -82,10 +82,10 @@ open external class MaterialProxy {
      * Sets the alpha value to be used when running an alpha test.
      * The material will not be renderered if the opacity is lower than this value. Default is 0.
      */
-    var alphaTest: Float
+    var alphaTest: Double
     var premultipliedAlpha: Boolean
 
-    var overdraw: Float
+    var overdraw: Double
 
     var visible: Boolean
 

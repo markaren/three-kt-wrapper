@@ -1,7 +1,8 @@
 @file:JsQualifier("THREE")
 
-package org.three.materials
+package org.three.materials.phong
 
+import org.three.materials.MaterialProxy
 import org.three.math.Color
 
 @JsName("MeshPhongMaterial")
@@ -12,10 +13,10 @@ open external class MeshPhongMaterialProxy : MaterialProxy {
 
     var color: Color
     var specular: Color
-    var shininess: Float
+    var shininess: Double
 
     var wireframe: Boolean
-    var wireframeLinewidth: Float
+    var wireframeLinewidth: Double
     var wireframeLinecap: String
     var wireframeLinejoin: String
 
