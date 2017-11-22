@@ -2,6 +2,7 @@
 
 package org.three.cameras
 
+
 open external class PerspectiveCamera : Camera {
 
     constructor(fov: Int, aspect: Double, near: Double, far: Double)
@@ -13,13 +14,17 @@ open external class PerspectiveCamera : Camera {
     var far: Double
     var focus: Double
 
-    val aspect: Double
-    val view: dynamic
+    var aspect: Double
+    var view: View
 
     var filmGauge: Int
     var filmOffset: Int
 
     fun copy(source: PerspectiveCamera, recursive: Boolean = definedExternally)
+
+    fun setViewOffset(fullwidth: Int, fullHeight: Int, x: Int, y: Int, width: Int, height: Int)
+    fun clearViewOffset()
+    fun updateProjectionMatrix()
 
 
 }

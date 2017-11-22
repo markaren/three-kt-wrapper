@@ -5,7 +5,7 @@ package org.three.external.loaders
 import org.three.core.Object3D
 import org.w3c.xhr.XMLHttpRequest
 
-open external class ObjLoader2 {
+open external class OBJLoader2 {
 
     fun load(url: String,
              onLoad: (Object3D) -> Unit,

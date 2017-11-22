@@ -1,9 +1,9 @@
 import org.three.cameras.PerspectiveCamera
-import org.three.core.Object3D
-import org.three.external.loaders.OBJLoader
+import org.three.external.controls.OrbitControls
 import org.three.geometries.BoxBufferGeometry
-import org.three.materials.basic.MeshBasicMaterial
-import org.three.materials.basic.MeshBasicMaterialParams
+import org.three.lights.AmbientLight
+import org.three.materials.MeshBasicMaterial
+import org.three.materials.MeshPhongMaterial
 import org.three.math.ColorConstants
 import org.three.scenes.Scene
 import org.three.objects.Mesh
@@ -23,8 +23,8 @@ class HelloWorld {
     val renderer: WebGLRenderer
     val scene: Scene
     val camera: PerspectiveCamera
+    val controls: OrbitControls
     val cube: Mesh
-
 
     init {
 
@@ -40,14 +40,33 @@ class HelloWorld {
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
+        controls = OrbitControls(camera, renderer.domElement)
+
         cube = Mesh(BoxBufferGeometry(1.0,1.0,1.0),
-                MeshBasicMaterial().apply {
-                    wireframe = true
-                    color.set(ColorConstants.burlywood)
+                MeshPhongMaterial().apply {
+                    this.color.set(ColorConstants.darkgreen)
                 })
         scene.add(cube)
 
+        val cube2 = cube.clone()
+        cube2.material = MeshBasicMaterial().apply {
+            this.wireframe = true
+            this.color.set(ColorConstants.black)
+        }
+        cube.add(cube2)
+
+        val light = AmbientLight()
+        scene.add(light)
+
         camera.position.z = 5.0
+
+        window.addEventListener("resize", {
+            camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize( window.innerWidth, window.innerHeight )
+        }, false)
+
     }
 
     fun animate() {

@@ -1,3 +1,5 @@
+@file:JsQualifier("THREE")
+
 package org.three.loaders
 
 external object DefaultLoadingManager: LoadingManager

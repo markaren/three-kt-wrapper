@@ -7,15 +7,14 @@ import org.three.core.Geometry
 import org.three.core.Object3D
 import org.three.core.Raycaster
 import org.three.materials.Material
-import org.three.materials.MaterialProxy
 
 open external class Mesh : Object3D {
 
-    constructor(geometry: Geometry, material: MaterialProxy)
-    constructor(geometry: BufferGeometry, material: MaterialProxy)
+    constructor(geometry: Geometry, material: Material)
+    constructor(geometry: BufferGeometry, material: Material)
 
     var geometry: dynamic
-    var material: MaterialProxy
+    var material: Material
 
     var drawMode: Int
 

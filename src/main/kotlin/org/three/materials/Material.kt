@@ -1,116 +1,105 @@
+@file:JsQualifier("THREE")
+
 package org.three.materials
 
-open class Material : MaterialProxy {
+@JsName("Material")
+open external class Material {
 
-    constructor() : super()
-    constructor(params : MaterialParams) : super(params.params)
-}
+    /**
+     * Unique number for this material instance.
+     */
+    val id: Int
 
-abstract class MaterialParams(
+    var uuid : String
+    /**
+     * Optional name of the object (doesn't need to be unique). Default is an empty string.
+     */
+    var name : String
+    var type: String
 
-        fog: Boolean? = null,
-        lights: Boolean? = null,
+    /**
+     * Whether the material is affected by fog. Default is true.
+     */
+    var fog: Boolean
+    var lights: Boolean
 
-        blending: Int? = null,
-        side: Int? = null,
-        flatShading: Boolean? = null,
-        /**
-         *THREE.NoColors, THREE.VertexColors, THREE.FaceColors
-         */
-        vertexColors: Int? = null,
+    var blending: Int
+    var side: Int
+    var flatShading: Boolean
+    var vertexColors: Int
 
-        opacity: Double? = null,
-        transparent: Boolean? = null,
+    /**
+     * Double in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.
+    If the material's # .transparent property is not set to true, the material will remain fully opaque and this value will only affect its color.
+    Default is 1.0.
+     */
+    var opacity: Double
+    var transparent: Boolean
 
-        blendSrc: Int? = null,
-        blendDst: Int? = null,
-        blendEquation: Int? = null,
-        blendSrcAlpha: Int? = null,
-        blendDstAlpha: Int? = null,
-        blendEquationAlpha: Int? = null,
-
-        depthFunc: Int? = null,
-        depthTest: Boolean? = null,
-        depthWrite: Boolean? = null,
-
-        colorWrite: Boolean? = null,
-
-        precision: String? = null,
-
-        polygonOffset: Boolean? = null,
-        polygonOffsetFactor: Number? = null,
-        polygonOffsetUnits: Number? = null,
-
-        dithering: Boolean? = null,
-
-        alphaTest: Double? = null,
-        premultipliedAlpha: Boolean? = null,
-
-        overdraw: Double? = null,
-
-        visible: Boolean? = null
-
-) {
-
-    val params : dynamic = js("new Object()")
-
-    init {
-
-        fog?.let { params.fog = it }
-        lights?.let { params.light = it }
-        blending?.let { params.blending = it }
-        side?.let { params.side = it }
-        flatShading?.let{ params.flatShading = it}
-        vertexColors?.let { params.vertexColors = it }
-        opacity?.let { params.opacity = it }
-
-        transparent?.let { params.transparent = it }
-        blendSrc?.let { params.blendSrc = it }
-        blendDst?.let { params.blendDst = it }
-        blendEquation?.let { params.blendEquation = it }
-        blendSrcAlpha?.let { params.blendSrcAlpha = it }
-        blendDstAlpha?.let { params.blendDstAlpha = it }
-        blendEquationAlpha?.let { params.blendEquationAlpha = it }
-        depthFunc?.let { params.depthFunc = it }
-        depthTest?.let { params.depthTest = it }
-        depthWrite?.let { params.depthWrite = it }
-        colorWrite?.let { params.colorWrite = it }
-        precision?.let { params.precision = it }
+    var blendSrc: Int
+    /**
+     * Blending destination. Default is OneMinusSrcAlphaFactor. See the destination factors constants for all possible values.
+    The material's # .blending must be set to CustomBlending for this to have any effect.
+     */
+    var blendDst: Int
+    /**
+     * Blending equation to use when applying blending. Default is AddEquation. See the blending equation constants for all possible values.
+    The material's # .blending must be set to CustomBlending for this to have any effect.
+     */
+    var blendEquation: Int
+    var blendSrcAlpha: Int
+    /**
+     * The tranparency of the .blendDst. Default is null.
+     */
+    var blendDstAlpha: Int?
+    var blendEquationAlpha: Int
 
 
-        if (polygonOffset != null) {
-            params.polygonOffset = polygonOffset
-        }
+    var depthFunc: Int
+    var depthTest: Boolean
+    var depthWrite: Boolean
 
-        if (polygonOffsetFactor != null) {
-            params.polygonOffsetFactor = polygonOffsetFactor
-        }
+    var colorWrite: Boolean
 
-        if (polygonOffsetUnits != null) {
-            params.polygonOffsetUnits = polygonOffsetUnits
-        }
+    var precision: String?
 
-        if (dithering != null) {
-            params.dithering = dithering
-        }
+    /**
+     * Sets the polygon offset factor. Default is 0.
+     */
+    var polygonOffset: Boolean
+    var polygonOffsetFactor: Number
+    /**
+     * Sets the polygon offset units. Default is 0.
+     */
+    var polygonOffsetUnits: Number
 
-        if (alphaTest != null) {
-            params.alphaTest = alphaTest
-        }
+    var dithering: Boolean
 
-        if (premultipliedAlpha != null) {
-            params.premultipliedAlpha = premultipliedAlpha
-        }
+    /**
+     * Sets the alpha value to be used when running an alpha test.
+     * The material will not be renderered if the opacity is lower than this value. Default is 0.
+     */
+    var alphaTest: Double
+    var premultipliedAlpha: Boolean
 
-        if (overdraw != null) {
-            params.overdraw = overdraw
-        }
+    var overdraw: Double
 
-        if (visible != null) {
-            params.visible = visible
-        }
+    var visible: Boolean
 
-    }
+    var userData: Map<String, Any>
+
+    /**
+     * Specifies that the material needs to be updated at the WebGL level. Set it to true if you made changes that need to be reflected in WebGL.
+    This property is automatically set to true when instancing a new material.
+     */
+    var needsUpdate: Boolean
+
+
+    fun toJSON(meta: String = definedExternally): String
+
+    open fun clone() : Material
+    fun copy(material: Material): Material
+
+    fun dispose()
 
 }
-
