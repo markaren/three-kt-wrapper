@@ -8,7 +8,7 @@ open external class Matrix4 {
 
     constructor()
 
-    val elements: List<Double>
+    val elements: DoubleArray
 
     fun set(n11: Double, n12: Double, n13: Double, n14: Double,
             n21: Double, n22: Double, n23: Double, n24: Double,

@@ -6,7 +6,7 @@ open external class Matrix3 {
 
     constructor()
 
-    var elements: List<Double>
+    var elements: DoubleArray
 
     fun clone () : Matrix3
 

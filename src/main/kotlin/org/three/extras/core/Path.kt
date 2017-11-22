@@ -2,6 +2,10 @@
 
 package org.three.extras.core
 
-open external class Path {
+import org.three.math.Vector2
+
+open external class Path : CurvePath<Vector2> {
+
+    var currentPoint: Vector2
 
 }

@@ -39,7 +39,7 @@ open external class Object3D {
     var castShadow: Boolean
     var receiveShadows: Boolean
 
-    var frustrimCulled: Boolean
+    var frustrumCulled: Boolean
     var renderOrder: Int
 
     var userData: Map<String, Any>

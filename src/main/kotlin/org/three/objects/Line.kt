@@ -2,12 +2,13 @@
 
 package org.three.objects
 
-import org.three.core.Intersect
-import org.three.core.Object3D
-import org.three.core.Raycaster
+import org.three.core.*
 import org.three.materials.Material
 
 open external class Line : Object3D {
+
+    constructor(geometry: Geometry, material: Material)
+    constructor(geometry: BufferGeometry, material: Material)
 
     var geometry: dynamic
     var material: Material

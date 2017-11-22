@@ -81,11 +81,11 @@ class HelloWorld {
                 })
         scene.add(cube)
 
-        val cube2 = cube.clone()
-        cube2.material = MeshBasicMaterial().apply {
-            this.wireframe = true
-            this.color.set(ColorConstants.black)
-        }
+         val cube2 = Mesh(cube.geometry as BufferGeometry,
+                        MeshBasicMaterial().apply {
+                            this.wireframe = true
+                            this.color.set(ColorConstants.black)
+                        })
         cube.add(cube2)
 
         val light = AmbientLight()

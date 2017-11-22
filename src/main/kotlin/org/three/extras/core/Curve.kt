@@ -2,24 +2,33 @@
 
 package org.three.extras.core
 
-import org.three.math.Vector3
 
-external abstract class Curve {
+external abstract class Curve<E> {
 
     var arcLengthDivisions: Int
 
-    abstract fun getPoint()
+    fun getPoint(t: Double, optionalTarget: E = definedExternally) : E
 
-    fun getPointAt(u: Float, optionalTarget: Vector3): Vector3
+    fun getPointAt(u: Double, optionalTarget: E = definedExternally): E
 
-    fun getPoints(divisions: Int): List<Vector3>
+    fun getPoints(divisions: Int): Array<E>
 
-    fun getSpacedPoints(divisions: Int): List<Vector3>
+    fun getSpacedPoints(divisions: Int): Array<E>
 
-    fun getLength() : Float
+    fun getLength() : Double
 
     fun updateArcLengths()
 
+    fun getUtoTmapping(u: Double, distance: Double): Double
+
+    fun getTangent(t: Double): E
+
+    fun getTangentAt(u: Double) : E
+
     fun computeFrenetFrames(segments: Int, closed: Boolean = definedExternally)
+
+    open fun clone(): Curve<E>
+
+    fun copy(source: Curve<E>) : Curve<E>
 
 }
