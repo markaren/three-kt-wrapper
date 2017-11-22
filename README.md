@@ -13,7 +13,7 @@ Kotlin wrappers for Three.js (r88)
     <title>Kotlin + three.js</title>
     <style>
         body { margin: 0; }
-        canvas { width: calc(100%; height: 100% }
+        canvas { width: 100%; height: 100% }
     </style>
 </head>
 <body>
