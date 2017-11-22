@@ -1,4 +1,6 @@
 import org.three.cameras.PerspectiveCamera
+import org.three.core.Object3D
+import org.three.external.loaders.OBJLoader
 import org.three.geometries.BoxBufferGeometry
 import org.three.materials.basic.MeshBasicMaterial
 import org.three.materials.basic.MeshBasicMaterialParams
@@ -38,13 +40,11 @@ class HelloWorld {
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
-        cube = Mesh(BoxBufferGeometry(1.0,1.0,1.0), MeshBasicMaterial(
-                MeshBasicMaterialParams(
-                        transparent = false,
-                        opacity = 0.5,
-                        wireframe = true,
-                        color = ColorConstants.burlywood
-                )))
+        cube = Mesh(BoxBufferGeometry(1.0,1.0,1.0),
+                MeshBasicMaterial().apply {
+                    wireframe = true
+                    color.set(ColorConstants.burlywood)
+                })
         scene.add(cube)
 
         camera.position.z = 5.0
