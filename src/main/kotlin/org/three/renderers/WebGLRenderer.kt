@@ -14,11 +14,9 @@ class WebGLRendererParams (
 
 ) {
 
-    val params: dynamic
+    val params: dynamic = js("new Object()")
 
     init {
-
-        params = js("new Object()")
 
         params.canvas = canvas ?: undefined
         params.alpha = alpha ?: undefined

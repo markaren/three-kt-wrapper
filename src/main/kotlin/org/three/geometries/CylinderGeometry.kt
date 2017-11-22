@@ -6,23 +6,23 @@ import org.three.core.BufferGeometry
 import org.three.core.Geometry
 
 open external class CylinderGeometry(
-        radiusTop: Float,
-        radiusBottom: Float,
-        height: Float,
+        radiusTop: Double,
+        radiusBottom: Double,
+        height: Double,
         radialSegments: Int = definedExternally,
         heightSegments: Int = definedExternally,
         openEnded: Boolean = definedExternally,
-        thetaStart: Float = definedExternally,
-        thetaLength: Float = definedExternally
+        thetaStart: Double = definedExternally,
+        thetaLength: Double = definedExternally
 ) : Geometry
 
 open external class CylinderBufferGeometry(
-        radiusTop: Float,
-        radiusBottom: Float,
-        height: Float,
+        radiusTop: Double,
+        radiusBottom: Double,
+        height: Double,
         radialSegments: Int = definedExternally,
         heightSegments: Int = definedExternally,
         openEnded: Boolean = definedExternally,
-        thetaStart: Float = definedExternally,
-        thetaLength: Float = definedExternally
+        thetaStart: Double = definedExternally,
+        thetaLength: Double = definedExternally
 ) : BufferGeometry

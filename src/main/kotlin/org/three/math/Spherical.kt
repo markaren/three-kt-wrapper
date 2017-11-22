@@ -5,13 +5,13 @@ package org.three.math
 open external class Spherical {
 
     constructor()
-    constructor(radius: Float, phi: Float, theta: Float)
+    constructor(radius: Double, phi: Double, theta: Double)
 
-    var radius: Float
-    var phi: Float
-    var theta: Float
+    var radius: Double
+    var phi: Double
+    var theta: Double
 
-    fun set(radius: Float, phi: Float, theta: Float)
+    fun set(radius: Double, phi: Double, theta: Double)
     fun clone() : Spherical
     fun copy(other: Spherical) : Spherical
     fun makeSafe() : Spherical

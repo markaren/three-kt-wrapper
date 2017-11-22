@@ -5,9 +5,9 @@ package org.three.math
 open external class Vector2 {
 
     constructor()
-    constructor(x:Float, y: Float)
+    constructor(x:Double, y: Double)
 
-    var x: Float
-    var y: Float
+    var x: Double
+    var y: Double
 
 }

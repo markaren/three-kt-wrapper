@@ -22,7 +22,7 @@ open external class WebGLRendererProxy {
 
     var sortObjects: Boolean
 
-    var gammaFactor: Float
+    var gammaFactor: Double
     var gammaInput: Boolean
     var gammaOutput: Boolean
 

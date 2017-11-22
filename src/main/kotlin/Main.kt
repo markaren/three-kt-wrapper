@@ -3,8 +3,8 @@ import org.three.geometries.BoxBufferGeometry
 import org.three.geometries.SphereBufferGeometry
 import org.three.lights.AmbientLight
 import org.three.materials.*
-import org.three.scenes.Scene
 import org.three.math.ColorConstants
+import org.three.scenes.Scene
 import org.three.objects.Mesh
 import org.three.renderers.WebGLRenderer
 import kotlin.browser.document
@@ -33,7 +33,7 @@ class HelloWorld {
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
-        cube = Mesh(BoxBufferGeometry(1f,1f,1f), MeshBasicMaterial(
+        cube = Mesh(BoxBufferGeometry(1.0,1.0,1.0), MeshBasicMaterial(
                 MeshBasicMaterialParams(
                         transparent = false,
                         opacity = 0.5f,
@@ -42,24 +42,24 @@ class HelloWorld {
                 )))
         scene.add(cube)
 
-        val sphere = Mesh(SphereBufferGeometry(1f, 32, 32), MeshPongMaterial(
+        val sphere = Mesh(SphereBufferGeometry(1.0, 32, 32), MeshPongMaterial(
                 MeshPhongMaterialParams(
                         color = ColorConstants.aliceblue
                 )))
 
-        sphere.position.set(0f,2f,-5f)
+        sphere.position.set(0.0,2.0,-5.0)
         scene.add(sphere)
 
         val light = AmbientLight(ColorConstants.aliceblue)
         scene.add(light)
 
-        camera.position.z = 5f
+        camera.position.z = 5.0
     }
 
     fun animate() {
         window.requestAnimationFrame {
-            cube.rotation.x += 0.01f
-            cube.rotation.y += 0.01f
+            cube.rotation.x += 0.01
+            cube.rotation.y += 0.01
             animate()
         }
         renderer.render(scene, camera)

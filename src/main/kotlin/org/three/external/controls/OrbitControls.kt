@@ -27,40 +27,40 @@ open external class OrbitControls(
 
     var target: Vector3
 
-    var minDistance: Float
-    var maxDistance: Float
+    var minDistance: Double
+    var maxDistance: Double
 
-    var minZoom : Float
-    var maxZoom : Float
+    var minZoom : Double
+    var maxZoom : Double
 
     /**
      * How far you can orbit vertically, lower limit.
      * In radians
      */
-    var minPolarAngle: Float
+    var minPolarAngle: Double
     /**
      * How far you can orbit vertically, upper limit.
      * In radians
      */
-    var maxPolarAngle: Float
+    var maxPolarAngle: Double
 
-    var minAzimuthAngle  : Float
-    var maxAzimuthAngle  : Float
+    var minAzimuthAngle  : Double
+    var maxAzimuthAngle  : Double
 
     var enableDamping: Boolean
-    var dampingFactor: Float
+    var dampingFactor: Double
 
     var enableZoom: Boolean
-    var zoomSpeed: Float
+    var zoomSpeed: Double
 
     var enableRotate : Boolean
-    var rotateSpeed : Float
+    var rotateSpeed : Double
 
     var enablePan  : Boolean
-    var keyPanSpeed  : Float
+    var keyPanSpeed  : Double
 
     var autoRotate   : Boolean
-    var autoRotateSpeed   : Float
+    var autoRotateSpeed   : Double
 
     var enableKeys: Boolean
 
@@ -73,9 +73,9 @@ open external class OrbitControls(
 
     var keys: Keys
 
-    fun getPolarAngle() : Float
+    fun getPolarAngle() : Double
 
-    fun getAzimutAngle() : Float
+    fun getAzimutAngle() : Double
 
     fun saveState()
 

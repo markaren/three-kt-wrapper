@@ -7,8 +7,8 @@ import org.three.core.Geometry
 
 open external class PlaneGeometry(
 
-        width: Float,
-        height: Float,
+        width: Double,
+        height: Double,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally
 
@@ -16,8 +16,8 @@ open external class PlaneGeometry(
 
 open external class PlaneBufferGeometry(
 
-        width: Float,
-        height: Float,
+        width: Double,
+        height: Double,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally
 

@@ -6,7 +6,7 @@ open external class Matrix4 {
 
     constructor()
 
-    val elements: List<Float>
+    val elements: List<Double>
 
 }
 
