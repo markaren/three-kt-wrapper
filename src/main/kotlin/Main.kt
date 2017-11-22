@@ -1,4 +1,5 @@
 import org.three.cameras.PerspectiveCamera
+import org.three.core.BufferGeometry
 import org.three.external.controls.OrbitControls
 import org.three.geometries.BoxBufferGeometry
 import org.three.lights.AmbientLight
@@ -29,6 +30,8 @@ class HelloWorld {
     init {
 
         scene = Scene()
+        scene.add(AmbientLight())
+
         camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight.toDouble(), 0.1, 1000.0)
 
         renderer = WebGLRenderer(WebGLRendererParams(
@@ -48,15 +51,12 @@ class HelloWorld {
                 })
         scene.add(cube)
 
-        val cube2 = cube.clone()
-        cube2.material = MeshBasicMaterial().apply {
-            this.wireframe = true
-            this.color.set(ColorConstants.black)
-        }
+        val cube2 = Mesh(cube.geometry as BufferGeometry,
+                MeshBasicMaterial().apply {
+                    this.wireframe = true
+                    this.color.set(ColorConstants.black)
+                })
         cube.add(cube2)
-
-        val light = AmbientLight()
-        scene.add(light)
 
         camera.position.z = 5.0
 
