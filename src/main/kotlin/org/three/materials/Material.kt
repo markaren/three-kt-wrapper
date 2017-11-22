@@ -52,21 +52,14 @@ abstract class MaterialParams(
 
 ) {
 
-    val params : dynamic
+    val params : dynamic = js("new Object()")
 
     init {
 
-        params = js("new Object()")
+        fog.let { params.fog = it }
+        lights.let { params.light = it }
+        blending.let { params.blending = it }
 
-        if (fog != null) {
-            params.fog = fog
-        }
-        if (lights != null) {
-            params.lights = lights
-        }
-        if (blending != null) {
-            params.blending = blending
-        }
         if (side != null) {
             params.side = side
         }

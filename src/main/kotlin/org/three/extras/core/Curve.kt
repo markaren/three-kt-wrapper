@@ -4,7 +4,7 @@ package org.three.extras.core
 
 import org.three.math.Vector3
 
-open external abstract class Curve {
+external abstract class Curve {
 
     var arcLengthDivisions: Int
 

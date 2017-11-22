@@ -101,9 +101,6 @@ class MeshBasicMaterialParams(
             params.morphTargets = morphTargets
         }
 
-        console.log((params))
-
-
     }
 
 }
