@@ -8,4 +8,8 @@ open external class Matrix3 {
 
     var elements: List<Double>
 
+    fun clone () : Matrix3
+
+    fun copy ( m: Matrix3 ) : Matrix3
+
 }

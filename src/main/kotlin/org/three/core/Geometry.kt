@@ -49,6 +49,6 @@ open external class Geometry {
     fun computeBoundingBox()
     fun computeBoundingSphere()
 
-    fun merge(geometry: Geometry, matrix4: Matrix4, materialIndexOffset: Int)
+    fun merge(geometry: Geometry, matrix4: Matrix4, materialIndexOffset: Int = definedExternally)
 
 }

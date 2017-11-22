@@ -2,10 +2,7 @@
 
 package org.three.objects
 
-import org.three.core.BufferGeometry
-import org.three.core.Geometry
-import org.three.core.Object3D
-import org.three.core.Raycaster
+import org.three.core.*
 import org.three.materials.Material
 
 open external class Mesh : Object3D {
@@ -20,7 +17,7 @@ open external class Mesh : Object3D {
 
     fun copy(source: Mesh) : Mesh
     fun updateMorphTargets()
-    fun raycast(raycaster: Raycaster, intersects: List<dynamic> )
+    fun raycast(raycaster: Raycaster, intersects: List<Intersect> )
     fun clone() : Mesh
 
 }

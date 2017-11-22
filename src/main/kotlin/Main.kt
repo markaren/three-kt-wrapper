@@ -6,6 +6,8 @@ import org.three.lights.AmbientLight
 import org.three.materials.MeshBasicMaterial
 import org.three.materials.MeshPhongMaterial
 import org.three.math.ColorConstants
+import org.three.math.Vector3
+import org.three.math.plus
 import org.three.scenes.Scene
 import org.three.objects.Mesh
 import org.three.renderers.WebGLRenderer
@@ -59,6 +61,7 @@ class HelloWorld {
         cube.add(cube2)
 
         camera.position.z = 5.0
+        
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;

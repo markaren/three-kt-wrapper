@@ -27,8 +27,25 @@ open external class Object3D {
     val modelViewMatrix: Matrix4
     val normalMatrix: Matrix3
 
-    fun onBeforeRender()
-    fun onAfterRender()
+    var matrix: Matrix4
+    var matrixWorld: Matrix4
+
+    var matrixAutoUpdate: Boolean
+    var matrixWorldNeedsUpdate: Boolean
+
+    var layers: Layers
+    var visible: Boolean
+
+    var castShadow: Boolean
+    var receiveShadows: Boolean
+
+    var frustrimCulled: Boolean
+    var renderOrder: Int
+
+    var userData: Map<String, Any>
+
+    var onBeforeRender: () -> Unit
+    var onAfterRender: () -> Unit
 
     fun applyMatrix(matrix: Matrix4)
     fun applyQuaternion(q: Quaternion)

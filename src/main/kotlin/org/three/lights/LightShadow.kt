@@ -7,7 +7,10 @@ import org.three.math.Matrix4
 import org.three.math.Vector2
 
 open external class LightShadow {
+
     constructor(camera: Camera)
+
+    var camera: Camera
 
     var bias: Number
     var radius: Float
