@@ -1,19 +1,19 @@
-import org.three.cameras.PerspectiveCamera
-import org.three.core.BufferGeometry
-import org.three.external.controls.OrbitControls
-import org.three.extras.curves.CatmullRomCurve3
-import org.three.geometries.BoxBufferGeometry
-import org.three.lights.AmbientLight
-import org.three.materials.LineBasicMaterial
-import org.three.materials.MeshBasicMaterial
-import org.three.materials.MeshPhongMaterial
-import org.three.math.ColorConstants
-import org.three.math.Vector3
-import org.three.objects.Line
-import org.three.scenes.Scene
-import org.three.objects.Mesh
-import org.three.renderers.WebGLRenderer
-import org.three.renderers.WebGLRendererParams
+import info.laht.threekt.cameras.PerspectiveCamera
+import info.laht.threekt.core.BufferGeometry
+import info.laht.threekt.external.controls.OrbitControls
+import info.laht.threekt.extras.curves.CatmullRomCurve3
+import info.laht.threekt.geometries.BoxBufferGeometry
+import info.laht.threekt.lights.AmbientLight
+import info.laht.threekt.materials.LineBasicMaterial
+import info.laht.threekt.materials.MeshBasicMaterial
+import info.laht.threekt.materials.MeshPhongMaterial
+import info.laht.threekt.math.ColorConstants
+import info.laht.threekt.math.Vector3
+import info.laht.threekt.objects.Line
+import info.laht.threekt.scenes.Scene
+import info.laht.threekt.objects.Mesh
+import info.laht.threekt.renderers.WebGLRenderer
+import info.laht.threekt.renderers.WebGLRendererParams
 import kotlin.browser.document
 import kotlin.browser.window
 
@@ -30,7 +30,7 @@ class HelloWorld {
         scene = Scene()
         scene.add(AmbientLight())
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight.toDouble(), 0.1, 1000.0)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000.0)
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
@@ -43,7 +43,7 @@ class HelloWorld {
 
         controls = OrbitControls(camera, renderer.domElement)
 
-        cube = Mesh(BoxBufferGeometry(1.0,1.0,1.0),
+        cube = Mesh(BoxBufferGeometry(1.0, 1.0, 1.0),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
                 })
@@ -61,11 +61,11 @@ class HelloWorld {
 
         //Create a closed wavey loop
         var curve = CatmullRomCurve3(
-                arrayOf(Vector3( -10.0, 0.0, 10.0 ),
-                        Vector3( -5.0, 5.0, 5.0 ),
-                        Vector3( 0.0, 0.0, 0.0 ),
-                        Vector3( 5.0, -5.0, 5.0 ),
-                        Vector3( 10.0, 0.0, 10.0 ))
+                arrayOf(Vector3(-10.0, 0.0, 10.0),
+                        Vector3(-5.0, 5.0, 5.0),
+                        Vector3(0.0, 0.0, 0.0),
+                        Vector3(5.0, -5.0, 5.0),
+                        Vector3(10.0, 0.0, 10.0))
         );
 
         var points = curve.getPoints( 50 );
@@ -76,7 +76,7 @@ class HelloWorld {
         }
 
         // Create the final object to add to the scene
-        var curveObject = Line( geometry, material );
+        var curveObject = Line(geometry, material);
         scene.add(curveObject)
 
         window.addEventListener("resize", {

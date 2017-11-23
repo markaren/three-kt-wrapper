@@ -1,15 +1,15 @@
-import org.three.cameras.PerspectiveCamera
-import org.three.external.controls.OrbitControls
-import org.three.external.loaders.OBJLoader
-import org.three.external.loaders.OBJLoader2
-import org.three.external.loaders.STLLoader
-import org.three.lights.DirectionalLight
-import org.three.materials.MeshPhongMaterial
-import org.three.math.ColorConstants
-import org.three.scenes.Scene
-import org.three.objects.Mesh
-import org.three.renderers.WebGLRenderer
-import org.three.renderers.WebGLRendererParams
+import info.laht.threekt.cameras.PerspectiveCamera
+import info.laht.threekt.external.controls.OrbitControls
+import info.laht.threekt.external.loaders.OBJLoader
+import info.laht.threekt.external.loaders.OBJLoader2
+import info.laht.threekt.external.loaders.STLLoader
+import info.laht.threekt.lights.DirectionalLight
+import info.laht.threekt.materials.MeshPhongMaterial
+import info.laht.threekt.math.ColorConstants
+import info.laht.threekt.scenes.Scene
+import info.laht.threekt.objects.Mesh
+import info.laht.threekt.renderers.WebGLRenderer
+import info.laht.threekt.renderers.WebGLRendererParams
 import kotlin.browser.document
 import kotlin.browser.window
 
@@ -30,7 +30,7 @@ class LoaderTest {
         light.position.set(0.toDouble(), 0.toDouble(), -1.toDouble())
         scene.add(light)
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight.toDouble(), 0.1, 1000.0)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000.0)
         camera.position.set(0.0, 5.0, -5.0)
 
 
