@@ -14,7 +14,7 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 
-open class LoaderTest {
+class LoaderTest {
 
     val renderer: WebGLRenderer
     val scene: Scene
