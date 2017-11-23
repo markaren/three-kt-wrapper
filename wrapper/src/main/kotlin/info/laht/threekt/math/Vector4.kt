@@ -5,7 +5,7 @@ package info.laht.threekt.math
 open external class Vector4 {
 
     constructor()
-    constructor(x: Double, y: Double, z: Double, w: Double)
+    constructor(x: Number, y: Number, z: Number, w: Number)
 
     var x: Double
     var y: Double

@@ -6,7 +6,7 @@ package info.laht.threekt.math
 open external class Quaternion {
 
     constructor()
-    constructor(x: Double, y: Double, z: Double, w: Double)
+    constructor(x: Number, y: Number, z: Number, w: Number)
 
     val x: Double
     val y: Double

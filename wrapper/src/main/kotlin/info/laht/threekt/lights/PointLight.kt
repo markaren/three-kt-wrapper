@@ -4,11 +4,11 @@ package info.laht.threekt.lights
 
 open external class PointLight(
         color: Int = definedExternally,
-        intensity: Double = definedExternally
+        intensity: Number = definedExternally
 ) : Light {
 
     var distance: Double
-    var decay: Number
+    var decay: Double
 
     var shadow: LightShadow
 

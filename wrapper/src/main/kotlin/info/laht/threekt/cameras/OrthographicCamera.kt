@@ -7,8 +7,8 @@ open external class OrthographicCamera(
         right: Int,
         top: Int,
         bottom: Int,
-        near: Double = definedExternally,
-        far: Double = definedExternally
+        near: Number = definedExternally,
+        far: Number = definedExternally
 ) : Camera {
 
     var zoom: Int

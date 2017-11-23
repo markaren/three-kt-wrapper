@@ -5,7 +5,7 @@ package info.laht.threekt.math
 open external class Spherical {
 
     constructor()
-    constructor(radius: Double, phi: Double, theta: Double)
+    constructor(radius: Number, phi: Number, theta: Number)
 
     var radius: Double
     var phi: Double

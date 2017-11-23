@@ -6,21 +6,21 @@ import info.laht.threekt.core.BufferGeometry
 import info.laht.threekt.core.Geometry
 
 open external class SphereGeometry(
-        radius: Double,
+        radius: Number,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally,
-        phiStart: Double = definedExternally,
-        phiLength: Double = definedExternally,
-        thetaStart: Double = definedExternally,
-        thetaLength: Double = definedExternally
+        phiStart: Number = definedExternally,
+        phiLength: Number = definedExternally,
+        thetaStart: Number = definedExternally,
+        thetaLength: Number = definedExternally
 ): Geometry
 
 open external class SphereBufferGeometry(
-        radius: Double,
+        radius: Number,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally,
-        phiStart: Double = definedExternally,
-        phiLength: Double = definedExternally,
-        thetaStart: Double = definedExternally,
-        thetaLength: Double = definedExternally
+        phiStart: Number = definedExternally,
+        phiLength: Number = definedExternally,
+        thetaStart: Number = definedExternally,
+        thetaLength: Number = definedExternally
 ): BufferGeometry

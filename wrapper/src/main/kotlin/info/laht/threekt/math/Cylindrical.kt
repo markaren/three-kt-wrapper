@@ -3,12 +3,16 @@
 package info.laht.threekt.math
 
 open external class Cylindrical(
-        radius: Double,
-        theta: Double,
-        y: Double
+        radius: Number,
+        theta: Number,
+        y: Number
 ) {
 
-    fun set(radius: Double, theta: Double, y: Double) : Cylindrical
+    var radius: Double
+    var theta: Double
+    var y: Double
+
+    fun set(radius: Number, theta: Number, y: Number) : Cylindrical
     fun clone() : Cylindrical
     fun copy(cylindrical: Cylindrical) : Cylindrical
     fun setFromVector3(vector3: Vector3) : Cylindrical

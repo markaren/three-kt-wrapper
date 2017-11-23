@@ -5,7 +5,10 @@ var wrapper = function (_, Kotlin) {
   'use strict';
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var Kind_CLASS = Kotlin.Kind.CLASS;
+  var WebGLRenderTargetProxy = THREE.WebGLRenderTarget;
   var WebGLRendererProxy = THREE.WebGLRenderer;
+  WebGLRenderTarget.prototype = Object.create(WebGLRenderTargetProxy.prototype);
+  WebGLRenderTarget.prototype.constructor = WebGLRenderTarget;
   WebGLRenderer.prototype = Object.create(WebGLRendererProxy.prototype);
   WebGLRenderer.prototype.constructor = WebGLRenderer;
   function ColorConstants() {
@@ -192,6 +195,39 @@ var wrapper = function (_, Kotlin) {
   function timesAssign($receiver, v) {
     times($receiver, v);
   }
+  function WebGLRenderTarget() {
+  }
+  WebGLRenderTarget.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'WebGLRenderTarget',
+    interfaces: []
+  };
+  function WebGLRenderTarget_init(width, height, $this) {
+    $this = $this || Object.create(WebGLRenderTarget.prototype);
+    WebGLRenderTargetProxy.call($this, width, height);
+    WebGLRenderTarget.call($this);
+    return $this;
+  }
+  function WebGLRenderTarget_init_0(width, height, options, $this) {
+    $this = $this || Object.create(WebGLRenderTarget.prototype);
+    WebGLRenderTargetProxy.call($this, width, height, options.options);
+    WebGLRenderTarget.call($this);
+    return $this;
+  }
+  function WebGLRenderTargetOptions(wrapS, wrapT) {
+    if (wrapS === void 0)
+      wrapS = null;
+    if (wrapT === void 0)
+      wrapT = null;
+    this.options = new Object();
+    this.options.wrapS = wrapS != null ? wrapS : undefined;
+    this.options.wrapT = wrapS != null ? wrapS : undefined;
+  }
+  WebGLRenderTargetOptions.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'WebGLRenderTargetOptions',
+    interfaces: []
+  };
   function WebGLRendererParams(canvas, alpha, depth, stencil, antialias, premultipliedAlpha, preserveDrawingBuffer) {
     if (canvas === void 0)
       canvas = null;
@@ -240,23 +276,28 @@ var wrapper = function (_, Kotlin) {
     WebGLRenderer.call($this);
     return $this;
   }
-  var package$org = _.org || (_.org = {});
-  var package$three = package$org.three || (package$org.three = {});
-  var package$math = package$three.math || (package$three.math = {});
+  var package$info = _.info || (_.info = {});
+  var package$laht = package$info.laht || (package$info.laht = {});
+  var package$threekt = package$laht.threekt || (package$laht.threekt = {});
+  var package$math = package$threekt.math || (package$threekt.math = {});
   Object.defineProperty(package$math, 'ColorConstants', {
     get: ColorConstants_getInstance
   });
-  package$math.unaryMinus_2o4yq3$ = unaryMinus;
-  package$math.plusAssign_e2kqkx$ = plusAssign;
-  package$math.plus_e2kqkx$ = plus;
-  package$math.minusAssign_e2kqkx$ = minusAssign;
-  package$math.minus_e2kqkx$ = minus;
-  package$math.times_e2kqkx$ = times;
-  package$math.timesAssign_e2kqkx$ = timesAssign;
-  var package$renderers = package$three.renderers || (package$three.renderers = {});
+  package$math.unaryMinus_kyshpr$ = unaryMinus;
+  package$math.plusAssign_gulir3$ = plusAssign;
+  package$math.plus_gulir3$ = plus;
+  package$math.minusAssign_gulir3$ = minusAssign;
+  package$math.minus_gulir3$ = minus;
+  package$math.times_gulir3$ = times;
+  package$math.timesAssign_gulir3$ = timesAssign;
+  var package$renderers = package$threekt.renderers || (package$threekt.renderers = {});
+  package$renderers.WebGLRenderTarget_init_vux9f0$ = WebGLRenderTarget_init;
+  package$renderers.WebGLRenderTarget_init_v08csw$ = WebGLRenderTarget_init_0;
+  package$renderers.WebGLRenderTarget = WebGLRenderTarget;
+  package$renderers.WebGLRenderTargetOptions = WebGLRenderTargetOptions;
   package$renderers.WebGLRendererParams = WebGLRendererParams;
   package$renderers.WebGLRenderer_init = WebGLRenderer_init;
-  package$renderers.WebGLRenderer_init_uih7je$ = WebGLRenderer_init_0;
+  package$renderers.WebGLRenderer_init_o4t3hs$ = WebGLRenderer_init_0;
   package$renderers.WebGLRenderer = WebGLRenderer;
   Kotlin.defineModule('wrapper', _);
   return _;

@@ -7,7 +7,7 @@ import info.laht.threekt.math.Color
 open external class FogExp2 {
 
     constructor(color: Color)
-    constructor(color: Color, density: Double)
+    constructor(color: Color, density: Number)
 
     var color: Color
     var density: Double

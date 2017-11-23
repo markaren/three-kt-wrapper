@@ -7,8 +7,8 @@ import info.laht.threekt.core.Geometry
 
 open external class PlaneGeometry(
 
-        width: Double,
-        height: Double,
+        width: Number,
+        height: Number,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally
 
@@ -16,8 +16,8 @@ open external class PlaneGeometry(
 
 open external class PlaneBufferGeometry(
 
-        width: Double,
-        height: Double,
+        width: Number,
+        height: Number,
         widthSegments: Int = definedExternally,
         heightSegments: Int = definedExternally
 

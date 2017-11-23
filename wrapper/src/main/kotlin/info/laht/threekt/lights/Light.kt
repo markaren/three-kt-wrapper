@@ -6,7 +6,7 @@ import info.laht.threekt.core.Object3D
 
 open external class Light(
         color: Int = definedExternally,
-        intensity: Double = definedExternally
+        intensity: Number = definedExternally
 ) : Object3D {
 
     var color: Int

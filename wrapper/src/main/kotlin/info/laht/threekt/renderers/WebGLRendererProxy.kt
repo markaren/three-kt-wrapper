@@ -47,12 +47,12 @@ open external class WebGLRendererProxy {
     /**
      * Sets the clear alpha. Valid input is a float between 0.0 and 1.0.
      */
-    fun setClearAlpha(alpha: Double)
+    fun setClearAlpha(alpha: Number)
 
     /**
      * Sets the clear color and opacity.
      */
-    fun setClearColor(color: Int, alpha: Double)
+    fun setClearColor(color: Int, alpha: Number)
 
     /**
      * Render a scene using a camera.

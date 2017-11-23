@@ -7,26 +7,26 @@ import info.laht.threekt.cameras.Camera
 open external class Vector3 {
 
     constructor()
-    constructor(x: Double, y: Double, z: Double)
+    constructor(x: Number, y: Number, z: Number)
 
     var x: Double
     var y: Double
     var z: Double
 
-    fun set(x: Double, y: Double, z: Double)
-    fun setScalar(scalar: Double) : Vector3
-    fun setX(x: Double) : Vector3
-    fun setY(y: Double) : Vector3
-    fun setZ(z: Double) : Vector3
-    fun setComponent(index: Int, value: Double) : Vector3
+    fun set(x: Number, y: Number, z: Number)
+    fun setScalar(scalar: Number) : Vector3
+    fun setX(x: Number) : Vector3
+    fun setY(y: Number) : Vector3
+    fun setZ(z: Number) : Vector3
+    fun setComponent(index: Int, value: Number) : Vector3
     fun getComponent(index: Int): Double
     fun clone() : Vector3
     fun copy(v: Vector3) : Vector3
     fun add(v : Vector3) : Vector3
-    fun addScalar(s: Double) : Vector3
+    fun addScalar(s: Number) : Vector3
     fun addVectors(a: Vector3, b: Vector3) : Vector3
     fun sub(v: Vector3) : Vector3
-    fun subScalar(s: Double) : Vector3
+    fun subScalar(s: Number) : Vector3
     fun subVectors (a: Vector3, b: Vector3): Vector3
     fun multiply ( v: Vector3): Vector3
     fun multiplyScalar ( scalar: Double ): Vector3
@@ -44,8 +44,8 @@ open external class Vector3 {
     fun min ( v: Vector3): Vector3
     fun max ( v: Vector3): Vector3
     fun clamp (min : Vector3, max: Vector3) : Vector3
-    fun clampScalar (minVal: Double, maxVal: Double): Vector3
-    fun clampLength ( min: Double, max:Double ): Vector3
+    fun clampScalar (minVal: Number, maxVal: Number): Vector3
+    fun clampLength ( min: Number, max:Number ): Vector3
     fun floor (): Vector3
     fun ceil (): Vector3
     fun round (): Vector3

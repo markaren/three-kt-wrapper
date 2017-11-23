@@ -10,10 +10,10 @@ open external class Matrix4 {
 
     val elements: DoubleArray
 
-    fun set(n11: Double, n12: Double, n13: Double, n14: Double,
-            n21: Double, n22: Double, n23: Double, n24: Double,
-            n31: Double, n32: Double, n33: Double, n34: Double,
-            n41: Double, n42: Double, n43: Double, n44: Double)
+    fun set(n11: Number, n12: Number, n13: Number, n14: Number,
+            n21: Number, n22: Number, n23: Number, n24: Number,
+            n31: Number, n32: Number, n33: Number, n34: Number,
+            n41: Number, n42: Number, n43: Number, n44: Number)
 
     fun identity () : Matrix4
 

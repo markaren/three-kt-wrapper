@@ -10,7 +10,7 @@ open external class Plane {
     var normal: Vector3
     var constant: Double
 
-    fun set(normal: Vector3, constant: Double)
+    fun set(normal: Vector3, constant: Number)
 
     fun clone() : Plane
     fun copy(plane: Plane) : Plane

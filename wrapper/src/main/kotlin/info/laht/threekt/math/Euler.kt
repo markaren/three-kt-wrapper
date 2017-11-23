@@ -5,7 +5,7 @@ package info.laht.threekt.math
 open external class Euler {
 
     constructor()
-    constructor(x: Double, y: Double, z: Double)
+    constructor(x: Number, y: Number, z: Number)
 
     var x: Double
     var y: Double

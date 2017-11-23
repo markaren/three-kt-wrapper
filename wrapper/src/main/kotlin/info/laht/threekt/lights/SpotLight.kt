@@ -6,11 +6,11 @@ import info.laht.threekt.core.Object3D
 
 open external class SpotLight(
         color: Int = definedExternally,
-        intensity: Double = definedExternally,
-        distance: Double = definedExternally,
-        angle: Double = definedExternally,
-        penumbra: Double = definedExternally,
-        decay: Double = definedExternally
+        intensity: Number = definedExternally,
+        distance: Number = definedExternally,
+        angle: Number = definedExternally,
+        penumbra: Number = definedExternally,
+        decay: Number = definedExternally
 ) : Light {
 
     var target: Object3D
@@ -20,7 +20,7 @@ open external class SpotLight(
     var distance: Double
     var angle: Double
     var penumbra: Double
-    var decay : Number
+    var decay : Double
 
     var shadow: SpotLightShadow
 

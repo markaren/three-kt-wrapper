@@ -35,7 +35,7 @@ class HelloWorld {
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
         )).apply {
-            setClearColor(ColorConstants.skyblue, 1.0)
+            setClearColor(ColorConstants.skyblue, 1)
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
@@ -43,7 +43,7 @@ class HelloWorld {
 
         controls = OrbitControls(camera, renderer.domElement)
 
-        cube = Mesh(BoxBufferGeometry(1.0, 1.0, 1.0),
+        cube = Mesh(BoxBufferGeometry(1, 1, 1),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
                 })
@@ -61,11 +61,11 @@ class HelloWorld {
 
         //Create a closed wavey loop
         var curve = CatmullRomCurve3(
-                arrayOf(Vector3(-10.0, 0.0, 10.0),
-                        Vector3(-5.0, 5.0, 5.0),
-                        Vector3(0.0, 0.0, 0.0),
-                        Vector3(5.0, -5.0, 5.0),
-                        Vector3(10.0, 0.0, 10.0))
+                arrayOf(Vector3(-10, 0, 10),
+                        Vector3(-5, 5, 5),
+                        Vector3(0, 0, 0),
+                        Vector3(5, -5, 5),
+                        Vector3(10, 0, 10))
         );
 
         var points = curve.getPoints( 50 );

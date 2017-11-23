@@ -55,9 +55,9 @@ open external class Object3D {
     fun setRotationFromQuaternion ( q: Quaternion)
     fun rotateOnAxis(axis: Vector3, angle: Double)
     fun rotateOnWorldAxis(axis: Vector3, angle: Double)
-    fun rotateX(angle: Double)
-    fun rotateY (angle: Double)
-    fun rotateZ (angle: Double)
+    fun rotateX(angle: Number)
+    fun rotateY (angle: Number)
+    fun rotateZ (angle: Number)
     fun translateOnAxis (axis: Vector3, distance: Double)
     fun translateX (distance: Double)
     fun translateY (distance: Double)
@@ -65,7 +65,7 @@ open external class Object3D {
     fun localToWorld ( vector: Vector3) : Vector3
     fun worldToLocal (vector: Vector3) : Vector3
     fun lookAt(v: Vector3)
-    fun lookAt (x: Double, y: Double, z: Double)
+    fun lookAt (x: Number, y: Number, z: Number)
     fun add ( `object`: Object3D)
     fun remove ( `object`: Object3D)
     fun getObjectById ( id: Int ) : Object3D?

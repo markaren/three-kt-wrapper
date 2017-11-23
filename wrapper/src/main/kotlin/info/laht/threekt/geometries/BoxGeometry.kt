@@ -6,18 +6,18 @@ import info.laht.threekt.core.BufferGeometry
 import info.laht.threekt.core.Geometry
 
 open external class BoxGeometry(
-        width: Double,
-        height: Double,
-        depth: Double,
+        width: Number,
+        height: Number,
+        depth: Number,
         widthSegments: Int = definedExternally,
         heightSegments:Int = definedExternally,
         depthSegments:Int = definedExternally
 ) : Geometry
 
 open external class BoxBufferGeometry(
-        width: Double,
-        height: Double,
-        depth: Double,
+        width: Number,
+        height: Number,
+        depth: Number,
         widthSegments: Int = definedExternally,
         heightSegments:Int = definedExternally,
         depthSegments:Int = definedExternally

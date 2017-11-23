@@ -6,7 +6,7 @@ import info.laht.threekt.core.Object3D
 
 open external class DirectionalLight(
         color: Int = definedExternally,
-        intensity: Double = definedExternally
+        intensity: Number = definedExternally
 ) : Light {
 
     var target: Object3D

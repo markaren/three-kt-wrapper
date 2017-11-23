@@ -7,20 +7,20 @@ import info.laht.threekt.core.Geometry
 
 open external class TorusGeometry : Geometry {
 
-    constructor(radius: Double = definedExternally,
-                tube: Double = definedExternally,
+    constructor(radius: Number = definedExternally,
+                tube: Number = definedExternally,
                 radialSegments: Int = definedExternally,
                 tubularSegments: Int = definedExternally,
-                arc: Double = definedExternally)
+                arc: Number = definedExternally)
 
 }
 
 open external class TorusBufferGeometry : BufferGeometry {
 
-    constructor(radius: Double = definedExternally,
-                tube: Double = definedExternally,
+    constructor(radius: Number = definedExternally,
+                tube: Number = definedExternally,
                 radialSegments: Int = definedExternally,
                 tubularSegments: Int = definedExternally,
-                arc: Double = definedExternally)
+                arc: Number = definedExternally)
 
 }

@@ -5,7 +5,10 @@ package info.laht.threekt.cameras
 
 open external class PerspectiveCamera : Camera {
 
-    constructor(fov: Int, aspect: Double, near: Double, far: Double)
+    constructor(fov: Int,
+                aspect: Double,
+                near: Number,
+                far: Number)
 
     var fov: Int
     var zoom: Double

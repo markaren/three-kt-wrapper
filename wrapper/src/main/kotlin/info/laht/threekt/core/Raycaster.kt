@@ -27,7 +27,7 @@ external interface Intersect {
 
 open external class Raycaster {
 
-    constructor(origin: Vector3, direction: Vector3, near: Double, far: Double)
+    constructor(origin: Vector3, direction: Vector3, near: Number, far: Number)
 
     var ray: Ray
     var near: Double
