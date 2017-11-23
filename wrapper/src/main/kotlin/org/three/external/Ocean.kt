@@ -14,12 +14,20 @@ open external class Ocean {
                           scene: Scene,
                           options: dynamic)
 
-    var clearColor: FloatArray
-    var geometryOrigin: FloatArray
-    var sunDirection: FloatArray
+    var clearColor: DoubleArray
+    var geometryOrigin: DoubleArray
+    var sunDirection: DoubleArray
     var oceanColor: Vector3
     var skyColor: Vector3
-    var exposure: Float
+    var exposure: Double
+    var geometryResolution: Int
+    var geometrySize: Int
+    var resolution: Int
+    var floatSize: Int
+    var windX: Double
+    var windY: Double
+    var size: Double
+    var choppiness: Double
 
     fun render()
 

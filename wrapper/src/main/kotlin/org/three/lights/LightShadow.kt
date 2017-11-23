@@ -12,8 +12,8 @@ open external class LightShadow {
 
     var camera: Camera
 
-    var bias: Number
-    var radius: Float
+    var bias: Double
+    var radius: Double
 
     var mapSize: Vector2
 

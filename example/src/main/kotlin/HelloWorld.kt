@@ -17,12 +17,6 @@ import org.three.renderers.WebGLRendererParams
 import kotlin.browser.document
 import kotlin.browser.window
 
-fun main(args: Array<String>) {
-
-    HelloWorld().animate()
-
-}
-
 class HelloWorld {
 
     val renderer: WebGLRenderer

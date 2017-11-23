@@ -4,10 +4,10 @@ package org.three.lights
 
 open external class PointLight(
         color: Int = definedExternally,
-        intensity: Float = definedExternally
+        intensity: Double = definedExternally
 ) : Light {
 
-    var distance: Float
+    var distance: Double
     var decay: Number
 
     var shadow: LightShadow

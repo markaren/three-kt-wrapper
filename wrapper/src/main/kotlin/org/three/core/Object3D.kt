@@ -77,14 +77,14 @@ open external class Object3D {
     fun getWorldScale (optionalTarget: Vector3 = definedExternally) : Vector3
     open fun getWorldDirection (optionalTarget: Vector3 = definedExternally) : Vector3
     open fun raycast ()
-    fun traverse ( callback: dynamic)
-    fun traverseVisible ( callback: dynamic )
-    fun traverseAncestors ( callback: dynamic )
+    fun traverse ( callback: (Object3D) -> Unit)
+    fun traverseVisible ( callback: (Object3D) -> Unit )
+    fun traverseAncestors ( callback: (Object3D) -> Unit )
     fun updateMatrix ()
     open fun updateMatrixWorld ( force: Boolean )
     fun toJSON ( meta: String = definedExternally ) : String
     open fun clone ( recursive:Boolean = definedExternally) : Object3D
-    open fun copy ( source: Object3D, recursive: Boolean ) : Object3D
+    open fun copy ( source: Object3D, recursive: Boolean = definedExternally ) : Object3D
 
 }
 

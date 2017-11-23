@@ -6,11 +6,11 @@ import org.three.core.Object3D
 
 open external class Light(
         color: Int = definedExternally,
-        intensity: Float = definedExternally
+        intensity: Double = definedExternally
 ) : Object3D {
 
     var color: Int
-    var intensity : Float
+    var intensity : Double
 
     var receiveShadow: Boolean
 

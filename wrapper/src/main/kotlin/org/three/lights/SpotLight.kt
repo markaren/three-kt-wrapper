@@ -6,20 +6,20 @@ import org.three.core.Object3D
 
 open external class SpotLight(
         color: Int = definedExternally,
-        intensity: Float = definedExternally,
-        distance: Float = definedExternally,
-        angle: Float = definedExternally,
-        penumbra: Float = definedExternally,
-        decay: Float = definedExternally
+        intensity: Double = definedExternally,
+        distance: Double = definedExternally,
+        angle: Double = definedExternally,
+        penumbra: Double = definedExternally,
+        decay: Double = definedExternally
 ) : Light {
 
     var target: Object3D
 
-    var power: Float
+    var power: Double
 
-    var distance: Float
-    var angle: Float
-    var penumbra: Float
+    var distance: Double
+    var angle: Double
+    var penumbra: Double
     var decay : Number
 
     var shadow: SpotLightShadow

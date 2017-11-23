@@ -4,5 +4,5 @@ package org.three.lights
 
 open external class AmbientLight(
         color: Int = definedExternally,
-        intensity: Float = definedExternally
+        intensity: Double = definedExternally
 ) : Light

@@ -6,7 +6,7 @@ import org.three.core.Object3D
 
 open external class DirectionalLight(
         color: Int = definedExternally,
-        intensity: Float = definedExternally
+        intensity: Double = definedExternally
 ) : Light {
 
     var target: Object3D

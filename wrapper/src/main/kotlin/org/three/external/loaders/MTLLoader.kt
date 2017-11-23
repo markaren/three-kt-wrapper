@@ -21,6 +21,4 @@ open external class MTLLoader {
 
 }
 
-external class MaterialCreator(baseUrl: String = definedExternally) {
-
-}
+external class MaterialCreator(baseUrl: String = definedExternally)
