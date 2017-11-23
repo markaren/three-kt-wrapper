@@ -1,5 +1,8 @@
-group 'org.threejs'
-version '1.0-SNAPSHOT'
+
+apply plugin: 'base' // To add "clean" task to the root project.
+
+group 'org.threekt'
+version '0.1-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.1.60'
@@ -12,33 +15,37 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin2js'
+subprojects {
 
-repositories {
-    mavenCentral()
-}
+    apply plugin: 'maven-publish'
+    apply plugin: 'kotlin2js'
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-}
-
-/*
-task assembleWeb(type: Sync) {
-    configurations.compile.each { File file ->
-        from(zipTree(file.absolutePath), {
-            includeEmptyDirs = false
-            include { fileTreeElement ->
-                def path = fileTreeElement.path
-                path.endsWith(".js") && (path.startsWith("META-INF/resources/") ||
-                        !path.startsWith("META-INF/"))
-            }
-        })
+    repositories {
+        mavenCentral()
     }
-    from compileKotlin2Js.destinationDir
-    into "${projectDir}/web"
 
-    dependsOn classes
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+
+    publishing {
+
+        publications {
+            Publication(MavenPublication) {
+
+                from components.java
+
+            }
+        }
+
+    }
 }
-
-assemble.dependsOn assembleWeb
-*/

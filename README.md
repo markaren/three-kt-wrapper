@@ -115,4 +115,4 @@ class HelloWorld {
 
 ```
 
-![result](https://raw.githubusercontent.com/markaren/three.kt/master/src/test/screenshot.PNG)
+![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)

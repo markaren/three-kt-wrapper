@@ -1,7 +1,5 @@
 import org.three.cameras.PerspectiveCamera
 import org.three.core.BufferGeometry
-import org.three.core.Float32BufferAttribute
-import org.three.core.UInt16BufferAttribute
 import org.three.external.controls.OrbitControls
 import org.three.extras.curves.CatmullRomCurve3
 import org.three.geometries.BoxBufferGeometry
@@ -11,7 +9,6 @@ import org.three.materials.MeshBasicMaterial
 import org.three.materials.MeshPhongMaterial
 import org.three.math.ColorConstants
 import org.three.math.Vector3
-import org.three.math.plus
 import org.three.objects.Line
 import org.three.scenes.Scene
 import org.three.objects.Mesh
