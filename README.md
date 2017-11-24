@@ -1,6 +1,14 @@
 # three.kt
 Kotlin wrappers for Three.js (r88)
 
+maven dependency (soon)
+```xml
+<dependency>
+  <groupId>info.laht.threekt</groupId>
+  <artifactId>wrapper</artifactId>
+  <version>0.88-ALPHA-1</version>
+</dependency>
+```
 
 # HelloWorld
 
