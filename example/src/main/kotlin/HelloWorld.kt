@@ -30,7 +30,7 @@ class HelloWorld {
         scene = Scene()
         scene.add(AmbientLight())
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000.0)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true

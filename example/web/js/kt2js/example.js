@@ -11,7 +11,7 @@ var example = function (_, Kotlin, $module$wrapper) {
   var AmbientLight = THREE.AmbientLight;
   var PerspectiveCamera_init = THREE.PerspectiveCamera;
   var WebGLRendererParams = $module$wrapper.info.laht.threekt.renderers.WebGLRendererParams;
-  var WebGLRenderer_init = $module$wrapper.info.laht.threekt.renderers.WebGLRenderer_init_o4t3hs$;
+  var WebGLRenderer_init = THREE.WebGLRenderer;
   var math = $module$wrapper.info.laht.threekt.math;
   var throwNPE = Kotlin.throwNPE;
   var OrbitControls = THREE.OrbitControls;
@@ -40,8 +40,8 @@ var example = function (_, Kotlin, $module$wrapper) {
     var tmp$, tmp$_0, tmp$_1;
     this.scene = new Scene();
     this.scene.add(new AmbientLight());
-    this.camera = new PerspectiveCamera_init(75, window.innerWidth / window.innerHeight, 0.1, 1000.0);
-    var $receiver = WebGLRenderer_init(new WebGLRendererParams(void 0, void 0, void 0, void 0, true));
+    this.camera = new PerspectiveCamera_init(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var $receiver = new WebGLRenderer_init(new WebGLRendererParams(void 0, void 0, void 0, void 0, true));
     $receiver.setClearColor(math.ColorConstants.skyblue, 1);
     this.renderer = $receiver;
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -107,7 +107,7 @@ var example = function (_, Kotlin, $module$wrapper) {
     this.scene.add(light);
     this.camera = new PerspectiveCamera_init(75, window.innerWidth / window.innerHeight, 0.1, 1000.0);
     this.camera.position.set(0.0, 5.0, -5.0);
-    var $receiver = WebGLRenderer_init(new WebGLRendererParams(void 0, void 0, void 0, void 0, true));
+    var $receiver = new WebGLRenderer_init(new WebGLRendererParams(void 0, void 0, void 0, void 0, true));
     $receiver.setClearColor(math.ColorConstants.skyblue, 1.0);
     this.renderer = $receiver;
     this.renderer.setSize(window.innerWidth, window.innerHeight);
