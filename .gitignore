@@ -65,6 +65,9 @@ gradle-app.setting
 # IntelliJ
 out/
 
+kt2js/
+/**/kt2js/
+
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
