@@ -16,7 +16,6 @@ subprojects {
 
     group 'info.laht.threekt'
 
-    apply plugin: 'maven-publish'
     apply plugin: 'kotlin2js'
 
     repositories {
@@ -27,24 +26,4 @@ subprojects {
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     }
 
-    task sourcesJar(type: Jar) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
-
-    artifacts {
-        archives sourcesJar
-    }
-
-    publishing {
-
-        publications {
-            Publication(MavenPublication) {
-
-                from components.java
-
-            }
-        }
-
-    }
 }
