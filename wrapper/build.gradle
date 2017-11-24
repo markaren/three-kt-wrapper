@@ -1,5 +1,5 @@
 
-version '0.88-ALPHA-1'
+version '0.88-ALPHA-2-SNAPSHOT'
 archivesBaseName = project.name
 
 apply plugin: 'maven'
@@ -42,7 +42,7 @@ uploadArchives {
                 packaging 'jar'
                 // optionally artifactId can be defined here
                 description 'kotlin wrappers for threejs'
-                url 'http://www.example.com/example-application'
+                url 'https://github.com/markaren/three.kt'
 
                 scm {
                     connection 'scm:git:git://github.com/markaren/three.kt.git'
