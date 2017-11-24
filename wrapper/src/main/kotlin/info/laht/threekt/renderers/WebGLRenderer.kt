@@ -7,20 +7,19 @@ import info.laht.threekt.scenes.Scene
 import org.w3c.dom.Node
 
 
-external interface IWebGLRendererParams {
-    val canvas: Node?
-    val alpha: Boolean?
-    val depth: Boolean?
-    val stencil: Boolean?
-    val antialias: Boolean?
-    val premultipliedAlpha: Boolean?
-    val preserveDrawingBuffer: Boolean?
-}
+//external interface IWebGLRendererParams {
+//    val canvas: Node?
+//    val alpha: Boolean?
+//    val depth: Boolean?
+//    val stencil: Boolean?
+//    val antialias: Boolean?
+//    val premultipliedAlpha: Boolean?
+//    val preserveDrawingBuffer: Boolean?
+//}
 
-@JsName("WebGLRenderer")
 open external class WebGLRenderer {
 
-    constructor(params: IWebGLRendererParams = definedExternally)
+    constructor(params: WebGLRendererParams = definedExternally)
 
     var domElement: Node
 
@@ -50,6 +49,12 @@ open external class WebGLRenderer {
         val y: Int
     }
 
+    fun clear(color: Boolean = definedExternally, depth: Boolean = definedExternally, stencil: Boolean = definedExternally)
+
+    fun clearColor()
+    fun clearDepth()
+    fun clearStencil()
+
     fun getSize() : Size
     fun setSize(width: Int, height: Int, updateStyle: Boolean = definedExternally)
 
@@ -71,6 +76,6 @@ open external class WebGLRenderer {
      */
     fun render(scene: Scene, camera: Camera, renderTarget: dynamic = definedExternally, forceClear: Boolean = definedExternally)
 
-    fun setPixelRatio(value: Int)
+    fun setPixelRatio(value: Number)
 
 }

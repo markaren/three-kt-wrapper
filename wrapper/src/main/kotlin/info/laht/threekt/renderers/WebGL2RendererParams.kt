@@ -2,7 +2,7 @@ package info.laht.threekt.renderers
 
 import org.w3c.dom.Node
 
-data class WebGLRendererParams(
+data class WebGL2RendererParams(
          val canvas: Node? = undefined,
          val alpha: Boolean? = undefined,
          val depth: Boolean? = undefined,

@@ -1,6 +1,7 @@
 import info.laht.threekt.cameras.PerspectiveCamera
 import info.laht.threekt.core.BufferGeometry
 import info.laht.threekt.external.controls.OrbitControls
+import info.laht.threekt.external.libs.Stats
 import info.laht.threekt.extras.curves.CatmullRomCurve3
 import info.laht.threekt.geometries.BoxBufferGeometry
 import info.laht.threekt.lights.AmbientLight
@@ -24,8 +25,11 @@ class HelloWorld {
     val camera: PerspectiveCamera
     val controls: OrbitControls
     val cube: Mesh
+    val stats: Stats
 
     init {
+
+
 
         scene = Scene()
         scene.add(AmbientLight())
@@ -40,6 +44,9 @@ class HelloWorld {
 
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
+
+        stats = Stats()
+        document.body!!.appendChild(stats.dom)
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -95,6 +102,7 @@ class HelloWorld {
             animate()
         }
         renderer.render(scene, camera)
+        stats.update()
     }
 
 }

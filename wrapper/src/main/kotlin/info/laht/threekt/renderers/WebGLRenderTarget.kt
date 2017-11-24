@@ -5,23 +5,9 @@ package info.laht.threekt.renderers
 import info.laht.threekt.math.Vector4
 import info.laht.threekt.textures.Texture
 
-
-external interface IWebGLRenderTargetOptions {
-    val wrapS: Int?
-    val wrapT: Int?
-    val magFilter: Int?
-    val minFilter: Int?
-    val format: Int?
-    val type: Int?
-    val anisotropy: Int?
-    val encoding: Int?
-    val depthBuffer: Boolean?
-    val stencilBuffer: Boolean?
-}
-
 open external class WebGLRenderTarget {
 
-    constructor(width: Int, height: Int, options: IWebGLRenderTargetOptions = definedExternally)
+    constructor(width: Int, height: Int, options: WebGLRenderTargetOptions = definedExternally)
 
     var uuid: String
 

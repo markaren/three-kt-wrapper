@@ -17,7 +17,7 @@ open external class TextureLoader {
 
     fun load(url: String,
              onLoad: (Texture) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit,
-             onError: () -> Unit) : Texture
+             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+             onError: (dynamic) -> Unit = definedExternally) : Texture
 
 }
