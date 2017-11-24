@@ -1,8 +1,5 @@
 
-
-repositories {
-    //mavenLocal()
-}
+version '1.0-SNAPSHOT'
 
 dependencies {
     compile project(":wrapper")// "org.threekt:wrapper:0.1-SNAPSHOT"
