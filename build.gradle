@@ -14,8 +14,6 @@ buildscript {
 
 subprojects {
 
-    group 'info.laht.threekt'
-
     apply plugin: 'kotlin2js'
 
     repositories {

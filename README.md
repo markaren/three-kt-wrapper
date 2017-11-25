@@ -1,16 +1,13 @@
 # three.kt
-Kotlin wrappers for Three.js (r88)
+Kotlin wrappers for Three.js ([r88](https://github.com/mrdoob/three.js/tree/r88))
 
-maven dependency (soon)
-```xml
-<dependency>
-  <groupId>info.laht.threekt</groupId>
-  <artifactId>wrapper</artifactId>
-  <version>0.88-ALPHA-1</version>
-</dependency>
-```
+Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https://kotlinlang.org/)
 
-# HelloWorld
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/markaren/three.kt/issues)
+## HelloWorld
+
+![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)
 
 ```html
 
@@ -134,9 +131,11 @@ class HelloWorld {
 ```
 
 
-![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)
 
-# Loaders
+## Loaders
+
+![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot2.PNG)
+
 
 ```html
 
@@ -283,5 +282,18 @@ class LoaderTest {
 }
 ```
 
+# How to get it
 
-![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot2.PNG)
+## maven
+```xml
+<dependency>
+  <groupId>info.laht.threekt</groupId>
+  <artifactId>wrapper</artifactId>
+  <version>0.88-ALPHA-1</version>
+</dependency>
+```
+
+##Gradle
+```groovy
+compile "info.laht.threekt:wrapper:0.88-ALPHA-1"
+```

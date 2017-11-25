@@ -1,4 +1,4 @@
-
+group 'info.laht.threekt'
 version '0.88-ALPHA-2-SNAPSHOT'
 archivesBaseName = project.name
 
