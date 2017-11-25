@@ -29,8 +29,6 @@ class HelloWorld {
 
     init {
 
-
-
         scene = Scene()
         scene.add(AmbientLight())
 
