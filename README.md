@@ -293,7 +293,7 @@ class LoaderTest {
 </dependency>
 ```
 
-##Gradle
+## Gradle
 ```groovy
 compile "info.laht.threekt:wrapper:0.88-ALPHA-1"
 ```

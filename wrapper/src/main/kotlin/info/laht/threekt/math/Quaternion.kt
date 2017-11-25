@@ -3,10 +3,12 @@
 package info.laht.threekt.math
 
 
-open external class Quaternion {
-
-    constructor()
-    constructor(x: Number, y: Number, z: Number, w: Number)
+open external class Quaternion(
+        x: Number = definedExternally,
+        y: Number = definedExternally,
+        z: Number = definedExternally,
+        w: Number = definedExternally
+        ) {
 
     val x: Double
     val y: Double
