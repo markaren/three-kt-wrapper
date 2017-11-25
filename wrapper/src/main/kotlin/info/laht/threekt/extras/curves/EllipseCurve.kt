@@ -6,14 +6,14 @@ import info.laht.threekt.extras.core.Curve
 import info.laht.threekt.math.Vector2
 
 open external class EllipseCurve (
-        aX: Double = definedExternally,
-        aY: Double = definedExternally,
-        xRadius: Double = definedExternally,
-        yRadius: Double = definedExternally,
-        aStartAngle: Double = definedExternally,
-        aEndAngle: Double = definedExternally,
+        aX: Number = definedExternally,
+        aY: Number = definedExternally,
+        xRadius: Number = definedExternally,
+        yRadius: Number = definedExternally,
+        aStartAngle: Number = definedExternally,
+        aEndAngle: Number = definedExternally,
         aClockwise: Boolean = definedExternally,
-        aRotation: Double = definedExternally
+        aRotation: Number = definedExternally
 
 ) : Curve<Vector2> {
 
@@ -31,7 +31,6 @@ open external class EllipseCurve (
     var aRotation: Double
 
     override fun clone() : EllipseCurve
-
     fun copy(curve: EllipseCurve) : EllipseCurve
 
 }

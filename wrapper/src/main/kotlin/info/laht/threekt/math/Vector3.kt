@@ -4,10 +4,11 @@ package info.laht.threekt.math
 
 import info.laht.threekt.cameras.Camera
 
-open external class Vector3 {
-
-    constructor()
-    constructor(x: Number, y: Number, z: Number)
+open external class Vector3(
+        x: Number = definedExternally,
+        y: Number = definedExternally,
+        z: Number = definedExternally
+) {
 
     var x: Double
     var y: Double
@@ -74,8 +75,8 @@ open external class Vector3 {
     fun setFromMatrixScale ( m: Matrix4): Vector3
     fun setFromMatrixColumn (m: Matrix4, index: Int ) : Vector3
     fun equals ( v: Vector3): Boolean
-    fun fromArray ( array : DoubleArray, offset: Int = definedExternally )
-    fun toArray ( array:DoubleArray, offset:Int= definedExternally ) : DoubleArray
-    fun fromBufferAttribute ( attribute:dynamic, index: Int, offset:Int= definedExternally )
+    fun fromArray ( array : DoubleArray, offset: Int = definedExternally ) : Vector3
+    fun toArray ( array:DoubleArray = definedExternally, offset:Int= definedExternally ) : DoubleArray
+    fun fromBufferAttribute ( attribute:dynamic, index: Int, offset:Int= definedExternally ) : Vector3
 
 }

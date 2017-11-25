@@ -25,7 +25,7 @@ open external class Matrix4 {
 
     fun extractBasis (xAxis: Vector3, yAxis: Vector3, zAxis: Vector3) : Matrix4
 
-    fun makeBasis (xAxis: Vector3, yAxis: Vector3, zAxis: Vector3)
+    fun makeBasis (xAxis: Vector3, yAxis: Vector3, zAxis: Vector3) : Matrix4
 
     fun extractRotation (m: Matrix4) : Matrix4
 
@@ -79,9 +79,9 @@ open external class Matrix4 {
 
     fun equals ( matrix: Matrix4) : Boolean
 
-    fun fromArray ( array: DoubleArray, offset: Int = definedExternally )
+    fun fromArray ( array: DoubleArray, offset: Int = definedExternally ) : Matrix4
 
-    fun toArray ( array: DoubleArray, offset: Int = definedExternally )
+    fun toArray ( array: DoubleArray, offset: Int = definedExternally ) : DoubleArray
 
 }
 

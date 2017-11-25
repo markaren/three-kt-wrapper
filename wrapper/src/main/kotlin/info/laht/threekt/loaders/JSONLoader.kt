@@ -9,7 +9,7 @@ open external class JSONLoader {
 
     fun load(url:String,
              onLoad: (Object3D) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit,
-             onError: (dynamic) -> Unit)
+             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+             onError: (dynamic) -> Unit = definedExternally)
 
 }

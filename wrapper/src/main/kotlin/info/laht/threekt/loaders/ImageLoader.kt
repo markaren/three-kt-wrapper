@@ -13,7 +13,7 @@ open external class ImageLoader {
 
     fun load(url: String,
              onLoad: (Element) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit,
-             onError: (dynamic) -> Unit)
+             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+             onError: (dynamic) -> Unit = definedExternally)
 
 }
