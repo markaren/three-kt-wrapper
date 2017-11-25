@@ -192,17 +192,17 @@ class LoaderTest {
         scene = Scene()
 
         val light = DirectionalLight(0xffffff, 0.5)
-        light.position.set(0.toDouble(), 0.toDouble(), -1.toDouble())
+        light.position.set(0, 0, -1)
         scene.add(light)
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight.toDouble(), 0.1, 1000.0)
-        camera.position.set(0.0, 5.0, -5.0)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight, 0.1, 1000)
+        camera.position.set(0, 5, -5)
 
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
         )).apply {
-            setClearColor(ColorConstants.skyblue, 1.0)
+            setClearColor(ColorConstants.skyblue, 1)
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
@@ -229,7 +229,7 @@ class LoaderTest {
         OBJLoader().apply {
             load("models/suzanne.obj", {
 
-                it.position.setX(-5.toDouble())
+                it.position.setX(-5)
                 models.add(it)
                 scene.add(it)
 
@@ -241,7 +241,7 @@ class LoaderTest {
 
                 it.detail.loaderRootNode.let {
 
-                    it.position.setX(5.toDouble())
+                    it.position.setX(5)
 
                     it.traverse {
                         if (it is Mesh) {
@@ -297,3 +297,7 @@ class LoaderTest {
 ```groovy
 compile "info.laht.threekt:wrapper:0.88-ALPHA-1"
 ```
+
+### Snapshots
+For accessing bleeding edge snapshot releases use: 
+https://oss.sonatype.org/content/repositories/snapshots/info/laht/threekt/ 
