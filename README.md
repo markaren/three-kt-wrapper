@@ -26,25 +26,26 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
         canvas { width: 100%; height: 100% }
     </style>
 </head>
-<body>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
-<script type="text/javascript" src="js/OrbitControls.js"></script>
-
-<script type="text/javascript" src="js/kt2js/kotlin.js"></script>
-<script type="text/javascript" src="js/kt2js/wrapper.js"></script>
-
-<script type="text/javascript" src="js/kt2js/example.js"></script>
-
-<script type="text/javascript">
-
-    new example.HelloWorld().animate()
-
-
-</script>
-
-
-</body>
+    <body>
+    
+        <script type="text/javascript" src="js/libs/stats.min.js"></script>
+        <script type="text/javascript" src="js/libs/dat.gui.min.js"></script>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
+        <script type="text/javascript" src="js/OrbitControls.js"></script>
+        
+        <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
+        <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
+        
+        <script type="text/javascript" src="js/kt2js/example.js"></script>
+        
+        <script type="text/javascript">
+        
+        new example.HelloWorld().animate()
+        
+        </script>
+    
+    </body>
 </html>
 
 ```
@@ -58,13 +59,15 @@ class HelloWorld {
     val camera: PerspectiveCamera
     val controls: OrbitControls
     val cube: Mesh
+    val stats: Stats
 
     init {
 
         scene = Scene()
         scene.add(AmbientLight())
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight, 0.1, 1000)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
+        camera.position.setZ(5)
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
@@ -75,43 +78,38 @@ class HelloWorld {
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
+        stats = Stats()
+        document.body!!.appendChild(stats.dom)
+
         controls = OrbitControls(camera, renderer.domElement)
 
-        cube = Mesh(BoxBufferGeometry(1,1,1),
+        cube = Mesh(BoxBufferGeometry(1, 1, 1),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
-                })
-        scene.add(cube)
+                }).apply ( scene::add )
 
-        val cube2 = Mesh(cube.geometry as BufferGeometry,
+        Mesh(cube.geometry as BufferGeometry,
                 MeshBasicMaterial().apply {
                     this.wireframe = true
                     this.color.set(ColorConstants.black)
-                })
-        cube.add(cube2)
+                }).let ( cube::add )
+        
+        val points = CatmullRomCurve3(
+                arrayOf(Vector3(-10, 0, 10),
+                        Vector3(-5, 5, 5),
+                        Vector3(0, 0, 0),
+                        Vector3(5, -5, 5),
+                        Vector3(10, 0, 10))
+        ).getPoints(50)
 
-        camera.position.z = 5.0
-
-
-        //Create a closed wavey loop
-        var curve = CatmullRomCurve3(
-                arrayOf(Vector3( -10, 0, 10 ),
-                        Vector3( -5, 5, 5 ),
-                        Vector3( 0, 0, 0 ),
-                        Vector3( 5, -5, 5 ),
-                        Vector3( 10, 0, 10 ))
-        );
-
-        var points = curve.getPoints( 50 );
-        var geometry = BufferGeometry().setFromPoints( points );
+        val geometry = BufferGeometry().setFromPoints(points)
 
         var material = LineBasicMaterial().apply {
             color.set(0xff0000)
         }
 
         // Create the final object to add to the scene
-        var curveObject = Line( geometry, material );
-        scene.add(curveObject)
+        Line(geometry, material).apply ( scene::add )
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
@@ -129,6 +127,7 @@ class HelloWorld {
             animate()
         }
         renderer.render(scene, camera)
+        stats.update()
     }
 
 }
@@ -150,34 +149,41 @@ class HelloWorld {
     <meta charset="UTF-8">
     <title>Kotlin + three.js</title>
     <style>
-body { margin: 0; }
-canvas { width: 100%; height: 100% }
-</style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+        overflow:hidden;
+    </style>
 </head>
-<body>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
-<script type="text/javascript" src="js/OrbitControls.js"></script>
-<script type="text/javascript" src="js/STLLoader.js"></script>
-<script type="text/javascript" src="js/OBJLoader.js"></script>
-<script type="text/javascript" src="js/LoaderSupport.js"></script>
-<script type="text/javascript" src="js/OBJLoader2.js"></script>
-
-
-<script type="text/javascript" src="js/kt2js/kotlin.js"></script>
-<script type="text/javascript" src="js/kt2js/wrapper.js"></script>
-
-<script type="text/javascript" src="js/kt2js/example.js"></script>
-
-
-<script type="text/javascript">
-
-    new example.LoaderTest().animate()
-
-
-</script>
-
-</body>
+    <body>
+    
+        <div id="container"></div>
+        
+        <script type="text/javascript" src="js/libs/stats.min.js"></script>
+        <script type="text/javascript" src="js/libs/dat.gui.min.js"></script>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
+        <script type="text/javascript" src="js/OrbitControls.js"></script>
+        
+        <script type="text/javascript" src="js/STLLoader.js"></script>
+        <script type="text/javascript" src="js/OBJLoader.js"></script>
+        <script type="text/javascript" src="js/LoaderSupport.js"></script>
+        <script type="text/javascript" src="js/OBJLoader2.js"></script>
+        
+        
+        <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
+        <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
+        
+        <script type="text/javascript" src="js/kt2js/example.js"></script>
+        
+        
+        <script type="text/javascript">
+        
+            new example.LoaderTest().animate()
+        
+        
+        </script>
+    
+    </body>
 </html>
 
 ```
@@ -186,36 +192,37 @@ canvas { width: 100%; height: 100% }
 
 class LoaderTest {
 
+    val stats: Stats = Stats()
     val renderer: WebGLRenderer
-    val scene: Scene
+    val scene: Scene = Scene()
     val camera: PerspectiveCamera
     val controls: OrbitControls
     var models: MutableList<Mesh> = ArrayList()
+    var speed: Double = 1.0
+    val clock: Clock = Clock(autoStart = true)
 
     init {
 
-        scene = Scene()
 
-        val light = DirectionalLight(0xffffff, 0.5)
+        val light = DirectionalLight(color = 0xffffff, intensity =  0.5)
         light.position.set(0, 0, -1)
         scene.add(light)
 
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble()/ window.innerHeight, 0.1, 1000)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
         camera.position.set(0, 5, -5)
-
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
         )).apply {
-            setClearColor(ColorConstants.skyblue, 1)
+            setClearColor(ColorConstants.skyblue, alpha = 1)
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
         document.body!!.appendChild(renderer.domElement)
 
+        document.body!!.appendChild(stats.dom)
+
         controls = OrbitControls(camera, renderer.domElement)
-
-
 
         STLLoader().apply {
             load("models/suzanne.stl", {
@@ -247,7 +254,6 @@ class LoaderTest {
                 it.detail.loaderRootNode.let {
 
                     it.position.setX(5)
-
                     it.traverse {
                         if (it is Mesh) {
                             it.material.asDynamic().color.set(0x00ff00)
@@ -262,6 +268,12 @@ class LoaderTest {
             })
         }
 
+        dat.GUI().let {
+            val controller = it.add(this, "speed") as NumberController
+            controller.min(0).max(10).step(0.1)
+            it.open()
+        }
+
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
             camera.updateProjectionMatrix();
@@ -274,14 +286,16 @@ class LoaderTest {
     fun animate() {
         window.requestAnimationFrame {
 
+            val dt = clock.getDelta()
             models.forEach {
                 it.rotation.apply {
-                    y += 0.01
+                    y += speed * dt
                 }
             }
             animate()
         }
         renderer.render(scene, camera)
+        stats.update()
     }
 
 }
