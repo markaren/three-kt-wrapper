@@ -6,8 +6,6 @@ import info.laht.threekt.core.BufferGeometry
 
 open external class Matrix4 {
 
-    constructor()
-
     val elements: DoubleArray
 
     fun set(n11: Number, n12: Number, n13: Number, n14: Number,

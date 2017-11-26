@@ -7,18 +7,19 @@ import info.laht.threekt.math.Matrix4
 import info.laht.threekt.math.Sphere
 import info.laht.threekt.math.Vector3
 
-external interface DrawRange {
-    var start: Int
-    var count: Int
-}
-
-external interface Group {
-    var start: Int
-    var count: Int
-    var materialIndex: Int
-}
 
 open external class BufferGeometry {
+
+     interface DrawRange {
+        var start: Int
+        var count: Int
+    }
+
+     interface Group {
+        var start: Int
+        var count: Int
+        var materialIndex: Int
+    }
 
     val uuid: String
     val id: String
@@ -27,9 +28,9 @@ open external class BufferGeometry {
     var type: String
 
     var index: dynamic
-    var attributes: Map<String, BufferAttribute<*, *>>
+    var attributes: Map<String, BufferAttribute>
 
-    var morphAttributes: Map<String, BufferAttribute<*, *>>
+    var morphAttributes: Map<String, BufferAttribute>
 
     var groups: List<Group>
 
@@ -42,7 +43,6 @@ open external class BufferGeometry {
     open fun clone() : BufferGeometry
     fun copy(bufferGeometry: BufferGeometry) : BufferGeometry
 
-
     fun computeBoundingBox()
     fun computeBoundingSphere()
 
@@ -52,12 +52,11 @@ open external class BufferGeometry {
     fun clearGroups()
     fun addGroup(start: Int, count: Int, materialIndex: Int = definedExternally)
 
-    fun addAttribute(name: String, attribute: BufferAttribute<*, *>)
-    fun getAttribute(name: String) : BufferAttribute<*, *>
+    fun addAttribute(name: String, attribute: BufferAttribute)
+    fun getAttribute(name: String) : BufferAttribute
     fun removeAttribute(name: String) : BufferGeometry
 
-
-    fun setIndex(index: BufferAttribute<*, *>)
+    fun setIndex(index: BufferAttribute)
     fun setDrawRange(start: Int, count: Int)
 
     fun fromGeometry(geometry: Geometry)
@@ -76,9 +75,10 @@ open external class BufferGeometry {
     fun translate(x: Double, y: Double, z: Double): BufferGeometry
 
 
-
     fun computeVertexNormals()
     fun normalizeNormals()
     fun toNonIndexed(): BufferGeometry
+
+    fun toJSON() : dynamic
 
 }

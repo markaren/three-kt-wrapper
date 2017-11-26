@@ -7,11 +7,11 @@ import info.laht.threekt.math.Vector3
 
 open external class TubeGeometry(
 
-        path: Curve<*>,
-        tubularSegments: Int,
-        radius: Number,
-        radiusSegments: Int,
-        closed: Boolean
+        path: Curve<Vector3>,
+        tubularSegments: Int = definedExternally,
+        radius: Number = definedExternally,
+        radiusSegments: Int = definedExternally,
+        closed: Boolean = definedExternally
 
 ) : Geometry {
 
@@ -23,16 +23,18 @@ open external class TubeGeometry(
 
 open external class TubeBufferGeometry(
 
-        path: Curve<*>,
-        tubularSegments: Int,
-        radius: Number,
-        radiusSegments: Int,
-        closed: Boolean
+        path: Curve<Vector3>,
+        tubularSegments: Int = definedExternally,
+        radius: Number = definedExternally,
+        radiusSegments: Int = definedExternally,
+        closed: Boolean = definedExternally
 
 ) : BufferGeometry {
 
-    var tangents: Array<Vector3>
-    var normals: Array<Vector3>
-    var binormals: Array<Vector3>
+    val parameters: dynamic
+
+    val tangents: Array<Vector3>
+    val normals: Array<Vector3>
+    val binormals: Array<Vector3>
 
 }

@@ -4,6 +4,11 @@ package info.laht.threekt.core
 
 import info.laht.threekt.math.*
 
+/**
+ * This is the base class for most objects in three.js and provides a set of properties and methods for manipulating objects in 3D space.
+ *
+ * Note that this can be used for grouping objects via the .add( object ) method which adds the object as a child, however it is better to use Group for this.
+ */
 open external class Object3D {
 
     companion object {
@@ -12,11 +17,16 @@ open external class Object3D {
     }
 
     val uuid: String
+    /**
+     * Optional name of the object (doesn't need to be unique). Default is an empty string.
+     */
     val name: String
-    val type: String
 
     val parent: Object3D?
-    val children: List<Object3D>
+    /**
+     * Array with object's children. See Group for info on manually grouping objects.
+     */
+    val children: Array<Object3D>
 
     val up: Vector3
 
@@ -27,15 +37,30 @@ open external class Object3D {
     val modelViewMatrix: Matrix4
     val normalMatrix: Matrix3
 
+    /**
+     * The local transform matrix.
+     */
     var matrix: Matrix4
+    /**
+     * The global transform of the object. If the Object3D has no parent, then it's identical to the local transform .matrix.
+     */
     var matrixWorld: Matrix4
 
+    /**
+     * When this is set, it calculates the matrix of position, (rotation or quaternion) and scale every frame and also recalculates the matrixWorld property. Default is Object3D.DefaultMatrixAutoUpdate (true).
+     */
     var matrixAutoUpdate: Boolean
+    /**
+     * When this is set, it calculates the matrixWorld in that frame and resets this property to false. Default is false.
+     */
     var matrixWorldNeedsUpdate: Boolean
 
     var layers: Layers
     var visible: Boolean
 
+    /**
+     * Whether the object gets rendered into shadow map. Default is false.
+     */
     var castShadow: Boolean
     var receiveShadows: Boolean
 
@@ -82,7 +107,7 @@ open external class Object3D {
     fun traverseAncestors ( callback: (Object3D) -> Unit )
     fun updateMatrix ()
     open fun updateMatrixWorld ( force: Boolean )
-    fun toJSON ( meta: String = definedExternally ) : String
+    fun toJSON ( meta: String = definedExternally ) : dynamic
     open fun clone ( recursive:Boolean = definedExternally) : Object3D
     open fun copy (source: Object3D, recursive: Boolean = definedExternally ) : Object3D
 

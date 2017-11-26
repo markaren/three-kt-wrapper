@@ -14,7 +14,7 @@ open external class Fog {
 
     fun clone() : Fog
 
-    fun toJSON() : String
+    fun toJSON() : dynamic
 
 }
 

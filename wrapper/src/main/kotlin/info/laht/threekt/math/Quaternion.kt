@@ -2,6 +2,8 @@
 
 package info.laht.threekt.math
 
+import info.laht.threekt.external.loaders.OnLoadCallback
+
 
 open external class Quaternion(
         x: Number = definedExternally,
@@ -10,17 +12,22 @@ open external class Quaternion(
         w: Number = definedExternally
         ) {
 
-    val x: Double
-    val y: Double
-    val z: Double
-    val w: Double
+    companion object {
+        fun slerp(qa: Quaternion, qb: Quaternion, qm: Quaternion, t: Number) : Quaternion
+        fun slerpFlat(dst: DoubleArray, dstOffset: Int, src0: DoubleArray, srcOffset0: Int, src1: DoubleArray, srcOffset1: Int, t: Number)
+    }
 
-    fun set(x: Double, y: Double, z: Double, w: Double)
+    var x: Double
+    var y: Double
+    var z: Double
+    var w: Double
+
+    fun set(x: Number, y: Number, z: Number, w: Number)
     fun clone() : Quaternion
     fun copy(quaternion: Quaternion): Quaternion
 
     fun setFromEuler(euler: Euler, update: Boolean = definedExternally)
-    fun setFromAxisAngle(axis: Vector3, angle: Double): Quaternion
+    fun setFromAxisAngle(axis: Vector3, angle: Number): Quaternion
     fun setFromRotationMatrix(m: Matrix4): Quaternion
     fun setFromUnitVectors(vFrom: Vector3, vTo: Vector3): Vector3
 
@@ -36,6 +43,13 @@ open external class Quaternion(
     fun preMultiply(q: Quaternion): Quaternion
     fun multiplyQuaternions(a: Quaternion, b: Quaternion): Quaternion
 
+    fun slerp(qb: Quaternion, t: Number): Quaternion
+
     fun equals(quaternion: Quaternion) : Boolean
+
+    fun fromArray(array: DoubleArray, offset: Int = definedExternally) : Quaternion
+    fun toArray(array: DoubleArray = definedExternally, offset: Int  = definedExternally) : DoubleArray
+
+    fun onChange(callback: () -> Unit)
 
 }

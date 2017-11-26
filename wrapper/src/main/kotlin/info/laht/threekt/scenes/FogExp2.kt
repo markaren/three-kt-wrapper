@@ -13,7 +13,7 @@ open external class FogExp2 {
     var density: Double
 
     fun clone() : FogExp2
-    fun toJSON() : String
+    fun toJSON() : dynamic
 
 }
 

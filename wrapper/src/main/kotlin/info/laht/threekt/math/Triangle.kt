@@ -2,10 +2,11 @@
 
 package info.laht.threekt.math
 
-open external class Triangle {
-
-    constructor()
-    constructor(a: Vector3, b: Vector3, c: Vector3)
+open external class Triangle(
+            a: Vector3 = definedExternally,
+            b: Vector3 = definedExternally,
+            c: Vector3 = definedExternally
+    ) {
 
     var a: Vector3
     var b: Vector3
@@ -22,6 +23,13 @@ open external class Triangle {
     fun clone() : Triangle
     fun copy(source: Triangle) : Triangle
     fun area() : Double
-    fun midpoint() : Vector3
+    fun midpoint(optionalTarget: Vector3 = definedExternally) : Vector3
+    fun normal(optionalTarget: Vector3 = definedExternally) : Vector3
+    fun plane(optionalTarget: Plane = definedExternally) : Plane
+    fun barycoordFromPoint(point: Vector3, optionalTarget: Vector3 = definedExternally) : Vector3
+    fun containsPoint(point: Vector3) : Boolean
+    fun closestPointToPoint(point: Vector3, optionalTarget: Vector3 = definedExternally) : Vector3
+
+    fun equals(triangle: Triangle) : Boolean
 
 }
