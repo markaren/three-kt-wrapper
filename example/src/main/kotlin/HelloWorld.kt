@@ -33,6 +33,7 @@ class HelloWorld {
         scene.add(AmbientLight())
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
+        camera.position.setZ(5)
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
@@ -51,38 +52,30 @@ class HelloWorld {
         cube = Mesh(BoxBufferGeometry(1, 1, 1),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
-                })
-        scene.add(cube)
+                }).apply ( scene::add )
 
-        val cube2 = Mesh(cube.geometry as BufferGeometry,
+        Mesh(cube.geometry as BufferGeometry,
                 MeshBasicMaterial().apply {
                     this.wireframe = true
                     this.color.set(ColorConstants.black)
-                })
-        cube.add(cube2)
+                }).let ( cube::add )
 
-        camera.position.z = 5.0
-
-
-        //Create a closed wavey loop
-        var curve = CatmullRomCurve3(
+        val points = CatmullRomCurve3(
                 arrayOf(Vector3(-10, 0, 10),
                         Vector3(-5, 5, 5),
                         Vector3(0, 0, 0),
                         Vector3(5, -5, 5),
                         Vector3(10, 0, 10))
-        );
+        ).getPoints(50)
 
-        var points = curve.getPoints( 50 );
-        var geometry = BufferGeometry().setFromPoints( points );
+        val geometry = BufferGeometry().setFromPoints(points)
 
         var material = LineBasicMaterial().apply {
             color.set(0xff0000)
         }
 
         // Create the final object to add to the scene
-        var curveObject = Line(geometry, material);
-        scene.add(curveObject)
+        Line(geometry, material).apply ( scene::add )
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
