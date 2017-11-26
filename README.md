@@ -3,8 +3,13 @@ Kotlin wrappers for Three.js ([r88](https://github.com/mrdoob/three.js/tree/r88)
 
 Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https://kotlinlang.org/)
 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/markaren/three.kt/issues)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.laht.threekt/wrapper/badge.svg)](https://mvnrepository.com/artifact/info.laht.threekt/wrapper)
+
+
 ## HelloWorld
 
 ![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)
