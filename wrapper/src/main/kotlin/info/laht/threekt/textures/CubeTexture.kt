@@ -17,4 +17,6 @@ open external class CubeTexture: Texture {
                 anisotropy: Int = definedExternally,
                 encoding: Int = definedExternally)
 
+    var images: Array<Element>
+
 }

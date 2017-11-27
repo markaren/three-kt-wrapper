@@ -41,7 +41,7 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
         
         <script type="text/javascript">
         
-        new example.HelloWorld().animate()
+            new example.HelloWorld().animate()
         
         </script>
     
@@ -179,7 +179,6 @@ class HelloWorld {
         <script type="text/javascript">
         
             new example.LoaderTest().animate()
-        
         
         </script>
     

@@ -4,8 +4,6 @@ package info.laht.threekt.materials
 
 open external class ShaderMaterial : Material {
 
-
-
     var defines: dynamic
     var uniforms: dynamic
 
@@ -35,7 +33,7 @@ open external class ShaderMaterial : Material {
 
     var index0AttributeName: String
 
-    override  fun clone() : ShaderMaterial
+    override fun clone() : ShaderMaterial
     fun copy(material: ShaderMaterial) : ShaderMaterial
 
     
