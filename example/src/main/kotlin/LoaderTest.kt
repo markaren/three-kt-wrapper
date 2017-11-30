@@ -31,7 +31,6 @@ class LoaderTest {
 
     init {
 
-
         val light = DirectionalLight(color = 0xffffff, intensity =  0.5)
         light.position.set(0, 0, -1)
         scene.add(light)
