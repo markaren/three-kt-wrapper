@@ -1,6 +1,8 @@
 package info.laht.threekt
 
-     external object THREE {
+import info.laht.threekt.loaders.DefaultLoadingManager
+
+external object THREE {
 
         val REVISION: String
         val CullFaceNone: Int
@@ -126,6 +128,6 @@ package info.laht.threekt
         val RGBDEncoding: Int
         val BasicDepthPacking: Int
         val RGBADepthPacking: Int
-        
+
     }
 

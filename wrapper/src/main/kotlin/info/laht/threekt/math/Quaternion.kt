@@ -2,7 +2,6 @@
 
 package info.laht.threekt.math
 
-import info.laht.threekt.external.loaders.OnLoadCallback
 
 
 open external class Quaternion(
