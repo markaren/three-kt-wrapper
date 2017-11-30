@@ -45,9 +45,11 @@ class LoaderTest {
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body!!.appendChild(renderer.domElement)
 
-        document.body!!.appendChild(stats.dom)
+        document.body?.apply {
+            appendChild(renderer.domElement)
+            appendChild(stats.dom)
+        }
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -57,7 +59,7 @@ class LoaderTest {
                     color.set(0xff5533)
                     specular.set(0x111111)
                     shininess = 200.0
-                }).let {
+                }).also {
                     models.add(it)
                     scene.add(it)
                 }
@@ -95,10 +97,10 @@ class LoaderTest {
             })
         }
 
-        dat.GUI().let {
-            val controller = it.add(this, "speed") as NumberController
+        dat.GUI().apply {
+            val controller = add(this, "speed") as NumberController
             controller.min(0).max(10).step(0.1)
-            it.open()
+            open()
         }
 
         window.addEventListener("resize", {
