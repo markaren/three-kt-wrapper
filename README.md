@@ -86,14 +86,14 @@ class HelloWorld {
         cube = Mesh(BoxBufferGeometry(1, 1, 1),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
-                }).apply ( scene::add )
+                }).also ( scene::add )
 
         Mesh(cube.geometry as BufferGeometry,
                 MeshBasicMaterial().apply {
                     this.wireframe = true
                     this.color.set(ColorConstants.black)
-                }).let ( cube::add )
-        
+                }).also ( cube::add )
+
         val points = CatmullRomCurve3(
                 arrayOf(Vector3(-10, 0, 10),
                         Vector3(-5, 5, 5),
@@ -202,7 +202,6 @@ class LoaderTest {
 
     init {
 
-
         val light = DirectionalLight(color = 0xffffff, intensity =  0.5)
         light.position.set(0, 0, -1)
         scene.add(light)
@@ -217,9 +216,11 @@ class LoaderTest {
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body!!.appendChild(renderer.domElement)
-
-        document.body!!.appendChild(stats.dom)
+        
+        document.body?.apply {
+            appendChild(renderer.domElement)
+            appendChild(stats.dom)
+        }
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -229,7 +230,7 @@ class LoaderTest {
                     color.set(0xff5533)
                     specular.set(0x111111)
                     shininess = 200.0
-                }).let {
+                }).also {
                     models.add(it)
                     scene.add(it)
                 }
@@ -267,10 +268,10 @@ class LoaderTest {
             })
         }
 
-        dat.GUI().let {
-            val controller = it.add(this, "speed") as NumberController
+        dat.GUI().apply {
+            val controller = add(this, "speed") as NumberController
             controller.min(0).max(10).step(0.1)
-            it.open()
+            open()
         }
 
         window.addEventListener("resize", {

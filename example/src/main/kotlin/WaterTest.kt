@@ -2,17 +2,12 @@ import info.laht.threekt.THREE
 import info.laht.threekt.cameras.PerspectiveCamera
 import info.laht.threekt.external.controls.OrbitControls
 import info.laht.threekt.external.libs.Stats
-import info.laht.threekt.external.loaders.OBJLoader
-import info.laht.threekt.external.loaders.OBJLoader2
-import info.laht.threekt.external.loaders.STLLoader
 import info.laht.threekt.external.objects.Water
 import info.laht.threekt.external.objects.WaterOptions
 import info.laht.threekt.lights.DirectionalLight
 import info.laht.threekt.loaders.TextureLoader
-import info.laht.threekt.materials.MeshPhongMaterial
 import info.laht.threekt.math.ColorConstants
 import info.laht.threekt.scenes.Scene
-import info.laht.threekt.objects.Mesh
 import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
 import kotlin.browser.document
@@ -29,9 +24,9 @@ data class WaterParameters(
 
 class WaterTest {
 
-    val stats: Stats
+    val stats: Stats = Stats()
     val renderer: WebGLRenderer
-    val scene: Scene
+    val scene: Scene = Scene()
     val camera: PerspectiveCamera
     val controls: OrbitControls
     var water: Water
@@ -46,27 +41,26 @@ class WaterTest {
                 alpha = 1.0
         )
 
-        scene = Scene()
+        val light = DirectionalLight(0xffffff, 0.5).apply {
+                    position.set(0,0,0)
+                    scene::add
+        }
 
-        val light = DirectionalLight(0xffffff, 0.5)
-        light.position.set(0.toDouble(), 0.toDouble(), -1.toDouble())
-        scene.add(light)
-
-        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000.0)
+        camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000)
         camera.position.set(0.0, 5.0, -5.0)
-
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
         )).apply {
-            setClearColor(ColorConstants.skyblue, 1.0)
+            setClearColor(ColorConstants.skyblue, 1)
         }
 
         renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body!!.appendChild(renderer.domElement)
 
-        stats = Stats()
-        document.body!!.appendChild(stats.dom)
+        document.body?.apply {
+            appendChild(renderer.domElement)
+            appendChild(stats.dom)
+        }
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -87,10 +81,10 @@ class WaterTest {
                         fog = scene.asDynamic().fog != undefined
 
                 )
-        )
-        water.rotation.x = -Math.PI / 2
-        water.receiveShadows = true
-        scene.add(water)
+        ).apply {
+            rotation.x = -Math.PI / 2
+            receiveShadows = true
+        }.also ( scene::add )
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
@@ -103,12 +97,15 @@ class WaterTest {
 
     fun animate() {
         window.requestAnimationFrame {
-            val time = window.performance.now() * 0.001
-            water.material.asDynamic().uniforms.time.value += 1.0 / 60.0;
-            water.material.asDynamic().uniforms.size.value = parameters.size;
-            water.material.asDynamic().uniforms.distortionScale.value = parameters.distortionScale;
-            water.material.asDynamic().uniforms.alpha.value = parameters.alpha;
+
+            water.material.apply {
+                asDynamic().uniforms.time.value += 1.0 / 60.0
+                asDynamic().uniforms.size.value = parameters.size
+                asDynamic().uniforms.distortionScale.value = parameters.distortionScale
+                asDynamic().uniforms.alpha.value = parameters.alpha
+            }
             animate()
+
         }
 
         renderer.render(scene, camera)

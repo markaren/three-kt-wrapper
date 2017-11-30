@@ -15,9 +15,9 @@ import org.w3c.dom.Node
  *  Pan - right mouse, or arrow keys / touch: three finger swipe
  */
 open external class OrbitControls(
-        object3D: Object3D,
-        domElement: Node)
-{
+        `object`: Object3D,
+        domElement: Node = definedExternally
+) {
 
     var `object`: Object3D
 

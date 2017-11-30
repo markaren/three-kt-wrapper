@@ -52,13 +52,13 @@ class HelloWorld {
         cube = Mesh(BoxBufferGeometry(1, 1, 1),
                 MeshPhongMaterial().apply {
                     this.color.set(ColorConstants.darkgreen)
-                }).apply ( scene::add )
+                }).also ( scene::add )
 
         Mesh(cube.geometry as BufferGeometry,
                 MeshBasicMaterial().apply {
                     this.wireframe = true
                     this.color.set(ColorConstants.black)
-                }).let ( cube::add )
+                }).also ( cube::add )
 
         val points = CatmullRomCurve3(
                 arrayOf(Vector3(-10, 0, 10),
