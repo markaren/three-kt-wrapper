@@ -6,7 +6,7 @@ import org.w3c.dom.Element
 data class GUIParams(
         val name: String? = undefined,
         val auto: Boolean? = undefined,
-        val load: dynamic? = undefined,
+        val load: dynamic = undefined,
         val parent: dat.GUI? = undefined,
         val closed: Boolean? = undefined,
         val closeOnTop: Boolean? = undefined,

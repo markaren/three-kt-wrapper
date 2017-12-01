@@ -1,5 +1,6 @@
 import info.laht.threekt.THREE
 import info.laht.threekt.cameras.PerspectiveCamera
+import info.laht.threekt.core.Object3D
 import info.laht.threekt.external.controls.OrbitControls
 import info.laht.threekt.external.libs.Stats
 import info.laht.threekt.external.objects.Water
@@ -12,7 +13,7 @@ import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
 import kotlin.browser.document
 import kotlin.browser.window
-import kotlin.js.Math
+import kotlin.math.PI
 
 
 data class WaterParameters(
@@ -82,7 +83,7 @@ class WaterTest {
 
                 )
         ).apply {
-            rotation.x = -Math.PI / 2
+            rotation.x = -PI / 2
             receiveShadows = true
         }.also ( scene::add )
 
