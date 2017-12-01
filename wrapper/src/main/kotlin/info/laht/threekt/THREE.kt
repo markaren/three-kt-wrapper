@@ -1,7 +1,5 @@
 package info.laht.threekt
 
-import info.laht.threekt.loaders.DefaultLoadingManager
-
 external object THREE {
 
         val REVISION: String
