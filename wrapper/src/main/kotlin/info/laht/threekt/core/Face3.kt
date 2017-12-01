@@ -26,7 +26,7 @@ open external class Face3 {
     var c: Int
 
     var normal: Vector3?
-    var verrexNormals: Array<Vector3>?
+    var vertexNormals: Array<Vector3>?
 
     var color: Color?
     var vertexColors: Array<Color>?

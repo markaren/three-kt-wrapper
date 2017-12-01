@@ -15,7 +15,6 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
-
 artifacts {
     archives javadocJar, sourcesJar
 }
