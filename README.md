@@ -268,10 +268,10 @@ class LoaderTest {
             })
         }
 
-        dat.GUI().apply {
-            val controller = add(this, "speed") as NumberController
+        dat.GUI().let {
+            val controller = it.add(this, "speed") as NumberController
             controller.min(0).max(10).step(0.1)
-            open()
+            it.open()
         }
 
         window.addEventListener("resize", {
