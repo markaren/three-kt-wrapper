@@ -17,6 +17,11 @@ open external class Object3D {
     }
 
     /**
+     * readonly – Unique number for this object instance.
+     */
+    val id: Int
+
+    /**
      * UUID of this object instance. This gets automatically assigned, so this shouldn't be edited.
      */
     val uuid: String
@@ -56,7 +61,20 @@ open external class Object3D {
      * The object's local # .scale . Default is Vector3( 1, 1, 1 ).
      */
     val scale: Vector3
+    /**
+     * This is passed to the shader and used to calculate the position of the object.
+     */
     val modelViewMatrix: Matrix4
+    /**
+     * This is passed to the shader and used to calculate lighting for the object.
+     * It is the transpose of the inverse of the upper left 3x3 sub-matrix of this object's modelViewMatrix.
+     *
+     * The reason for this special matrix is that simply using the modelViewMatrix could result in a non-unit
+     * length of normals (on scaling) or in a non-perpendicular direction (on non-uniform scaling).
+     *
+     * On the other hand the translation part of the modelViewMatrix is not relevant for the calculation of normals.
+     * Thus a Matrix3 is sufficient.
+     */
     val normalMatrix: Matrix3
 
     /**
@@ -69,7 +87,8 @@ open external class Object3D {
     var matrixWorld: Matrix4
 
     /**
-     * When this is set, it calculates the matrix of position, (rotation or quaternion) and scale every frame and also recalculates the matrixWorld property. Default is Object3D.DefaultMatrixAutoUpdate (true).
+     * When this is set, it calculates the matrix of position, (rotation or quaternion) and scale every frame and
+     * also recalculates the matrixWorld property. Default is Object3D.DefaultMatrixAutoUpdate (true).
      */
     var matrixAutoUpdate: Boolean
     /**
@@ -87,8 +106,15 @@ open external class Object3D {
      * Whether the object gets rendered into shadow map. Default is false.
      */
     var castShadow: Boolean
+    /**
+     * Whether the material receives shadows. Default is false.
+     */
     var receiveShadows: Boolean
 
+    /**
+     * When this is set, it checks every frame if the object is in the frustum of the camera before rendering the object.
+     * Otherwise the object gets renderered every frame even if it isn't visible. Default is true.
+     */
     var frustrumCulled: Boolean
     /**
      * This value allows the default rendering order of scene graph objects to be overridden although opaque and transparent objects remain sorted independently.
@@ -109,7 +135,14 @@ open external class Object3D {
     var onBeforeRender: () -> Unit
     var onAfterRender: () -> Unit
 
+    /**
+     * Applies the matrix transform to the object and updates the object's position, rotation and scale.
+     */
     fun applyMatrix(matrix: Matrix4)
+
+    /**
+     * Applies the rotation represented by the quaternion to the object.
+     */
     fun applyQuaternion(q: Quaternion)
     fun setRotationFromAxisAngle(axis: Vector3, angle: Number)
     fun setRotationFromEuler ( euler: Euler)
@@ -165,15 +198,54 @@ open external class Object3D {
      * @param z the z component of the world space position.
      */
     fun lookAt (x: Number, y: Number, z: Number)
+
+    /**
+     * Adds object as child of this object. An arbitrary number of objects may be added.
+     */
     fun add ( `object`: Object3D)
+
+    /**
+     * Removes object as child of this object. An arbitrary number of objects may be removed.
+     */
     fun remove ( `object`: Object3D)
+
+    /**
+     * Searches through the object's children and returns the first with a matching id.
+     * Note that ids are assigned in chronological order: 1, 2, 3, ..., incrementing by one for each new object.
+     * @param id Unique number of the object instance
+     */
     fun getObjectById ( id: Int ) : Object3D?
+
+    /**
+     * Searches through the object's children and returns the first with a matching name.
+     * Note that for most objects the # .name is an empty string by default. You will have to set
+     * it manually to make use of this method.
+     * @param name String to match to the children's Object3D.name property.
+     */
     fun getObjectByName ( name: String ) : Object3D?
     fun getObjectByProperty ( name : String, value: dynamic ) : Object3D?
+    /**
+     * Returns a vector representing the position of the object in world space.
+     */
     fun getWorldPosition ( optionalTarget: Vector3 = definedExternally ) : Vector3
+    /**
+     * Returns a quaternion representing the rotation of the object in world space.
+     */
     fun getWorldQuaternion (optionalTarget: Quaternion = definedExternally) : Quaternion
+
+    /**
+     * Returns the euler angles representing the rotation of the object in world space.
+     */
     fun getWorldRotation (optionalTarget: Euler = definedExternally) : Euler
+
+    /**
+     *
+    Returns a vector of the scaling factors applied to the object for each axis in world space.
+     */
     fun getWorldScale (optionalTarget: Vector3 = definedExternally) : Vector3
+    /**
+     * Returns a vector representing the direction of object's positive z-axis in world space
+     */
     open fun getWorldDirection (optionalTarget: Vector3 = definedExternally) : Vector3
     /**
      * Abstract (empty) method to get intersections between a casted ray and this object.
@@ -194,7 +266,7 @@ open external class Object3D {
      */
     fun traverseAncestors ( callback: (Object3D) -> Unit )
     /**
-     * Update the local transfor
+     * Update the local transform
      */
     fun updateMatrix ()
     /**
@@ -205,7 +277,7 @@ open external class Object3D {
     /**
      * Convert the object to JSON format.
      */
-    fun toJSON ( meta: String = definedExternally ) : dynamic
+    fun toJSON ( meta: String = definedExternally ) : Any
     open fun clone ( recursive:Boolean = definedExternally) : Object3D
     open fun copy (source: Object3D, recursive: Boolean = definedExternally ) : Object3D
 

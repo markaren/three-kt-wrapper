@@ -5,6 +5,9 @@ import info.laht.threekt.core.Geometry
 import info.laht.threekt.extras.core.Curve
 import info.laht.threekt.math.Vector3
 
+/**
+ * Creates a tube that extrudes along a 3d curve.
+ */
 open external class TubeGeometry(
 
         path: Curve<Vector3>,
@@ -21,6 +24,9 @@ open external class TubeGeometry(
 
 }
 
+/**
+ * Creates a tube that extrudes along a 3d curve.
+ */
 open external class TubeBufferGeometry(
 
         path: Curve<Vector3>,

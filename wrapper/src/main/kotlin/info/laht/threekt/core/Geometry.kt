@@ -5,20 +5,30 @@ package info.laht.threekt.core
 import info.laht.threekt.math.*
 import info.laht.threekt.objects.Mesh
 
+external interface MorphTarget {
+    val name: String
+    val vertices: Array<Vector3>
+}
+
+external interface MorphNormal {
+    val name: String
+    val normals: Array<Vector3>
+}
+
 open external class Geometry {
 
     val id: Int
 
-    var vertices: List<Vector3>
-    var colors: List<Color>
-    var faces: List<Face3>
-    var faceVertexUvs: List<List<Vector2>>
+    var vertices: Array<Vector3>
+    var colors: Array<Color>
+    var faces: Array<Face3>
+    var faceVertexUvs: Array<Array<Vector2>>
 
-    var morphTargets: dynamic
-    var morphNormals: dynamic
+    var morphTargets: Array<MorphTarget>
+    var morphNormals: Array<MorphNormal>
 
-    var skinWeights: dynamic
-    var skinIndices: dynamic
+    var skinWeights: Array<Vector4>
+    var skinIndices: Array<Vector4>
 
     var lineDistances: List<Double>
 
@@ -64,7 +74,7 @@ open external class Geometry {
 
     fun sortFacesByMaterialIndex()
 
-    fun toJSON() : dynamic
+    fun toJSON() : Any
 
     open fun clone() : Geometry
     fun copy(geometry: Geometry) : Geometry
