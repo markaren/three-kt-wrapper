@@ -7,7 +7,15 @@ import info.laht.threekt.math.Matrix4
 import info.laht.threekt.math.Sphere
 import info.laht.threekt.math.Vector3
 
-
+/**
+ * This class is an efficient alternative to Geometry, because it stores all data, including vertex positions,
+ * face indices, normals, colors, UVs, and custom attributes within buffers; this reduces the cost of passing all
+ * this data to the GPU.
+ * This also makes BufferGeometry harder to work with than Geometry; rather than accessing position data as Vector3
+ * objects, color data as Color objects, and so on, you have to access the raw data from the appropriate attribute buffer.
+ * This makes BufferGeometry best-suited for static objects where you don't need to manipulate the geometry much
+ * after instantiating it.
+ */
 open external class BufferGeometry {
 
      interface DrawRange {
@@ -79,6 +87,6 @@ open external class BufferGeometry {
     fun normalizeNormals()
     fun toNonIndexed(): BufferGeometry
 
-    fun toJSON() : dynamic
+    fun toJSON() : Any
 
 }

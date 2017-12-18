@@ -1,5 +1,6 @@
 import info.laht.threekt.THREE
 import info.laht.threekt.cameras.PerspectiveCamera
+import info.laht.threekt.core.Object3D
 import info.laht.threekt.external.controls.OrbitControls
 import info.laht.threekt.external.libs.Stats
 import info.laht.threekt.external.objects.Water

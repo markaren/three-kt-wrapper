@@ -3,6 +3,9 @@
 
 package info.laht.threekt.loaders
 
+/**
+ * Base class for implementing loaders.
+ */
 open external class Loader {
 
     object Handlers {
