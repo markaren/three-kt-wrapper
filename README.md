@@ -11,61 +11,58 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.laht.threekt/wrapper/badge.svg)](https://mvnrepository.com/artifact/info.laht.threekt/wrapper)
 
 
-
 ## HelloWorld
 
 ![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)
 
 ```html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Kotlin + three.js</title>
     <style>
-        body { margin: 0; }
-        canvas { width: 100%; height: 100% }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
     </style>
 </head>
     <body>
-    
+
+    <div id="container"></div>
+
         <script type="text/javascript" src="js/libs/stats.min.js"></script>
         <script type="text/javascript" src="js/libs/dat.gui.min.js"></script>
-        
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
         <script type="text/javascript" src="js/OrbitControls.js"></script>
-        
+
         <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
         <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
-        
+
         <script type="text/javascript" src="js/kt2js/example.js"></script>
-        
+
         <script type="text/javascript">
-        
             new example.HelloWorld().animate()
-        
         </script>
-    
+
     </body>
 </html>
-
 ```
 
 ```kotlin
-
 class HelloWorld {
 
-    val renderer: WebGLRenderer
-    val scene: Scene
-    val camera: PerspectiveCamera
-    val controls: OrbitControls
-    val cube: Mesh
-    val stats: Stats
+    private val renderer: WebGLRenderer
+    private val scene: Scene = Scene()
+    private val camera: PerspectiveCamera
+    private val controls: OrbitControls
+    private val cube: Mesh
+    private val stats: Stats = Stats()
 
     init {
 
-        scene = Scene()
         scene.add(AmbientLight())
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
@@ -75,13 +72,13 @@ class HelloWorld {
                 antialias = true
         )).apply {
             setClearColor(ColorConstants.skyblue, 1)
+            setSize(window.innerWidth, window.innerHeight)
         }
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body!!.appendChild(renderer.domElement)
-
-        stats = Stats()
-        document.body!!.appendChild(stats.dom)
+        document.getElementById("container")?.apply {
+            appendChild(renderer.domElement)
+            appendChild(stats.dom)
+        }
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -106,7 +103,7 @@ class HelloWorld {
 
         val geometry = BufferGeometry().setFromPoints(points)
 
-        var material = LineBasicMaterial().apply {
+        val material = LineBasicMaterial().apply {
             color.set(0xff0000)
         }
 
@@ -133,9 +130,7 @@ class HelloWorld {
     }
 
 }
-
 ```
-
 
 
 ## Loaders
@@ -144,49 +139,47 @@ class HelloWorld {
 
 
 ```html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Kotlin + three.js</title>
     <style>
-        body { margin: 0; }
-        canvas { width: 100%; height: 100% }
-        overflow:hidden;
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
     </style>
 </head>
     <body>
-    
-        <div id="container"></div>
-        
+
+        <div id="container">
+            <div id="gui"></div>
+        </div>
+
         <script type="text/javascript" src="js/libs/stats.min.js"></script>
         <script type="text/javascript" src="js/libs/dat.gui.min.js"></script>
-        
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
         <script type="text/javascript" src="js/OrbitControls.js"></script>
-        
+
         <script type="text/javascript" src="js/STLLoader.js"></script>
         <script type="text/javascript" src="js/OBJLoader.js"></script>
         <script type="text/javascript" src="js/LoaderSupport.js"></script>
         <script type="text/javascript" src="js/OBJLoader2.js"></script>
-        
-        
+
+
         <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
         <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
-        
+
         <script type="text/javascript" src="js/kt2js/example.js"></script>
-        
-        
+
         <script type="text/javascript">
-        
             new example.LoaderTest().animate()
-        
         </script>
-    
+
     </body>
 </html>
-
 ```
 
 ```kotlin
@@ -198,7 +191,7 @@ class LoaderTest {
     val scene: Scene = Scene()
     val camera: PerspectiveCamera
     val controls: OrbitControls
-    var models: MutableList<Mesh> = ArrayList()
+    val models: MutableList<Mesh> = ArrayList()
     var speed: Double = 1.0
     val clock: Clock = Clock(autoStart = true)
 
@@ -215,11 +208,18 @@ class LoaderTest {
                 antialias = true
         )).apply {
             setClearColor(ColorConstants.skyblue, alpha = 1)
+            setSize(window.innerWidth, window.innerHeight)
         }
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
-        
-        document.body?.apply {
+        dat.GUI(GUIParams(
+                closed = false
+        )).also {
+            (it.add(this, "speed") as NumberController).apply {
+                min(0).max(10).step(0.1)
+            }
+        }
+
+        document.getElementById("container")?.apply {
             appendChild(renderer.domElement)
             appendChild(stats.dom)
         }
@@ -236,7 +236,6 @@ class LoaderTest {
                     models.add(it)
                     scene.add(it)
                 }
-
             })
         }
 
@@ -269,17 +268,10 @@ class LoaderTest {
 
             })
         }
-
-        dat.GUI().let {
-            val controller = it.add(this, "speed") as NumberController
-            controller.min(0).max(10).step(0.1)
-            it.open()
-        }
-
+        
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
             camera.updateProjectionMatrix();
-
             renderer.setSize( window.innerWidth, window.innerHeight )
         }, false)
 

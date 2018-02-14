@@ -2,6 +2,7 @@ import info.laht.threekt.cameras.PerspectiveCamera
 import info.laht.threekt.core.Clock
 import info.laht.threekt.external.controls.OrbitControls
 import info.laht.threekt.external.libs.Stats
+import info.laht.threekt.external.libs.datgui.GUIParams
 import info.laht.threekt.external.libs.datgui.NumberController
 import info.laht.threekt.external.libs.datgui.dat
 import info.laht.threekt.external.loaders.OBJLoader
@@ -14,9 +15,9 @@ import info.laht.threekt.scenes.Scene
 import info.laht.threekt.objects.Mesh
 import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
+import org.w3c.dom.Element
 import kotlin.browser.document
 import kotlin.browser.window
-
 
 class LoaderTest {
 
@@ -25,7 +26,7 @@ class LoaderTest {
     val scene: Scene = Scene()
     val camera: PerspectiveCamera
     val controls: OrbitControls
-    var models: MutableList<Mesh> = ArrayList()
+    val models: MutableList<Mesh> = ArrayList()
     var speed: Double = 1.0
     val clock: Clock = Clock(autoStart = true)
 
@@ -42,11 +43,18 @@ class LoaderTest {
                 antialias = true
         )).apply {
             setClearColor(ColorConstants.skyblue, alpha = 1)
+            setSize(window.innerWidth, window.innerHeight)
         }
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
+        dat.GUI(GUIParams(
+                closed = false
+        )).also {
+            (it.add(this, "speed") as NumberController).apply {
+                min(0).max(10).step(0.1)
+            }
+        }
 
-        document.body?.apply {
+        document.getElementById("container")?.apply {
             appendChild(renderer.domElement)
             appendChild(stats.dom)
         }
@@ -63,7 +71,6 @@ class LoaderTest {
                     models.add(it)
                     scene.add(it)
                 }
-
             })
         }
 
@@ -97,16 +104,9 @@ class LoaderTest {
             })
         }
 
-        dat.GUI().let {
-            val controller = it.add(this, "speed") as NumberController
-            controller.min(0).max(10).step(0.1)
-            it.open()
-        }
-
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
             camera.updateProjectionMatrix();
-
             renderer.setSize( window.innerWidth, window.innerHeight )
         }, false)
 

@@ -1,6 +1,5 @@
 import info.laht.threekt.THREE
 import info.laht.threekt.cameras.PerspectiveCamera
-import info.laht.threekt.core.Object3D
 import info.laht.threekt.external.controls.OrbitControls
 import info.laht.threekt.external.libs.Stats
 import info.laht.threekt.external.objects.Water
@@ -15,7 +14,6 @@ import kotlin.browser.document
 import kotlin.browser.window
 import kotlin.math.PI
 
-
 data class WaterParameters(
         val oceanSide: Int,
         val size: Number,
@@ -25,22 +23,20 @@ data class WaterParameters(
 
 class WaterTest {
 
-    val stats: Stats = Stats()
-    val renderer: WebGLRenderer
-    val scene: Scene = Scene()
-    val camera: PerspectiveCamera
-    val controls: OrbitControls
-    var water: Water
-    val parameters: WaterParameters
+    private val stats: Stats = Stats()
+    private val renderer: WebGLRenderer
+    private val scene: Scene = Scene()
+    private val camera: PerspectiveCamera
+    private val controls: OrbitControls
+    private var water: Water
+    private val parameters = WaterParameters(
+            oceanSide = 2000,
+            size = 1.0,
+            distortionScale = 3.7,
+            alpha = 1.0
+    )
 
     init {
-
-        parameters = WaterParameters(
-                oceanSide = 2000,
-                size = 1.0,
-                distortionScale = 3.7,
-                alpha = 1.0
-        )
 
         val light = DirectionalLight(0xffffff, 0.5).apply {
                     position.set(0,0,0)
@@ -48,17 +44,16 @@ class WaterTest {
         }
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000)
-        camera.position.set(0.0, 5.0, -5.0)
+        camera.position.set(0.0, 50.0, -100.0)
 
         renderer = WebGLRenderer(WebGLRendererParams(
                 antialias = true
         )).apply {
             setClearColor(ColorConstants.skyblue, 1)
+            setSize(window.innerWidth, window.innerHeight)
         }
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
-
-        document.body?.apply {
+        document.getElementById("container")?.apply {
             appendChild(renderer.domElement)
             appendChild(stats.dom)
         }
@@ -66,9 +61,9 @@ class WaterTest {
         controls = OrbitControls(camera, renderer.domElement)
 
         water = Water(
-                parameters.oceanSide * 2,
-                parameters.oceanSide * 2,
-                WaterOptions(
+                width = parameters.oceanSide * 2,
+                height = parameters.oceanSide * 2,
+                options = WaterOptions(
                         textureWidth = 512,
                         textureHeight = 512,
                         waterNormals = TextureLoader().load("textures/waternormals.jpg", {

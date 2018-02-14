@@ -1,9 +1,6 @@
 
-
 dependencies {
-
     compile project(":wrapper")
-
 }
 
 task assembleWeb(type: Sync) {

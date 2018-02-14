@@ -20,16 +20,15 @@ import kotlin.browser.window
 
 class HelloWorld {
 
-    val renderer: WebGLRenderer
-    val scene: Scene
-    val camera: PerspectiveCamera
-    val controls: OrbitControls
-    val cube: Mesh
-    val stats: Stats
+    private val renderer: WebGLRenderer
+    private val scene: Scene = Scene()
+    private val camera: PerspectiveCamera
+    private val controls: OrbitControls
+    private val cube: Mesh
+    private val stats: Stats = Stats()
 
     init {
 
-        scene = Scene()
         scene.add(AmbientLight())
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
@@ -39,13 +38,13 @@ class HelloWorld {
                 antialias = true
         )).apply {
             setClearColor(ColorConstants.skyblue, 1)
+            setSize(window.innerWidth, window.innerHeight)
         }
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body!!.appendChild(renderer.domElement)
-
-        stats = Stats()
-        document.body!!.appendChild(stats.dom)
+        document.getElementById("container")?.apply {
+            appendChild(renderer.domElement)
+            appendChild(stats.dom)
+        }
 
         controls = OrbitControls(camera, renderer.domElement)
 
@@ -70,7 +69,7 @@ class HelloWorld {
 
         val geometry = BufferGeometry().setFromPoints(points)
 
-        var material = LineBasicMaterial().apply {
+        val material = LineBasicMaterial().apply {
             color.set(0xff0000)
         }
 
