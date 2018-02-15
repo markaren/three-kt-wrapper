@@ -1,5 +1,5 @@
 group 'info.laht.threekt'
-version '0.88-ALPHA-4-SNAPSHOT'
+version '0.88-ALPHA-5-SNAPSHOT'
 archivesBaseName = project.name
 
 apply plugin: 'maven'
@@ -40,7 +40,7 @@ uploadArchives {
                 name 'three.kt'
                 packaging 'jar'
                 // optionally artifactId can be defined here
-                description 'kotlin wrappers for threejs'
+                description 'kotlin wrappers for three.js (https://threejs.org/) '
                 url 'https://markaren.github.io/three.kt/'
 
                 scm {
