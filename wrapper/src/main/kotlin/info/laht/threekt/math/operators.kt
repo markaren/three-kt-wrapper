@@ -32,5 +32,15 @@ operator fun Vector3.minus(v : Vector3) = this.clone().sub(v)
 operator fun Vector3.times(v : Vector3) = this.clone().multiply(v)
 operator fun Vector3.timesAssign(v : Vector3) = this.let { times(v); Unit }
 
+operator fun Vector4.unaryMinus() = this.clone().negate()
+operator fun Vector4.plusAssign(v : Vector4) = this.let { add(v);  Unit}
+operator fun Vector4.plus(v : Vector4) = this.clone().add(v)
+operator fun Vector4.minusAssign(v : Vector4) = this.let { sub(v); Unit }
+operator fun Vector4.minus(v : Vector4) = this.clone().sub(v)
+
+operator fun Quaternion.times(q: Quaternion) = this.clone().multiply(q)
+operator fun Quaternion.timesAssign(q: Quaternion) = this.let { multiply(q); Unit }
+
+operator fun Matrix4.times(v: Vector3) = v.applyMatrix4(this).let { this.setPosition(it) }
 operator fun Matrix4.times(m: Matrix4) = this.clone().multiply(m)
 operator fun Matrix4.timesAssign(m: Matrix4) = this.let { multiply(m); Unit }
