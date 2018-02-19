@@ -51,6 +51,7 @@ gradle-app.setting
 .idea/**/gradle.xml
 .idea/**/libraries
 
+gradle.properties
 
 ## File-based project format:
 *.iws
