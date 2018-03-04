@@ -15,6 +15,10 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
+compileKotlin2Js {
+    kotlinOptions.moduleKind = "umd"
+}
+
 artifacts {
     archives javadocJar, sourcesJar
 }
