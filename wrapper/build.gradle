@@ -1,5 +1,5 @@
 group 'info.laht.threekt'
-version '0.88-ALPHA-5-SNAPSHOT'
+version '0.88-ALPHA-6-SNAPSHOT'
 archivesBaseName = project.name
 
 apply plugin: 'maven'
