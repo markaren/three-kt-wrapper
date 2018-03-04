@@ -153,9 +153,7 @@ class HelloWorld {
 </head>
     <body>
 
-        <div id="container">
-            <div id="gui"></div>
-        </div>
+        <div id="container"></div>
 
         <script type="text/javascript" src="js/libs/stats.min.js"></script>
         <script type="text/javascript" src="js/libs/dat.gui.min.js"></script>
@@ -302,13 +300,13 @@ class LoaderTest {
 <dependency>
   <groupId>info.laht.threekt</groupId>
   <artifactId>wrapper</artifactId>
-  <version>0.88-ALPHA-3</version>
+  <version>0.88-ALPHA-5</version>
 </dependency>
 ```
 
 ## Gradle
 ```groovy
-compile "info.laht.threekt:wrapper:0.88-ALPHA-3"
+compile "info.laht.threekt:wrapper:0.88-ALPHA-5"
 ```
 
 ### Snapshots
