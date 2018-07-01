@@ -1,6 +1,6 @@
 
 group 'info.laht.threekt'
-version '0.88-ALPHA-6-SNAPSHOT'
+version '0.88-ALPHA-6'
 
 task sourcesJar(type: Jar) {
     classifier = 'sources'
