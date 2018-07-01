@@ -49,6 +49,7 @@ class LoaderTest {
         dat.GUI(GUIParams(
                 closed = false
         )).also {
+            @Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
             (it.add(this, "speed") as NumberController).apply {
                 min(0).max(10).step(0.1)
             }
@@ -105,8 +106,8 @@ class LoaderTest {
         }
 
         window.addEventListener("resize", {
-            camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
-            camera.updateProjectionMatrix();
+            camera.aspect = window.innerWidth.toDouble() / window.innerHeight
+            camera.updateProjectionMatrix()
             renderer.setSize( window.innerWidth, window.innerHeight )
         }, false)
 

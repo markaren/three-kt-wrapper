@@ -1,9 +1,9 @@
 
-apply plugin: 'base' // To add "clean" task to the root project.
+println "Gradle version is ${GradleVersion.current().version}"
 
 buildscript {
 
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.2.50'
 
     repositories {
         mavenCentral()
