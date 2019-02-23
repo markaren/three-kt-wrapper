@@ -1,0 +1,80 @@
+buildscript {
+
+    repositories {
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.45"
+    }
+}
+
+group = "ru.mipt.npm"
+version = "0.1.0-SNAPSHOT"
+
+//apply plugin: 'kotlin-dce-js'
+apply plugin: 'org.jetbrains.kotlin.frontend'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile project(":wrapper")
+}
+
+kotlinFrontend {
+    downloadNodeJsVersion = "latest"
+    sourceMaps = true
+
+    npm {
+        //        dependency("kotlin", "1.1.0")
+        dependency("style-loader")
+        dependency("three")
+        dependency("three-orbitcontrols")
+        devDependency("karma")
+    }
+
+    webpackBundle {
+        bundleName = "main"
+        contentPath = file('src/main/web')
+        sourceMapEnabled = true
+        mode = 'development'
+//        mode = 'production'
+    }
+
+    define "PRODUCTION", false
+    //define "X", false
+
+//    rollupBundle {
+//        bundleName = "rolledUp"
+//    }
+
+//    allBundles {
+//        /* set properties for all bundles */
+//    }
+
+//    bundle("someBundler") {
+//        ....
+//    }
+}
+
+compileKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.outputFile = "$project.buildDir.path/js/${project.name}.js"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.moduleKind = 'umd'
+    kotlinOptions.main = "call"
+}
+
+compileTestKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.outputFile = "$project.buildDir.path/js-tests/${project.name}-tests.js"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.moduleKind = 'umd'
+//    kotlinOptions.moduleName = project.name + "-test"
+    kotlinOptions.main = "call"
+}
+
+

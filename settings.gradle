@@ -1,4 +1,5 @@
 rootProject.name = 'threekt'
-include 'example'
-include 'wrapper'
+include ':example'
+include ':wrapper'
+include ':frontend-demo'
 
