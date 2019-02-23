@@ -22,9 +22,7 @@
  * THE SOFTWARE.
  */
 
-@file:JsModule("three-orbitcontrols")
-@file:JsNonModule
-@file:JsQualifier("THREE")
+
 package info.laht.threekt.external.controls
 
 import info.laht.threekt.core.Object3D
@@ -39,6 +37,8 @@ import org.w3c.dom.Node
  *  Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
  *  Pan - right mouse, or arrow keys / touch: three finger swipe
  */
+@JsModule("three-orbitcontrols")
+@JsNonModule
 external class OrbitControls(`object`: Object3D, domElement: Node = definedExternally) {
 
     var `object`: Object3D

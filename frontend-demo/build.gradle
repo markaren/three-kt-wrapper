@@ -28,7 +28,7 @@ plugins.whenPluginAdded { plugin ->
     }
 }
 
-//apply plugin: 'kotlin-dce-js'
+apply plugin: 'kotlin-dce-js'
 apply plugin: 'org.jetbrains.kotlin.frontend'
 
 repositories {

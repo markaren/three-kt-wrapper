@@ -1,6 +1,5 @@
 package ru.mipt.npm.three
 
-import info.laht.threekt.THREE
 import info.laht.threekt.cameras.PerspectiveCamera
 import info.laht.threekt.core.BufferGeometry
 import info.laht.threekt.external.controls.OrbitControls
@@ -21,8 +20,6 @@ import org.w3c.dom.Element
 import kotlin.browser.window
 
 class ThreeKTDemoView(val root: Element) {
-
-    private val three = THREE
 
     private val renderer: WebGLRenderer
     private val scene: Scene = Scene()

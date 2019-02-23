@@ -13,6 +13,17 @@ buildscript {
 subprojects {
     apply plugin: 'kotlin2js'
 
+    group 'info.laht.threekt'
+    version '0.88-ALPHA-7'
+
+    compileKotlin2Js {
+        kotlinOptions {
+            moduleKind = "umd"
+            sourceMap = true
+            sourceMapEmbedSources = "always"
+        }
+    }
+
     repositories {
         mavenCentral()
         jcenter()

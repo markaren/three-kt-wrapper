@@ -1,6 +1,3 @@
-group 'info.laht.threekt'
-version '0.88-ALPHA-6'
-
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
@@ -9,14 +6,6 @@ task sourcesJar(type: Jar) {
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
-}
-
-compileKotlin2Js {
-    kotlinOptions {
-        moduleKind = "commonjs"
-        sourceMap = true
-        sourceMapEmbedSources = "always"
-    }
 }
 
 if (hasProperty("ossrhUsername") && hasProperty("ossrhPassword")) {
