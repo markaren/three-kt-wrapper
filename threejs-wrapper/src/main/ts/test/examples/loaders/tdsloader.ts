@@ -1,4 +1,4 @@
-import * as THREE from '../../../index'
+import * as THREE from '../../..'
 
 const onSuccess = (object3D: THREE.Object3D) => {};
 const onProgress = (progress: ProgressEvent) => {};

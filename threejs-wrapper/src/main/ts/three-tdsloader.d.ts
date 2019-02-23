@@ -1,6 +1,6 @@
 // https://github.com/codetheorist/three-tds-loader/blob/master/src/index.js
 
-import * as THREE from "./index";
+import * as THREE from ".";
 
 export class TDSLoader {
   constructor(three: typeof THREE);
