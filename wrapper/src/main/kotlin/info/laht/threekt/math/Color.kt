@@ -27,7 +27,7 @@
 package info.laht.threekt.math
 
 
-open external class Color {
+external class Color {
 
     constructor()
     constructor(string: String)
@@ -44,14 +44,14 @@ open external class Color {
     fun set(value: String): Color
 
     fun setScalar(scalar: Double): Color
-    fun setHex(hex: Int) : Color
+    fun setHex(hex: Int): Color
     fun setRGB(r: Number, g: Number, b: Number): Color
     fun setHSL(h: Number, s: Number, l: Number): Color
 
-    fun clone() : Color
-    fun copy(color: Color) : Color
+    fun clone(): Color
+    fun copy(color: Color): Color
 
-    fun getHex() : Int
-    fun getHexString() : String
+    fun getHex(): Int
+    fun getHexString(): String
 
 }

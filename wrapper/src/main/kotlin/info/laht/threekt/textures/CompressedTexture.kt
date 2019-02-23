@@ -31,19 +31,19 @@ package info.laht.threekt.textures
  *
  * For use with the CompressedTextureLoader.
  */
-open external class CompressedTexture: Texture {
-
-     constructor(mipmaps: Array<dynamic>,
-                 width: Int,
-                 height: Int,
-                 format: Int = definedExternally,
-                 type: Int,
-                 mapping: Int= definedExternally,
-                 wrapS: Int = definedExternally,
-                 wrapT: Int = definedExternally,
-                 magFilter: Int = definedExternally,
-                 minFilter: Int = definedExternally,
-                 anisotropy: Int = definedExternally)
+external class CompressedTexture(
+    mipmaps: Array<dynamic>,
+    width: Int,
+    height: Int,
+    format: Int = definedExternally,
+    type: Int,
+    mapping: Int = definedExternally,
+    wrapS: Int = definedExternally,
+    wrapT: Int = definedExternally,
+    magFilter: Int = definedExternally,
+    minFilter: Int = definedExternally,
+    anisotropy: Int = definedExternally
+) : Texture {
 
     /**
      * False by default. Flipping textures does not work for compressed textures.

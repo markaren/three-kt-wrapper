@@ -26,9 +26,9 @@
 
 package info.laht.threekt.materials
 
-open external class RawShaderMaterial : ShaderMaterial {
+external class RawShaderMaterial : ShaderMaterial {
 
-    override fun clone() : RawShaderMaterial
-    fun copy(material: RawShaderMaterial) : RawShaderMaterial
+    override fun clone(): RawShaderMaterial
+    fun copy(material: RawShaderMaterial): RawShaderMaterial
 
 }

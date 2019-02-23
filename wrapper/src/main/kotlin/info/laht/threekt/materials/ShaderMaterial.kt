@@ -57,8 +57,8 @@ open external class ShaderMaterial : Material {
 
     var index0AttributeName: String
 
-    override fun clone() : ShaderMaterial
-    fun copy(material: ShaderMaterial) : ShaderMaterial
+    override fun clone(): ShaderMaterial
+    fun copy(material: ShaderMaterial): ShaderMaterial
 
-    
+
 }

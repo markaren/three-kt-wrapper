@@ -24,22 +24,25 @@ external interface GLTFOnLoadCallback {
  * A glTF asset may deliver one or more scenes, including meshes, materials, textures, skins,
  * skeletons, morph targets, animations, lights, and/or cameras.
  */
-open external class GLTFLoader(
-        manager: LoadingManager = definedExternally
+external class GLTFLoader(
+    manager: LoadingManager = definedExternally
 ) {
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
      */
-    fun load(url: String,
-             onLoad: (GLTFOnLoadCallback) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
-             onError: (dynamic) -> Unit = definedExternally)
+    fun load(
+        url: String,
+        onLoad: (GLTFOnLoadCallback) -> Unit,
+        onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+        onError: (dynamic) -> Unit = definedExternally
+    )
 
     /**
      * Set the base path for additional resources.
      */
     fun setPath(path: String)
+
     fun setCrossOrigin(value: String)
 
     /**

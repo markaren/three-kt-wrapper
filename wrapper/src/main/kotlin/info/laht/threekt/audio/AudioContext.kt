@@ -13,7 +13,7 @@ external object AudioContext {
     /**
      * Return the value of the variable context in the outer scope, if defined, otherwise set it to a new AudioContext.
      */
-    fun getContext() : dynamic
+    fun getContext(): dynamic
 
     /**
      * Set the variable context in the outer scope to value.

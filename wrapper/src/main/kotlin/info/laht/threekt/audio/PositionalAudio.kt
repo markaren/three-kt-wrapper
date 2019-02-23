@@ -7,9 +7,7 @@ package info.laht.threekt.audio
  *
  * This uses the Web Audio API.
  */
-open external class PositionalAudio(
-        listener: AudioListener
-) : Audio {
+external class PositionalAudio(listener: AudioListener) : Audio {
 
     /**
      * The PositionalAudio's PannerNode.
@@ -24,41 +22,41 @@ open external class PositionalAudio(
     /**
      * Returns the value of panner.refDistance.
      */
-    fun getRefDistance (): Double
+    fun getRefDistance(): Double
 
     /**
      * Sets the value of panner.refDistance.
      */
-    fun setRefDistance ( value: Number )
+    fun setRefDistance(value: Number)
 
     /**
      * Returns the value of panner.rolloffFactor.
      */
-    fun getRolloffFactor (): Double
+    fun getRolloffFactor(): Double
 
     /**
      * Sets the value of panner.rolloffFactor.
      */
-    fun setRolloffFactor ( value: Number )
+    fun setRolloffFactor(value: Number)
 
     /**
      * Returns the value of panner.distanceModel.
      */
-    fun getDistanceModel () : String
+    fun getDistanceModel(): String
 
     /**
      * Sets the value of panner.distanceModel.
      */
-    fun setDistanceModel ( value: String )
+    fun setDistanceModel(value: String)
 
     /**
      * Returns the value of panner.maxDistance.
      */
-    fun getMaxDistance () : Double
+    fun getMaxDistance(): Double
 
     /**
      * Sets the value of panner.maxDistance.
      */
-    fun setMaxDistance ( value: Number )
-    
+    fun setMaxDistance(value: Number)
+
 }

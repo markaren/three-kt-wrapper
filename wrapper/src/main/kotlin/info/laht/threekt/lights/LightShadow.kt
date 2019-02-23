@@ -30,9 +30,7 @@ import info.laht.threekt.cameras.Camera
 import info.laht.threekt.math.Matrix4
 import info.laht.threekt.math.Vector2
 
-open external class LightShadow {
-
-    constructor(camera: Camera)
+open external class LightShadow(camera: Camera) {
 
     var camera: Camera
 
@@ -43,7 +41,7 @@ open external class LightShadow {
 
     var matrix: Matrix4
 
-    fun clone() : LightShadow
-    fun copy(source: LightShadow) : LightShadow
-    fun toJSON() : String
+    fun clone(): LightShadow
+    fun copy(source: LightShadow): LightShadow
+    fun toJSON(): String
 }

@@ -77,7 +77,7 @@ external object ShaderChunk {
     val logdepthbuf_vertex: String
     val map_fragment: String
     val map_pars_fragment: String
-    val  map_particle_fragment: String
+    val map_particle_fragment: String
     val map_particle_pars_fragment: String
     val metalnessmap_fragment: String
     val metalnessmap_pars_fragment: String

@@ -26,11 +26,11 @@
 
 package info.laht.threekt.math
 
-open external class Vector4(
-        x: Number = definedExternally,
-        y: Number = definedExternally,
-        z: Number = definedExternally,
-        w: Number = definedExternally
+external class Vector4(
+    x: Number = definedExternally,
+    y: Number = definedExternally,
+    z: Number = definedExternally,
+    w: Number = definedExternally
 ) {
 
     var x: Double
@@ -129,13 +129,13 @@ open external class Vector4(
     /**
      * Returns a new Vector4 with the same x, y, z and w values as this one.
      */
-    fun clone() : Vector4
+    fun clone(): Vector4
 
 
     /**
      * Copies the values of the passed Vector4's x, y, z and w properties to this Vector4.
      */
-    fun copy(source: Vector4) : Vector4
+    fun copy(source: Vector4): Vector4
 
     /**
      * Checks for strict equality of this vector and v.

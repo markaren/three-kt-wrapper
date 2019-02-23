@@ -37,11 +37,11 @@ import info.laht.threekt.lights.Light
  * @param size The size of the mesh used to visualize the light.
  * @param color (optional) if this is not the set the helper will take the color of the light.
  */
-open external class HemisphereLightHelper(
-        light: HemiSphereLight,
-        size: Number,
-        color: Int = definedExternally
-): Object3D {
+external class HemisphereLightHelper(
+    light: HemiSphereLight,
+    size: Number,
+    color: Int = definedExternally
+) : Object3D {
 
     var light: Light
 

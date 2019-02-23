@@ -26,7 +26,7 @@
 
 package info.laht.threekt.math
 
-open external class Spherical {
+external class Spherical {
 
     constructor()
     constructor(radius: Number, phi: Number, theta: Number)
@@ -36,9 +36,9 @@ open external class Spherical {
     var theta: Double
 
     fun set(radius: Double, phi: Double, theta: Double)
-    fun clone() : Spherical
-    fun copy(other: Spherical) : Spherical
-    fun makeSafe() : Spherical
-    fun setFromVector3(vec3: Vector3) : Spherical
+    fun clone(): Spherical
+    fun copy(other: Spherical): Spherical
+    fun makeSafe(): Spherical
+    fun setFromVector3(vec3: Vector3): Spherical
 
 }

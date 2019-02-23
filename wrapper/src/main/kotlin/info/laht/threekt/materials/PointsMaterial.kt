@@ -29,7 +29,7 @@ package info.laht.threekt.materials
 import info.laht.threekt.math.Color
 import info.laht.threekt.textures.Texture
 
-open external class PointsMaterial : Material {
+external class PointsMaterial : Material {
 
     var color: Color
 
@@ -38,7 +38,7 @@ open external class PointsMaterial : Material {
     var size: Number
     var sizeAttentuation: Boolean
 
-    override fun clone() : PointsMaterial
-    fun copy(material: PointsMaterial) : PointsMaterial
+    override fun clone(): PointsMaterial
+    fun copy(material: PointsMaterial): PointsMaterial
 
 }

@@ -30,7 +30,8 @@ import info.laht.threekt.math.Color
 import info.laht.threekt.math.Vector2
 import info.laht.threekt.textures.Texture
 
-open external class MeshPhongMaterial : Material {
+
+external class MeshPhongMaterial : Material {
 
     var color: Color
     var specular: Color
@@ -76,8 +77,8 @@ open external class MeshPhongMaterial : Material {
     var morphTargets: Boolean
     var morphNormals: Boolean
 
-    override fun clone() : MeshPhongMaterial
-    fun copy(source: MeshPhongMaterial) : MeshPhongMaterial
+    override fun clone(): MeshPhongMaterial
+    fun copy(source: MeshPhongMaterial): MeshPhongMaterial
 
 
 }

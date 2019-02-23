@@ -27,17 +27,24 @@
 package info.laht.threekt.math
 
 
-
-open external class Quaternion(
-        x: Number = definedExternally,
-        y: Number = definedExternally,
-        z: Number = definedExternally,
-        w: Number = definedExternally
-        ) {
+external class Quaternion(
+    x: Number = definedExternally,
+    y: Number = definedExternally,
+    z: Number = definedExternally,
+    w: Number = definedExternally
+) {
 
     companion object {
-        fun slerp(qa: Quaternion, qb: Quaternion, qm: Quaternion, t: Number) : Quaternion
-        fun slerpFlat(dst: DoubleArray, dstOffset: Int, src0: DoubleArray, srcOffset0: Int, src1: DoubleArray, srcOffset1: Int, t: Number)
+        fun slerp(qa: Quaternion, qb: Quaternion, qm: Quaternion, t: Number): Quaternion
+        fun slerpFlat(
+            dst: DoubleArray,
+            dstOffset: Int,
+            src0: DoubleArray,
+            srcOffset0: Int,
+            src1: DoubleArray,
+            srcOffset1: Int,
+            t: Number
+        )
     }
 
     var x: Double
@@ -46,7 +53,7 @@ open external class Quaternion(
     var w: Double
 
     fun set(x: Number, y: Number, z: Number, w: Number)
-    fun clone() : Quaternion
+    fun clone(): Quaternion
     fun copy(quaternion: Quaternion): Quaternion
 
     fun setFromEuler(euler: Euler, update: Boolean = definedExternally)
@@ -54,12 +61,12 @@ open external class Quaternion(
     fun setFromRotationMatrix(m: Matrix4): Quaternion
     fun setFromUnitVectors(vFrom: Vector3, vTo: Vector3): Vector3
 
-    fun inverse() : Quaternion
-    fun conjugate() : Quaternion
+    fun inverse(): Quaternion
+    fun conjugate(): Quaternion
 
-    fun dot(q : Quaternion): Double
-    fun lengthSq() : Double
-    fun length() : Double
+    fun dot(q: Quaternion): Double
+    fun lengthSq(): Double
+    fun length(): Double
     fun normalize(): Quaternion
 
     fun multiply(q: Quaternion): Quaternion
@@ -68,10 +75,10 @@ open external class Quaternion(
 
     fun slerp(qb: Quaternion, t: Number): Quaternion
 
-    fun equals(quaternion: Quaternion) : Boolean
+    fun equals(quaternion: Quaternion): Boolean
 
-    fun fromArray(array: DoubleArray, offset: Int = definedExternally) : Quaternion
-    fun toArray(array: DoubleArray = definedExternally, offset: Int  = definedExternally) : DoubleArray
+    fun fromArray(array: DoubleArray, offset: Int = definedExternally): Quaternion
+    fun toArray(array: DoubleArray = definedExternally, offset: Int = definedExternally): DoubleArray
 
     fun onChange(callback: () -> Unit)
 

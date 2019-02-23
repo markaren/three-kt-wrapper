@@ -60,14 +60,13 @@ open external class Camera : Object3D {
     var projectionMatrix: Matrix4
 
 
-
     /**
      * Returns a Vector3 representing the world space direction in which the camera is looking.
      *
      * Note: This is not the camera’s positive, but its negative z-axis, in contrast to getWorldDirection of the base class (Object3D).
      *
      */
-    fun getWorldDirection() : Vector3
+    fun getWorldDirection(): Vector3
 
     /**
      * Returns a Vector3 representing the world space direction in which the camera is looking.
@@ -77,7 +76,7 @@ open external class Camera : Object3D {
      * If an optionalTarget vector is specified, the result will be copied into this vector (which can be reused in this way),
      * otherwise a new vector will be created.
      */
-    override fun getWorldDirection(optionalTarget: Vector3) : Vector3
+    override fun getWorldDirection(optionalTarget: Vector3): Vector3
 
     override fun updateMatrixWorld(force: Boolean)
 

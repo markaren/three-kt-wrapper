@@ -7,18 +7,18 @@ import info.laht.threekt.external.objects.WaterOptions
 import info.laht.threekt.lights.DirectionalLight
 import info.laht.threekt.loaders.TextureLoader
 import info.laht.threekt.math.ColorConstants
-import info.laht.threekt.scenes.Scene
 import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
+import info.laht.threekt.scenes.Scene
 import kotlin.browser.document
 import kotlin.browser.window
 import kotlin.math.PI
 
 data class WaterParameters(
-        val oceanSide: Int,
-        val size: Number,
-        val distortionScale: Number,
-        val alpha: Number
+    val oceanSide: Int,
+    val size: Number,
+    val distortionScale: Number,
+    val alpha: Number
 )
 
 class WaterTest {
@@ -30,25 +30,27 @@ class WaterTest {
     private val controls: OrbitControls
     private var water: Water
     private val parameters = WaterParameters(
-            oceanSide = 2000,
-            size = 1.0,
-            distortionScale = 3.7,
-            alpha = 1.0
+        oceanSide = 2000,
+        size = 1.0,
+        distortionScale = 3.7,
+        alpha = 1.0
     )
 
     init {
 
         val light = DirectionalLight(0xffffff, 0.5).apply {
-                    position.set(0,0,0)
-                    scene::add
+            position.set(0, 0, 0)
+            scene::add
         }
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight.toDouble(), 0.1, 1000)
         camera.position.set(0.0, 50.0, -100.0)
 
-        renderer = WebGLRenderer(WebGLRendererParams(
+        renderer = WebGLRenderer(
+            WebGLRendererParams(
                 antialias = true
-        )).apply {
+            )
+        ).apply {
             setClearColor(ColorConstants.skyblue, 1)
             setSize(window.innerWidth, window.innerHeight)
         }
@@ -61,32 +63,32 @@ class WaterTest {
         controls = OrbitControls(camera, renderer.domElement)
 
         water = Water(
-                width = parameters.oceanSide * 2,
-                height = parameters.oceanSide * 2,
-                options = WaterOptions(
-                        textureWidth = 512,
-                        textureHeight = 512,
-                        waterNormals = TextureLoader().load("textures/waternormals.jpg", {
-                            it.wrapS = THREE.RepeatWrapping
-                            it.wrapT = THREE.RepeatWrapping
-                        }),
-                        alpha = parameters.alpha,
-                        sunDirection = light.position.clone().normalize(),
-                        waterColor = 0x001e0f,
-                        distortionScale = parameters.distortionScale,
-                        fog = scene.asDynamic().fog != undefined
+            width = parameters.oceanSide * 2,
+            height = parameters.oceanSide * 2,
+            options = WaterOptions(
+                textureWidth = 512,
+                textureHeight = 512,
+                waterNormals = TextureLoader().load("textures/waternormals.jpg", {
+                    it.wrapS = THREE.RepeatWrapping
+                    it.wrapT = THREE.RepeatWrapping
+                }),
+                alpha = parameters.alpha,
+                sunDirection = light.position.clone().normalize(),
+                waterColor = 0x001e0f,
+                distortionScale = parameters.distortionScale,
+                fog = scene.asDynamic().fog != undefined
 
-                )
+            )
         ).apply {
             rotation.x = -PI / 2
             receiveShadows = true
-        }.also ( scene::add )
+        }.also(scene::add)
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
             camera.updateProjectionMatrix();
 
-            renderer.setSize( window.innerWidth, window.innerHeight )
+            renderer.setSize(window.innerWidth, window.innerHeight)
         }, false)
 
     }

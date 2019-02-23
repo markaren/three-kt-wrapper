@@ -1,4 +1,3 @@
-
 group 'info.laht.threekt'
 version '0.88-ALPHA-6'
 
@@ -13,7 +12,11 @@ task javadocJar(type: Jar) {
 }
 
 compileKotlin2Js {
-    kotlinOptions.moduleKind = "umd"
+    kotlinOptions {
+        moduleKind = "umd"
+        sourceMap = true
+        sourceMapEmbedSources = "always"
+    }
 }
 
 if (hasProperty("ossrhUsername") && hasProperty("ossrhPassword")) {

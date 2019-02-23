@@ -26,7 +26,7 @@
 
 package info.laht.threekt.math
 
-open external class Plane {
+external class Plane {
 
     constructor()
     constructor(normal: Vector3, constant: Double)
@@ -36,8 +36,8 @@ open external class Plane {
 
     fun set(normal: Vector3, constant: Number)
 
-    fun clone() : Plane
-    fun copy(plane: Plane) : Plane
+    fun clone(): Plane
+    fun copy(plane: Plane): Plane
 
 }
 

@@ -32,13 +32,13 @@ import info.laht.threekt.math.Vector3
 import info.laht.threekt.objects.Line
 import info.laht.threekt.objects.Mesh
 
-open external class ArrowHelper(
-        dir: Vector3,
-        origin: Vector3,
-        length: Number,
-        color: Int = definedExternally,
-        headLength: Number = definedExternally,
-        headWidth: Number = definedExternally
+external class ArrowHelper(
+    dir: Vector3,
+    origin: Vector3,
+    length: Number,
+    color: Int = definedExternally,
+    headLength: Number = definedExternally,
+    headWidth: Number = definedExternally
 ) : Object3D {
 
     var line: Line

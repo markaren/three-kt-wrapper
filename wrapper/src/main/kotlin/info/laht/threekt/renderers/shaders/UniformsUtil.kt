@@ -30,7 +30,7 @@ import info.laht.threekt.core.Uniform
 
 external object UniformsUtil {
 
-    fun merge(uniforms: Array<Uniform>) : dynamic
-    fun clone(uniforms_src: Uniform) : dynamic
+    fun merge(uniforms: Array<Uniform>): dynamic
+    fun clone(uniforms_src: Uniform): dynamic
 
 }

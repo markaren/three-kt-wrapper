@@ -35,7 +35,7 @@ external object Detector {
     val workers: Boolean
     val fileapi: Boolean
 
-    fun getWebGLErrorMessage() : Element
+    fun getWebGLErrorMessage(): Element
     fun addGetWebGLMessage(parameters: dynamic)
 
 }

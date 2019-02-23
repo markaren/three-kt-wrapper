@@ -34,11 +34,11 @@ open external class Material {
      */
     val id: Int
 
-    var uuid : String
+    var uuid: String
     /**
      * Optional name of the object (doesn't need to be unique). Default is an empty string.
      */
-    var name : String
+    var name: String
     var type: String
 
     /**
@@ -121,7 +121,7 @@ open external class Material {
 
     fun toJSON(meta: String = definedExternally): String
 
-    open fun clone() : Material
+    open fun clone(): Material
     fun copy(material: Material): Material
 
     fun dispose()

@@ -35,7 +35,7 @@ package info.laht.threekt.core
  *
  * All classes that inherit from Object3D have an Object3D.layers property which is an instance of this class.
  */
-open external class Layers {
+external class Layers {
 
     /**
      * A bit mask storing which of the 32 layers this layers object is currently a member of.
@@ -53,20 +53,22 @@ open external class Layers {
      * @param layer an integer from 0 to 31.
      */
     fun enable(layer: Int)
+
     /**
      * Toggle membership of layer.
      * @layer - an integer from 0 to 31.
      */
-    fun toggle ( layer: Int )
+    fun toggle(layer: Int)
 
     /**
      * Remove membership of this layer.
      * @layer - an integer from 0 to 31.
      */
-    fun disable ( layer: Int )
+    fun disable(layer: Int)
+
     /**
      * Returns true if this and the passed layers object are members of the same set of layers.
      * @param layers a Layers object
      */
-    fun test ( layers: Int )
+    fun test(layers: Int)
 }

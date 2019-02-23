@@ -29,7 +29,7 @@ package info.laht.threekt.renderers
 import info.laht.threekt.math.Vector4
 import info.laht.threekt.textures.Texture
 
-open external class WebGLRenderTarget {
+external class WebGLRenderTarget {
 
     constructor(width: Int, height: Int, options: WebGLRenderTargetOptions = definedExternally)
 
@@ -51,7 +51,7 @@ open external class WebGLRenderTarget {
     fun setSize(width: Int, height: Int)
 
     fun clone(): WebGLRenderTarget
-    fun copy(source: WebGLRenderTarget) : WebGLRenderTarget
+    fun copy(source: WebGLRenderTarget): WebGLRenderTarget
 
     fun dispose()
 

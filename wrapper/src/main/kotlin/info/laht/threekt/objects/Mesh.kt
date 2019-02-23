@@ -29,6 +29,7 @@ package info.laht.threekt.objects
 import info.laht.threekt.core.*
 import info.laht.threekt.materials.Material
 
+
 open external class Mesh : Object3D {
 
     constructor(geometry: Geometry, material: Material)
@@ -39,9 +40,9 @@ open external class Mesh : Object3D {
 
     var drawMode: Int
 
-    fun copy(source: Mesh) : Mesh
+    fun copy(source: Mesh): Mesh
     fun updateMorphTargets()
-    fun raycast(raycaster: Raycaster, intersects: List<Intersect> )
-    fun clone() : Mesh
+    fun raycast(raycaster: Raycaster, intersects: List<Intersect>)
+    fun clone(): Mesh
 
 }

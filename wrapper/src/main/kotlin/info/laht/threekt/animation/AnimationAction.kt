@@ -4,10 +4,10 @@ package info.laht.threekt.animation
 
 import info.laht.threekt.core.Object3D
 
-open external class AnimationAction(
-        mixer: AnimationMixer,
-        clip: AnimationClip,
-        localRoot: Object3D
+external class AnimationAction(
+    mixer: AnimationMixer,
+    clip: AnimationClip,
+    localRoot: Object3D
 ) {
 
     /**
@@ -61,67 +61,67 @@ open external class AnimationAction(
 
     // State & Scheduling
 
-    fun play () : AnimationAction
+    fun play(): AnimationAction
 
-    fun stop () : AnimationAction
+    fun stop(): AnimationAction
 
-    fun reset () : AnimationAction
+    fun reset(): AnimationAction
 
-    fun isRunning () : Boolean
+    fun isRunning(): Boolean
 
     // return true when play has been called
-    fun isScheduled (): Boolean
+    fun isScheduled(): Boolean
 
-    fun startAt ( time: Number ) : AnimationAction
-    fun setLoop ( mode: Int, repetitions: Int ) : AnimationAction
+    fun startAt(time: Number): AnimationAction
+    fun setLoop(mode: Int, repetitions: Int): AnimationAction
 
     // Weight
 
     // set the weight stopping any scheduled fading
     // although .enabled = false yields an effective weight of zero, this
     // method does *not* change .enabled, because it would be confusing
-    fun setEffectiveWeight ( weight: Number )
+    fun setEffectiveWeight(weight: Number)
 
     // return the weight considering fading and .enabled
-    fun getEffectiveWeight ()
+    fun getEffectiveWeight()
 
-    fun fadeIn ( duration: Number ) : AnimationAction
+    fun fadeIn(duration: Number): AnimationAction
 
-    fun fadeOut ( duration: Number ) : AnimationAction
+    fun fadeOut(duration: Number): AnimationAction
 
-    fun crossFadeFrom ( fadeOutAction: AnimationAction, duration: Number, warp: Boolean )
+    fun crossFadeFrom(fadeOutAction: AnimationAction, duration: Number, warp: Boolean)
 
-    fun crossFadeTo ( fadeInAction: AnimationAction, duration: Number, warp: Boolean )
+    fun crossFadeTo(fadeInAction: AnimationAction, duration: Number, warp: Boolean)
 
-    fun stopFading () : AnimationAction
+    fun stopFading(): AnimationAction
 
     // Time Scale Control
 
     // set the time scale stopping any scheduled warping
     // although .paused = true yields an effective time scale of zero, this
     // method does *not* change .paused, because it would be confusing
-    fun setEffectiveTimeScale ( timeScale: Number )  : AnimationAction
+    fun setEffectiveTimeScale(timeScale: Number): AnimationAction
 
     // return the time scale considering warping and .paused
-    fun getEffectiveTimeScale () : Double
+    fun getEffectiveTimeScale(): Double
 
-    fun setDuration ( duration: Number ) : AnimationAction
+    fun setDuration(duration: Number): AnimationAction
 
-    fun syncWith ( action: AnimationAction )
+    fun syncWith(action: AnimationAction)
 
-    fun halt ( duration: Number ) : AnimationAction
+    fun halt(duration: Number): AnimationAction
 
-    fun warp ( startTimeScale: Number, endTimeScale: Number, duration: Number ) : AnimationAction
+    fun warp(startTimeScale: Number, endTimeScale: Number, duration: Number): AnimationAction
 
-    fun stopWarping () : AnimationAction
+    fun stopWarping(): AnimationAction
 
     // Object Accessors
 
-    fun getMixer () : AnimationMixer
+    fun getMixer(): AnimationMixer
 
-    fun getClip () : AnimationClip
+    fun getClip(): AnimationClip
 
-    fun getRoot () : Object3D
-    
+    fun getRoot(): Object3D
+
 
 }

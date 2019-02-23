@@ -32,7 +32,7 @@ import org.w3c.xhr.XMLHttpRequest
 /**
  * Class for loading a texture. This uses the ImageLoader internally for loading files.
  */
-open external class TextureLoader {
+external class TextureLoader {
 
     constructor(manager: LoadingManager = definedExternally)
 
@@ -62,10 +62,12 @@ open external class TextureLoader {
      * @param onProgress Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
      * @param onError Will be called when load errors.
      */
-    fun load(url: String,
-             onLoad: (Texture) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
-             onError: (dynamic) -> Unit = definedExternally) : Texture
+    fun load(
+        url: String,
+        onLoad: (Texture) -> Unit,
+        onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+        onError: (dynamic) -> Unit = definedExternally
+    ): Texture
 
     /**
      * Set the .crossOrigin attribute.

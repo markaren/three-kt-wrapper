@@ -34,9 +34,9 @@ import info.laht.threekt.core.Object3D
  * @param min (optional) Vector3 representing the lower (x, y, z) boundary of the box. Default is ( + Infinity, + Infinity, + Infinity ).
  * @param max (optional) Vector3 representing the lower upper (x, y, z) boundary of the box. Default is ( - Infinity, - Infinity, - Infinity ).
  */
-open external class Box3(
-        min: Vector3  = definedExternally,
-        max: Vector3 = definedExternally
+external class Box3(
+    min: Vector3 = definedExternally,
+    max: Vector3 = definedExternally
 ) {
 
     /**
@@ -55,13 +55,13 @@ open external class Box3(
     /**
      * Sets the lower and upper (x, y, z) boundaries of this box.
      */
-    fun set(min: Vector3, max: Vector3) : Box3
+    fun set(min: Vector3, max: Vector3): Box3
 
     /**
      * Sets the upper and lower bounds of this box to include all of the data in array.
      * @param array An array of position data that the resulting box will envelop.
      */
-    fun setFromArray(array: DoubleArray) : Box3
+    fun setFromArray(array: DoubleArray): Box3
 
     fun setFromPoints(points: List<Vector3>): Box3
 
@@ -77,22 +77,22 @@ open external class Box3(
      * accounting for the object's, and children's, world transforms.
      * @param `object` Object3D to compute the bounding box of.
      */
-    fun setFromObject(`object`: Object3D) : Box3
+    fun setFromObject(`object`: Object3D): Box3
 
     /**
      * Makes this box empty.
      */
-    fun makeEmpty() : Box3
+    fun makeEmpty(): Box3
 
     /**
      * Returns true if this box includes zero points within its bounds.
     Note that a box with equal lower and upper bounds still includes one point, the one both bounds share.
      */
-    fun isEmpty() : Boolean
+    fun isEmpty(): Boolean
 
-    fun getCenter(optionalTarget: Vector3 = definedExternally) : Vector3
+    fun getCenter(optionalTarget: Vector3 = definedExternally): Vector3
 
-    fun getSize(optionalTarget: Vector3 = definedExternally) : Vector3
+    fun getSize(optionalTarget: Vector3 = definedExternally): Vector3
 
     fun expandByPoint(point: Vector3): Box3
 
@@ -100,27 +100,27 @@ open external class Box3(
 
     fun expandByScalar(scalar: Number): Box3
 
-    fun expandByObject(`object`: Object3D) : Box3
+    fun expandByObject(`object`: Object3D): Box3
 
     fun containsPoint(point: Vector3): Boolean
 
     fun containsBox(box: Box3): Boolean
 
-    fun intersectsBox ( box: Box3 ) : Boolean
+    fun intersectsBox(box: Box3): Boolean
 
-    fun intersectsSphere(sphere: Sphere) : Boolean
+    fun intersectsSphere(sphere: Sphere): Boolean
 
-    fun intersectsPlane ( plane: Plane ) : Boolean
+    fun intersectsPlane(plane: Plane): Boolean
 
-    fun clampPoint ( point: Vector3, optionalTarget: Vector3 = definedExternally ) : Vector3
+    fun clampPoint(point: Vector3, optionalTarget: Vector3 = definedExternally): Vector3
 
-    fun distanceToPoint (point: Vector3): Double
+    fun distanceToPoint(point: Vector3): Double
 
     /**
      * Gets a Sphere that bounds the box.
      * @param optionalTarget (optional) if specified, the result will be copied into this Sphere, otherwise a new Sphere will be created.
      */
-    fun getBoundingSphere(optionalTarget: Sphere = definedExternally) : Sphere
+    fun getBoundingSphere(optionalTarget: Sphere = definedExternally): Sphere
 
     fun intersect(box: Box3): Box3
 
@@ -135,7 +135,7 @@ open external class Box3(
      * Transforms this Box3 with the supplied matrix.
      * @param matrix The Matrix4 to apply
      */
-    fun applyMatrix4(matrix: Matrix4) : Box3
+    fun applyMatrix4(matrix: Matrix4): Box3
 
     fun translate(offset: Vector3): Box3
 
@@ -148,13 +148,13 @@ open external class Box3(
     /**
      * Returns a new Box3 with the same min and max as this one.
      */
-    fun clone() : Box3
+    fun clone(): Box3
 
     /**
      * Copies the min and max from box to this box.
      * @param box  Box3 to copy.
      */
-    fun copy(box: Box3) : Box3
+    fun copy(box: Box3): Box3
 
 
 }

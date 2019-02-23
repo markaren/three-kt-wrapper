@@ -11,10 +11,10 @@ For an overview of the different elements of the three.js animation system see t
  * @param duration the duration of this clip (in seconds). If a negative value is passed, the duration will be calculated from the passed tracks array.
  * @param tracks an array of KeyframeTracks.
  */
-open external class AnimationClip(
-        name: String,
-        duration: Number,
-        tracks: Array<KeyFrameTrack>
+external class AnimationClip(
+    name: String,
+    duration: Number,
+    tracks: Array<KeyFrameTrack>
 ) {
 
     companion object {
@@ -22,6 +22,7 @@ open external class AnimationClip(
          * Parses the animation.hierarchy format and returns an AnimationClip.
          */
         fun parse(json: String): AnimationClip
+
         /**
          * Takes an AnimationClip and returns a JSON object.
          */
@@ -36,14 +37,16 @@ open external class AnimationClip(
     /**
      * Optimizes each track by removing equivalent sequential keys (which are common in morph target sequences).
      */
-    fun optimize() : AnimationClip
+    fun optimize(): AnimationClip
+
     /**
      * Sets the duration of the clip to the duration of its longest KeyframeTrack.
      */
     fun resetDuration()
+
     /**
      * Trims all tracks to the clip's duration.
      */
-    fun trim() : AnimationClip
+    fun trim(): AnimationClip
 
 }

@@ -42,12 +42,12 @@ import info.laht.threekt.math.Vector3
  */
 open external class BufferGeometry {
 
-     interface DrawRange {
+    interface DrawRange {
         var start: Int
         var count: Int
     }
 
-     interface Group {
+    interface Group {
         var start: Int
         var count: Int
         var materialIndex: Int
@@ -72,21 +72,21 @@ open external class BufferGeometry {
     var drawRange: DrawRange
 
 
-    open fun clone() : BufferGeometry
-    fun copy(bufferGeometry: BufferGeometry) : BufferGeometry
+    open fun clone(): BufferGeometry
+    fun copy(bufferGeometry: BufferGeometry): BufferGeometry
 
     fun computeBoundingBox()
     fun computeBoundingSphere()
 
-    fun center() : Vector3
+    fun center(): Vector3
 
     fun dispose()
     fun clearGroups()
     fun addGroup(start: Int, count: Int, materialIndex: Int = definedExternally)
 
     fun addAttribute(name: String, attribute: BufferAttribute)
-    fun getAttribute(name: String) : BufferAttribute
-    fun removeAttribute(name: String) : BufferGeometry
+    fun getAttribute(name: String): BufferAttribute
+    fun removeAttribute(name: String): BufferGeometry
 
     fun setIndex(index: BufferAttribute)
     fun setDrawRange(start: Int, count: Int)
@@ -100,10 +100,10 @@ open external class BufferGeometry {
 
     fun applyMatrix(matrix: Matrix4)
     fun lookAt(vector: Vector3): BufferGeometry
-    fun rotateX(radians: Double) : BufferGeometry
-    fun rotateY(radians: Double) : BufferGeometry
-    fun rotateZ(radians: Double) : BufferGeometry
-    fun scale(x: Double, y: Double, z: Double) : BufferGeometry
+    fun rotateX(radians: Double): BufferGeometry
+    fun rotateY(radians: Double): BufferGeometry
+    fun rotateZ(radians: Double): BufferGeometry
+    fun scale(x: Double, y: Double, z: Double): BufferGeometry
     fun translate(x: Double, y: Double, z: Double): BufferGeometry
 
 
@@ -111,6 +111,6 @@ open external class BufferGeometry {
     fun normalizeNormals()
     fun toNonIndexed(): BufferGeometry
 
-    fun toJSON() : Any
+    fun toJSON(): Any
 
 }

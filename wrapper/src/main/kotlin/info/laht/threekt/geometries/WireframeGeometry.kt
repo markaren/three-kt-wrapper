@@ -8,7 +8,7 @@ import info.laht.threekt.core.Geometry
 /**
  * This can be used as a helper object to view a Geometry object as a wireframe.
  */
-open external class WireframeGeometry : BufferGeometry {
+external class WireframeGeometry : BufferGeometry {
 
     constructor(geometry: Geometry)
     constructor(geometry: BufferGeometry)

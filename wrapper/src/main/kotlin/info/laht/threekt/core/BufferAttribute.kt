@@ -31,9 +31,11 @@ import info.laht.threekt.math.Vector2
 import info.laht.threekt.math.Vector3
 import info.laht.threekt.math.Vector4
 
-abstract external class BufferAttribute {
-
-    protected constructor(array: dynamic, itemSize: Int, normalized: Boolean = definedExternally)
+abstract external class BufferAttribute protected constructor(
+    array: dynamic,
+    itemSize: Int,
+    normalized: Boolean = definedExternally
+) {
 
 
     interface UpdateRange {
@@ -115,11 +117,12 @@ abstract external class BufferAttribute {
      */
     fun getW(index: Int): Number
 
-    fun copy(source: BufferAttribute) : BufferAttribute
+    fun copy(source: BufferAttribute): BufferAttribute
     /**
      * Copy a vector from bufferAttribute[index2] to array[index1].
      */
-    fun copyAt(index1: Int, attribute:BufferAttribute, index2: Int): BufferAttribute
+    fun copyAt(index1: Int, attribute: BufferAttribute, index2: Int): BufferAttribute
+
     /**
      * Copy an array representing Face3 indices into array.
      */
@@ -129,14 +132,17 @@ abstract external class BufferAttribute {
      * Copy an array representing RGB color values into array.
      */
     fun copyColorsArray(colors: Array<Color>)
+
     /**
      * Copy an array representing Vector2s into array.
      */
     fun copyVector2sArray(vectors: Array<Vector2>)
+
     /**
      * Copy an array representing Vector3s into array.
      */
     fun copyVector3sArray(vectors: Array<Vector3>)
+
     /**
      * Copy an array representing Vector4s into array.
      */
@@ -145,7 +151,7 @@ abstract external class BufferAttribute {
     /**
      * Return a copy of this bufferAttribute.
      */
-    open fun clone() : BufferAttribute
+    open fun clone(): BufferAttribute
 
 
     /**
@@ -166,37 +172,35 @@ abstract external class BufferAttribute {
     /**
      * Sets the x component of the vector at the given index.
      */
-    fun setX ( index: Int, x: Number )
+    fun setX(index: Int, x: Number)
 
     /**
      * Sets the y component of the vector at the given index.
      */
-    fun setY ( index: Int, y: Number )
+    fun setY(index: Int, y: Number)
 
     /**
      * Sets the z component of the vector at the given index.
      */
-    fun setZ ( index: Int, z: Number )
+    fun setZ(index: Int, z: Number)
 
     /**
      * Sets the w component of the vector at the given index.
      */
-    fun setW ( index: Int, w: Number )
+    fun setW(index: Int, w: Number)
 
     /**
      * Sets the x, y component of the vector at the given index.
      */
-    fun setXY ( index: Int, x: Number, y: Number )
+    fun setXY(index: Int, x: Number, y: Number)
 
     /**
      * Sets the x, y, z component of the vector at the given index.
      */
-    fun setXYZ ( index: Int, x: Number, y: Number, z: Number )
+    fun setXYZ(index: Int, x: Number, y: Number, z: Number)
 
     /**
      * Sets the x, y, z, w component of the vector at the given index.
      */
-    fun setXYZW ( index: Int, x: Number, y: Number, z: Number, w: Number )
-
-
+    fun setXYZW(index: Int, x: Number, y: Number, z: Number, w: Number)
 }

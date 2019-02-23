@@ -11,10 +11,10 @@ import info.laht.threekt.materials.MeshPhongMaterial
 import info.laht.threekt.math.ColorConstants
 import info.laht.threekt.math.Vector3
 import info.laht.threekt.objects.Line
-import info.laht.threekt.scenes.Scene
 import info.laht.threekt.objects.Mesh
 import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
+import info.laht.threekt.scenes.Scene
 import kotlin.browser.document
 import kotlin.browser.window
 
@@ -34,9 +34,11 @@ class HelloWorld {
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
         camera.position.setZ(5)
 
-        renderer = WebGLRenderer(WebGLRendererParams(
+        renderer = WebGLRenderer(
+            WebGLRendererParams(
                 antialias = true
-        )).apply {
+            )
+        ).apply {
             setClearColor(ColorConstants.skyblue, 1)
             setSize(window.innerWidth, window.innerHeight)
         }
@@ -49,22 +51,24 @@ class HelloWorld {
         controls = OrbitControls(camera, renderer.domElement)
 
         cube = Mesh(BoxBufferGeometry(1, 1, 1),
-                MeshPhongMaterial().apply {
-                    this.color.set(ColorConstants.darkgreen)
-                }).also ( scene::add )
+            MeshPhongMaterial().apply {
+                this.color.set(ColorConstants.darkgreen)
+            }).also(scene::add)
 
         Mesh(cube.geometry as BufferGeometry,
-                MeshBasicMaterial().apply {
-                    this.wireframe = true
-                    this.color.set(ColorConstants.black)
-                }).also ( cube::add )
+            MeshBasicMaterial().apply {
+                this.wireframe = true
+                this.color.set(ColorConstants.black)
+            }).also(cube::add)
 
         val points = CatmullRomCurve3(
-                arrayOf(Vector3(-10, 0, 10),
-                        Vector3(-5, 5, 5),
-                        Vector3(0, 0, 0),
-                        Vector3(5, -5, 5),
-                        Vector3(10, 0, 10))
+            arrayOf(
+                Vector3(-10, 0, 10),
+                Vector3(-5, 5, 5),
+                Vector3(0, 0, 0),
+                Vector3(5, -5, 5),
+                Vector3(10, 0, 10)
+            )
         ).getPoints(50)
 
         val geometry = BufferGeometry().setFromPoints(points)
@@ -74,13 +78,13 @@ class HelloWorld {
         }
 
         // Create the final object to add to the scene
-        Line(geometry, material).apply ( scene::add )
+        Line(geometry, material).apply(scene::add)
 
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight;
             camera.updateProjectionMatrix();
 
-            renderer.setSize( window.innerWidth, window.innerHeight )
+            renderer.setSize(window.innerWidth, window.innerHeight)
         }, false)
 
     }

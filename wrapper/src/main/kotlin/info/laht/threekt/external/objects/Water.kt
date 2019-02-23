@@ -28,8 +28,4 @@ package info.laht.threekt.external.objects
 
 import info.laht.threekt.objects.Mesh
 
-external class Water : Mesh {
-
-    constructor(width: Int, height: Int, options: WaterOptions = definedExternally)
-
-}
+external class Water(width: Int, height: Int, options: WaterOptions = definedExternally) : Mesh

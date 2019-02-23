@@ -37,18 +37,20 @@ import org.w3c.xhr.XMLHttpRequest
  * the position of each vertex,the UV position of each texture coordinate vertex, vertex normals,
  * and the faces that make each polygon defined as a list of vertices, and texture vertices.
  */
-open external class OBJLoader(
-        manager: LoadingManager = definedExternally
+external class OBJLoader(
+    manager: LoadingManager = definedExternally
 ) {
 
-    fun load(url: String,
-             onLoad: (Mesh) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
-             onError: (dynamic) -> Unit = definedExternally)
+    fun load(
+        url: String,
+        onLoad: (Mesh) -> Unit,
+        onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+        onError: (dynamic) -> Unit = definedExternally
+    )
 
     fun setPath(value: String)
 
-    fun parse(text: String) : Object3D
+    fun parse(text: String): Object3D
 
 }
 

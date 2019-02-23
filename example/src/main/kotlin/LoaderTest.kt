@@ -11,11 +11,10 @@ import info.laht.threekt.external.loaders.STLLoader
 import info.laht.threekt.lights.DirectionalLight
 import info.laht.threekt.materials.MeshPhongMaterial
 import info.laht.threekt.math.ColorConstants
-import info.laht.threekt.scenes.Scene
 import info.laht.threekt.objects.Mesh
 import info.laht.threekt.renderers.WebGLRenderer
 import info.laht.threekt.renderers.WebGLRendererParams
-import org.w3c.dom.Element
+import info.laht.threekt.scenes.Scene
 import kotlin.browser.document
 import kotlin.browser.window
 
@@ -32,23 +31,27 @@ class LoaderTest {
 
     init {
 
-        val light = DirectionalLight(color = 0xffffff, intensity =  0.5)
+        val light = DirectionalLight(color = 0xffffff, intensity = 0.5)
         light.position.set(0, 0, -1)
         scene.add(light)
 
         camera = PerspectiveCamera(75, window.innerWidth.toDouble() / window.innerHeight, 0.1, 1000)
         camera.position.set(0, 5, -5)
 
-        renderer = WebGLRenderer(WebGLRendererParams(
+        renderer = WebGLRenderer(
+            WebGLRendererParams(
                 antialias = true
-        )).apply {
+            )
+        ).apply {
             setClearColor(ColorConstants.skyblue, alpha = 1)
             setSize(window.innerWidth, window.innerHeight)
         }
 
-        dat.GUI(GUIParams(
+        dat.GUI(
+            GUIParams(
                 closed = false
-        )).also {
+            )
+        ).also {
             @Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
             (it.add(this, "speed") as NumberController).apply {
                 min(0).max(10).step(0.1)
@@ -108,7 +111,7 @@ class LoaderTest {
         window.addEventListener("resize", {
             camera.aspect = window.innerWidth.toDouble() / window.innerHeight
             camera.updateProjectionMatrix()
-            renderer.setSize( window.innerWidth, window.innerHeight )
+            renderer.setSize(window.innerWidth, window.innerHeight)
         }, false)
 
     }

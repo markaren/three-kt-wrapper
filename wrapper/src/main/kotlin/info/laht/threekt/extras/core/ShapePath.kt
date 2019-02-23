@@ -2,4 +2,4 @@
 
 package info.laht.threekt.extras.core
 
-open external class ShapePath
+external class ShapePath

@@ -7,9 +7,7 @@ package info.laht.threekt.audio
  *
  * This uses the Web Audio API.
  */
-open external class Audio(
-        listener: AudioListener
-) {
+open external class Audio(listener: AudioListener) {
 
     /**
      * Whether to start playback automatically. Default is false.
@@ -55,19 +53,19 @@ open external class Audio(
     /**
      * Return the gainNode.
      */
-    open fun getOutput() : dynamic
+    open fun getOutput(): dynamic
 
     /**
      * Setup the source to the audioBuffer, and sets sourceType to 'audioNode'.
      * Also sets hasPlaybackControl to false.
      */
-    fun setNodeSource ( audioNode: dynamic ) : Audio
+    fun setNodeSource(audioNode: dynamic): Audio
 
     /**
      * Setup the source to the audioBuffer, and sets sourceType to 'buffer'.
      * If autoplay, also starts playback.
      */
-    fun setBuffer ( audioBuffer: dynamic ) : Audio
+    fun setBuffer(audioBuffer: dynamic): Audio
 
     /**
      * If hasPlaybackControl is true, starts playback.
@@ -77,7 +75,7 @@ open external class Audio(
     /**
      * If hasPlaybackControl is true, pauses playback.
      */
-    fun pause() : Audio
+    fun pause(): Audio
 
     /**
      * If hasPlaybackControl is enabled, stops playback,
@@ -88,69 +86,69 @@ open external class Audio(
     /**
      * Connect to the Audio.source. This is used internally on initialisation and when setting / removing filters.
      */
-    fun connect() : Audio
+    fun connect(): Audio
 
     /**
      * Disconnect from the Audio.source. This is used internally when setting / removing filters.
      */
-    fun disconnect() : Audio
+    fun disconnect(): Audio
 
     /**
      * Returns the filters array.
      */
-    fun getFilters () : Array<dynamic>
+    fun getFilters(): Array<dynamic>
 
     /**
      * value - arrays of filters.
      * Set the filters array to value.
      */
-    fun setFilters ( value: Array<dynamic> ) : Audio
+    fun setFilters(value: Array<dynamic>): Audio
 
     /**
      * Returns the first element of the filters array.
      */
-    fun getFilter ():dynamic
+    fun getFilter(): dynamic
 
     /**
      * Add the filter to the filters array.
      */
-    fun setFilter ( filter: dynamic )
+    fun setFilter(filter: dynamic)
 
     /**
      * If hasPlaybackControl is enabled, set the playbackRate to value.
      */
-    fun setPlaybackRate ( value: Number ): Double
+    fun setPlaybackRate(value: Number): Double
 
     /**
      * Return the value of playbackRate.
      */
-    fun getPlaybackRate () : Double
+    fun getPlaybackRate(): Double
 
     /**
      * Called automatically when playback finished. Sets If isPlaying to false.
      */
-    fun onEnded ()
+    fun onEnded()
 
     /**
      * Return the value of source.loop (whether playback should loop).
      */
-    fun getLoop () : Boolean
+    fun getLoop(): Boolean
 
     /**
      * Set source.loop to value.
      * @param value whether playback should loop
      */
-    fun setLoop ( value: Boolean ): Audio
+    fun setLoop(value: Boolean): Audio
 
     /**
      * Return the current volume.
      */
-    fun getVolume () : Double
+    fun getVolume(): Double
 
     /**
      * Set the volume.
      * @param value the volume
      */
-    fun setVolume ( value: Number ) : Audio
+    fun setVolume(value: Number): Audio
 
 }

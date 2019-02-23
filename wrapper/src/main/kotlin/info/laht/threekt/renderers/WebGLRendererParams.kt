@@ -27,11 +27,11 @@ package info.laht.threekt.renderers
 import org.w3c.dom.Node
 
 data class WebGLRendererParams(
-         var canvas: Node? = undefined,
-         var alpha: Boolean? = undefined,
-         var depth: Boolean? = undefined,
-         var stencil: Boolean? = undefined,
-         var antialias: Boolean? = undefined,
-         var premultipliedAlpha: Boolean? = undefined,
-         var preserveDrawingBuffer: Boolean? = undefined
+    var canvas: Node? = undefined,
+    var alpha: Boolean? = undefined,
+    var depth: Boolean? = undefined,
+    var stencil: Boolean? = undefined,
+    var antialias: Boolean? = undefined,
+    var premultipliedAlpha: Boolean? = undefined,
+    var preserveDrawingBuffer: Boolean? = undefined
 )

@@ -36,14 +36,14 @@ import org.w3c.dom.Element
  * @param width
  */
 data class GUIParams(
-        var name: String? = undefined,
-        var auto: Boolean? = undefined,
-        var load: dynamic = undefined,
-        var parent: dat.GUI? = undefined,
-        var closed: Boolean? = undefined,
-        var closeOnTop: Boolean? = undefined,
-        var autoPlace: Boolean? = undefined,
-        var width: Int? = undefined
+    var name: String? = undefined,
+    var auto: Boolean? = undefined,
+    var load: dynamic = undefined,
+    var parent: dat.GUI? = undefined,
+    var closed: Boolean? = undefined,
+    var closeOnTop: Boolean? = undefined,
+    var autoPlace: Boolean? = undefined,
+    var width: Int? = undefined
 )
 
 /**
@@ -52,7 +52,7 @@ data class GUIParams(
 external class dat {
 
     class GUI(
-            params: GUIParams = definedExternally
+        params: GUIParams = definedExternally
     ) {
 
         companion object {
@@ -87,13 +87,13 @@ external class dat {
         val load: dynamic
         var useLocalStorage: Boolean
 
-        fun add(`object`: dynamic, property: String, vararg args: dynamic) : Controller
+        fun add(`object`: dynamic, property: String, vararg args: dynamic): Controller
 
-        fun addColor(`object`: dynamic, property: String) : ColorController
+        fun addColor(`object`: dynamic, property: String): ColorController
 
         fun destroy()
 
-        fun addFolder(name: String) : dat.GUI
+        fun addFolder(name: String): dat.GUI
 
         fun open()
 
@@ -103,9 +103,9 @@ external class dat {
 
         fun remember(`object`: dynamic)
 
-        fun getRoot() : dat.GUI
+        fun getRoot(): dat.GUI
 
-        fun getSaveObject() : dynamic
+        fun getSaveObject(): dynamic
 
         fun save()
 
@@ -131,10 +131,10 @@ external interface Controller {
 
     fun onChange(fnc: () -> Unit)
     fun onFinishChange(fnc: () -> Unit)
-    fun setValue(newValue: dynamic) : Controller
+    fun setValue(newValue: dynamic): Controller
     fun getValue(): dynamic
-    fun updateDisplay() : Controller
-    fun isModified() : Boolean
+    fun updateDisplay(): Controller
+    fun isModified(): Boolean
 
 }
 
@@ -155,9 +155,9 @@ external interface NumberController : Controller {
     val __impliedStep: Number?
     val __precision: Number?
 
-    fun min(minValue: Number) : NumberController
-    fun max(maxValue: Number) : NumberController
-    fun step(step: Number) : NumberController
+    fun min(minValue: Number): NumberController
+    fun max(maxValue: Number): NumberController
+    fun step(step: Number): NumberController
 
 }
 
@@ -166,7 +166,7 @@ external interface NumberControllerBox : NumberController
 
 external interface ColorController : Controller
 
-external interface OptionController: Controller {
+external interface OptionController : Controller {
     val __select: Element
 }
 

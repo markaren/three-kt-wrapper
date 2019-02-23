@@ -35,8 +35,8 @@ import org.w3c.xhr.XMLHttpRequest
  *
  * @param manager The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
  */
-open external class CompressedTextureLoader(
-        manager: LoadingManager = definedExternally
+external class CompressedTextureLoader(
+    manager: LoadingManager = definedExternally
 ) {
 
     /**
@@ -56,10 +56,12 @@ open external class CompressedTextureLoader(
      * @param onProgress Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
      * @param onError Will be called when load errors.
      */
-    fun load(url: String,
-             onLoad: (Texture) -> Unit,
-             onProgress: (XMLHttpRequest) -> Unit = definedExternally,
-             onError: (dynamic) -> Unit = definedExternally)
+    fun load(
+        url: String,
+        onLoad: (Texture) -> Unit,
+        onProgress: (XMLHttpRequest) -> Unit = definedExternally,
+        onError: (dynamic) -> Unit = definedExternally
+    )
 
     /**
      * Set the base path or URL from which to load files.

@@ -27,13 +27,7 @@
 package info.laht.threekt.cameras
 
 
-open external class PerspectiveCamera : Camera {
-
-    constructor(fov: Int,
-                aspect: Double,
-                near: Number,
-                far: Number)
-
+external class PerspectiveCamera(fov: Int, aspect: Double, near: Number, far: Number) : Camera {
     var fov: Int
     var zoom: Double
 
@@ -52,6 +46,4 @@ open external class PerspectiveCamera : Camera {
     fun setViewOffset(fullwidth: Int, fullHeight: Int, x: Int, y: Int, width: Int, height: Int)
     fun clearViewOffset()
     fun updateProjectionMatrix()
-
-
 }

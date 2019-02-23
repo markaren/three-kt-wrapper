@@ -28,7 +28,7 @@ package info.laht.threekt.scenes
 
 import info.laht.threekt.math.Color
 
-open external class Fog {
+external class Fog {
 
     var name: String
     var color: Color
@@ -36,9 +36,9 @@ open external class Fog {
     var near: Int
     var far: Int
 
-    fun clone() : Fog
+    fun clone(): Fog
 
-    fun toJSON() : dynamic
+    fun toJSON(): dynamic
 
 }
 

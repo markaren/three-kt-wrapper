@@ -33,7 +33,7 @@ import info.laht.threekt.materials.Material
  * Scenes allow you to set up what and where is to be rendered by three.js.
  * This is where you place objects, lights and cameras.
  */
-open external class Scene : Object3D {
+external class Scene : Object3D {
 
     /**
      * A fog instance defining the type of fog that affects everything rendered in the scene. Default is null.
@@ -56,6 +56,6 @@ open external class Scene : Object3D {
      */
     var background: dynamic
 
-    fun copy(source: Scene, recursive: Boolean = definedExternally) : Scene
+    fun copy(source: Scene, recursive: Boolean = definedExternally): Scene
 
 }

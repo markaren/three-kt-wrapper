@@ -26,12 +26,12 @@
 
 package info.laht.threekt.core
 
-open external class InstancedBufferGeometry : BufferGeometry {
+external class InstancedBufferGeometry : BufferGeometry {
 
     var maxInstancedCount: Int?
 
-    fun copy(source: InstancedBufferGeometry) : InstancedBufferGeometry
+    fun copy(source: InstancedBufferGeometry): InstancedBufferGeometry
 
-    override fun clone() : InstancedBufferGeometry
+    override fun clone(): InstancedBufferGeometry
 
 }

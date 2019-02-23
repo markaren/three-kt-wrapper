@@ -29,11 +29,11 @@ package info.laht.threekt.loaders
 /**
  * Base class for implementing loaders.
  */
-open external class Loader {
+external class Loader {
 
     object Handlers {
         fun add(regex: String, loader: Loader)
-        fun get(file: dynamic) : Loader
+        fun get(file: dynamic): Loader
     }
 
     var onLoadStart: () -> Unit

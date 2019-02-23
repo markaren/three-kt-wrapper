@@ -9,14 +9,14 @@ import info.laht.threekt.core.Object3D
  *
  * This uses the Web Audio API.
  */
-external class AudioListener: Object3D {
+external class AudioListener : Object3D {
 
     var context: dynamic
 
     /**
      * Return the gainNode.
      */
-    fun getInput() : dynamic
+    fun getInput(): dynamic
 
     /**
      * Set the filter property to null.
@@ -26,14 +26,14 @@ external class AudioListener: Object3D {
     /**
      * Returns the value of the filter property.
      */
-    fun getFilter() : dynamic
+    fun getFilter(): dynamic
 
     /**
      * Set the filter property to value.
      */
     fun setFilter(value: dynamic)
 
-    fun getMasterVolume() : Double
+    fun getMasterVolume(): Double
 
     fun setMasterVolume(value: Number)
 

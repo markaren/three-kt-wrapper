@@ -33,23 +33,23 @@ import org.w3c.dom.Element
 /**
  * Create a texture to apply to a surface or as a reflection or refraction map.
  */
-open external class Texture {
+open external class Texture(
+    image: Element = definedExternally,
+    mapping: Int = definedExternally,
+    wrapS: Int = definedExternally,
+    wrapT: Int = definedExternally,
+    magFilter: Int = definedExternally,
+    minFilter: Int = definedExternally,
+    format: Int = definedExternally,
+    type: Int = definedExternally,
+    anisotropy: Int = definedExternally,
+    encoding: Int = definedExternally
+) {
 
     companion object {
         var DEFAULT_IMAGE: Element?
         var DEFAULT_MAPPING: Int
     }
-
-    constructor(image: Element = definedExternally,
-                mapping: Int = definedExternally,
-                wrapS: Int = definedExternally,
-                wrapT: Int = definedExternally,
-                magFilter: Int = definedExternally,
-                minFilter: Int = definedExternally,
-                format: Int = definedExternally,
-                type: Int = definedExternally,
-                anisotropy: Int = definedExternally,
-                encoding: Int = definedExternally)
 
 
     /**
@@ -229,9 +229,9 @@ open external class Texture {
      */
     fun transformUv(uv: Vector2)
 
-    fun clone() : Texture
-    fun copy(texture: Texture) : Texture
+    fun clone(): Texture
+    fun copy(texture: Texture): Texture
 
-    fun toJSON(meta: String) : dynamic
-    
+    fun toJSON(meta: String): dynamic
+
 }

@@ -17,5 +17,5 @@ open external class CurvePath<E> : Curve<E> {
 
     override fun clone(): CurvePath<E>
 
-    fun copy(source: CurvePath<E>) : CurvePath<E>
+    fun copy(source: CurvePath<E>): CurvePath<E>
 }

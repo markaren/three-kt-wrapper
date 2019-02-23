@@ -29,7 +29,7 @@ package info.laht.threekt.materials
 import info.laht.threekt.math.Color
 import info.laht.threekt.textures.Texture
 
-open external class MeshLambertMaterial : Material {
+external class MeshLambertMaterial : Material {
 
     var color: Color
 
@@ -62,8 +62,8 @@ open external class MeshLambertMaterial : Material {
     var skinning: Boolean
     var morphTargets: Boolean
     var morphNormals: Boolean
-    
-    override fun clone() : MeshLambertMaterial
-    fun copy(material: MeshLambertMaterial) : MeshLambertMaterial
-    
+
+    override fun clone(): MeshLambertMaterial
+    fun copy(material: MeshLambertMaterial): MeshLambertMaterial
+
 }

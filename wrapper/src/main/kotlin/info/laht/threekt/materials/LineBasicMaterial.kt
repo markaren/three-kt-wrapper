@@ -28,6 +28,7 @@ package info.laht.threekt.materials
 
 import info.laht.threekt.math.Color
 
+
 open external class LineBasicMaterial : Material {
 
     var color: Color
@@ -36,7 +37,7 @@ open external class LineBasicMaterial : Material {
     var linecap: String
     var linejoin: String
 
-    override  fun clone() : LineBasicMaterial
-    fun copy(material: LineBasicMaterial) : LineBasicMaterial
+    override fun clone(): LineBasicMaterial
+    fun copy(material: LineBasicMaterial): LineBasicMaterial
 
 }

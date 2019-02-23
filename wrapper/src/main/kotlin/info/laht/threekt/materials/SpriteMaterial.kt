@@ -29,7 +29,7 @@ package info.laht.threekt.materials
 import info.laht.threekt.math.Color
 import info.laht.threekt.textures.Texture
 
-open external class SpriteMaterial : Material {
+external class SpriteMaterial : Material {
 
     var color: Color
 
@@ -37,7 +37,7 @@ open external class SpriteMaterial : Material {
 
     var rotation: Double
 
-    override fun clone() : SpriteMaterial
-    fun copy(material: SpriteMaterial) : SpriteMaterial
+    override fun clone(): SpriteMaterial
+    fun copy(material: SpriteMaterial): SpriteMaterial
 
 }

@@ -26,6 +26,6 @@
 
 package info.laht.threekt.lights
 
-open external class DirectionalLightShadow : LightShadow {
+external class DirectionalLightShadow : LightShadow {
 
 }

@@ -28,52 +28,54 @@ package info.laht.threekt.math
 
 import info.laht.threekt.core.BufferAttribute
 
-open external class Matrix3 {
+external class Matrix3 {
 
     var elements: DoubleArray
 
-    fun set(n11: Number, n12: Number, n13: Number,
-            n21: Number, n22: Number, n23: Number,
-            n31: Number, n32: Number, n33: Number) : Matrix3
+    fun set(
+        n11: Number, n12: Number, n13: Number,
+        n21: Number, n22: Number, n23: Number,
+        n31: Number, n32: Number, n33: Number
+    ): Matrix3
 
     fun identity(): Matrix3
 
-    fun clone () : Matrix3
-    fun copy ( m: Matrix3) : Matrix3
+    fun clone(): Matrix3
+    fun copy(m: Matrix3): Matrix3
 
-    fun setFromMatrix4(m: Matrix4) : Matrix3
+    fun setFromMatrix4(m: Matrix4): Matrix3
 
-    fun applyToBufferAttribute (attribute: BufferAttribute)
+    fun applyToBufferAttribute(attribute: BufferAttribute)
 
-    fun multiply ( m: Matrix3 ): Matrix3
+    fun multiply(m: Matrix3): Matrix3
 
-    fun premultiply ( m: Matrix3 ): Matrix3
+    fun premultiply(m: Matrix3): Matrix3
 
-    fun multiplyMatrices(a: Matrix3, b: Matrix3) : Matrix3
+    fun multiplyMatrices(a: Matrix3, b: Matrix3): Matrix3
 
-    fun multiplyScalar ( s: Number ): Matrix3
+    fun multiplyScalar(s: Number): Matrix3
 
-    fun determinant () : Double
+    fun determinant(): Double
 
-    fun getInverse(matrix: Matrix3, throwOnDegenerate : Boolean = definedExternally) : Matrix3
+    fun getInverse(matrix: Matrix3, throwOnDegenerate: Boolean = definedExternally): Matrix3
 
-    fun transpose (): Matrix3
+    fun transpose(): Matrix3
 
-    fun getNormalMatrix ( matrix4: Matrix4 ) : Matrix3
+    fun getNormalMatrix(matrix4: Matrix4): Matrix3
 
-    fun transposeIntoArray ( r: DoubleArray) : Matrix3
+    fun transposeIntoArray(r: DoubleArray): Matrix3
 
-    fun setUvTransform ( tx: Number, ty: Number, sx: Number, sy: Number, rotation: Number, cx: Number, cy: Number )
+    fun setUvTransform(tx: Number, ty: Number, sx: Number, sy: Number, rotation: Number, cx: Number, cy: Number)
 
-    fun scale ( sx: Number, sy: Number ): Matrix3
+    fun scale(sx: Number, sy: Number): Matrix3
 
-    fun rotate ( theta: Number ): Matrix3
-    fun translate ( tx: Number, ty: Number ): Matrix3
+    fun rotate(theta: Number): Matrix3
+    fun translate(tx: Number, ty: Number): Matrix3
 
-    fun equals ( matrix: Matrix3 ) : Boolean
+    fun equals(matrix: Matrix3): Boolean
 
-    fun fromArray ( array: DoubleArray, offset: Int = definedExternally ) : Matrix3
+    fun fromArray(array: DoubleArray, offset: Int = definedExternally): Matrix3
 
-    fun toArray ( array : DoubleArray = definedExternally, offset: Int = definedExternally ) : DoubleArray
-    
+    fun toArray(array: DoubleArray = definedExternally, offset: Int = definedExternally): DoubleArray
+
 }

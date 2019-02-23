@@ -8,13 +8,13 @@ import info.laht.threekt.math.Vector3
 /**
  * Creates a tube that extrudes along a 3d curve.
  */
-open external class TubeGeometry(
+external class TubeGeometry(
 
-        path: Curve<Vector3>,
-        tubularSegments: Int = definedExternally,
-        radius: Number = definedExternally,
-        radiusSegments: Int = definedExternally,
-        closed: Boolean = definedExternally
+    path: Curve<Vector3>,
+    tubularSegments: Int = definedExternally,
+    radius: Number = definedExternally,
+    radiusSegments: Int = definedExternally,
+    closed: Boolean = definedExternally
 
 ) : Geometry {
 
@@ -27,13 +27,13 @@ open external class TubeGeometry(
 /**
  * Creates a tube that extrudes along a 3d curve.
  */
-open external class TubeBufferGeometry(
+external class TubeBufferGeometry(
 
-        path: Curve<Vector3>,
-        tubularSegments: Int = definedExternally,
-        radius: Number = definedExternally,
-        radiusSegments: Int = definedExternally,
-        closed: Boolean = definedExternally
+    path: Curve<Vector3>,
+    tubularSegments: Int = definedExternally,
+    radius: Number = definedExternally,
+    radiusSegments: Int = definedExternally,
+    closed: Boolean = definedExternally
 
 ) : BufferGeometry {
 

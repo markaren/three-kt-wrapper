@@ -7,7 +7,7 @@ external abstract class Curve<E> {
 
     var arcLengthDivisions: Int
 
-    fun getPoint(t: Double, optionalTarget: E = definedExternally) : E
+    fun getPoint(t: Double, optionalTarget: E = definedExternally): E
 
     fun getPointAt(u: Double, optionalTarget: E = definedExternally): E
 
@@ -15,7 +15,7 @@ external abstract class Curve<E> {
 
     fun getSpacedPoints(divisions: Int): Array<E>
 
-    fun getLength() : Double
+    fun getLength(): Double
 
     fun updateArcLengths()
 
@@ -23,12 +23,12 @@ external abstract class Curve<E> {
 
     fun getTangent(t: Double): E
 
-    fun getTangentAt(u: Double) : E
+    fun getTangentAt(u: Double): E
 
     fun computeFrenetFrames(segments: Int, closed: Boolean = definedExternally)
 
     open fun clone(): Curve<E>
 
-    fun copy(source: Curve<E>) : Curve<E>
+    fun copy(source: Curve<E>): Curve<E>
 
 }

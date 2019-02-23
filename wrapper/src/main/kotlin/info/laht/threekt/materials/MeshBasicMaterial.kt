@@ -29,7 +29,8 @@ package info.laht.threekt.materials
 import info.laht.threekt.math.Color
 import info.laht.threekt.textures.Texture
 
-open external class MeshBasicMaterial : Material {
+
+external class MeshBasicMaterial : Material {
 
     var color: Color
 

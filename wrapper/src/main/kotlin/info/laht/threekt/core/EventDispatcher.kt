@@ -26,7 +26,7 @@
 
 package info.laht.threekt.core
 
-open external class EventDispatcher {
+external class EventDispatcher {
 
     fun addEventListener(type: String, listener: (dynamic) -> Unit)
     fun hasEventListener(type: String, listener: (dynamic) -> Unit)

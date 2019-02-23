@@ -9,7 +9,7 @@ Contributions are very welcome.
 
 ```kotlin
 
-open external class MyClass(
+external class MyClass(
   speed: Number // Number, this way we dont have to write e.g. 0.0 when calling it 
 ) {
 

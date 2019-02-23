@@ -23,7 +23,8 @@
  */
 
 @file:JsQualifier("THREE")
-
+@file:JsModule("three-orbitcontrols")
+@file:JsNonModule
 package info.laht.threekt.external.controls
 
 import info.laht.threekt.core.Object3D
@@ -38,10 +39,7 @@ import org.w3c.dom.Node
  *  Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
  *  Pan - right mouse, or arrow keys / touch: three finger swipe
  */
-open external class OrbitControls(
-        `object`: Object3D,
-        domElement: Node = definedExternally
-) {
+external class OrbitControls(`object`: Object3D, domElement: Node = definedExternally) {
 
     var `object`: Object3D
 
@@ -54,8 +52,8 @@ open external class OrbitControls(
     var minDistance: Double
     var maxDistance: Double
 
-    var minZoom : Double
-    var maxZoom : Double
+    var minZoom: Double
+    var maxZoom: Double
 
     /**
      * How far you can orbit vertically, lower limit.
@@ -68,8 +66,8 @@ open external class OrbitControls(
      */
     var maxPolarAngle: Double
 
-    var minAzimuthAngle  : Double
-    var maxAzimuthAngle  : Double
+    var minAzimuthAngle: Double
+    var maxAzimuthAngle: Double
 
     var enableDamping: Boolean
     var dampingFactor: Double
@@ -77,14 +75,14 @@ open external class OrbitControls(
     var enableZoom: Boolean
     var zoomSpeed: Double
 
-    var enableRotate : Boolean
-    var rotateSpeed : Double
+    var enableRotate: Boolean
+    var rotateSpeed: Double
 
-    var enablePan  : Boolean
-    var keyPanSpeed  : Double
+    var enablePan: Boolean
+    var keyPanSpeed: Double
 
-    var autoRotate   : Boolean
-    var autoRotateSpeed   : Double
+    var autoRotate: Boolean
+    var autoRotateSpeed: Double
 
     var enableKeys: Boolean
 
@@ -97,9 +95,9 @@ open external class OrbitControls(
 
     var keys: Keys
 
-    fun getPolarAngle() : Double
+    fun getPolarAngle(): Double
 
-    fun getAzimutAngle() : Double
+    fun getAzimutAngle(): Double
 
     fun saveState()
 
@@ -108,6 +106,4 @@ open external class OrbitControls(
     fun update()
 
     fun dispose()
-
-
 }
