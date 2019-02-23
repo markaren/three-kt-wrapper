@@ -1,5 +1,5 @@
 rootProject.name = 'threekt'
 include ':example'
-include ':wrapper'
+include ':threejs-wrapper'
 include ':frontend-demo'
 

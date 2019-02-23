@@ -1,5 +1,5 @@
 dependencies {
-    compile project(":wrapper")
+    compile project(":threejs-wrapper")
 }
 
 task assembleWeb(type: Sync) {

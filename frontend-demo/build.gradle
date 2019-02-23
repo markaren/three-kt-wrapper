@@ -13,6 +13,21 @@ buildscript {
 group = "ru.mipt.npm"
 version = "0.1.0-SNAPSHOT"
 
+plugins.whenPluginAdded { plugin ->
+    if (plugin.class.name == 'org.jetbrains.kotlin.gradle.frontend.FrontendPlugin') {
+        def fixTask = tasks.register('webpack-config-fix') {
+            def dir = file('webpack.config.d')
+            it.outputs.dir(dir)
+            it.doLast { dir.mkdir() }
+        }
+        afterEvaluate {
+            tasks.named('webpack-config').configure {
+                it.dependsOn(fixTask)
+            }
+        }
+    }
+}
+
 //apply plugin: 'kotlin-dce-js'
 apply plugin: 'org.jetbrains.kotlin.frontend'
 
@@ -21,7 +36,7 @@ repositories {
 }
 
 dependencies {
-    compile project(":wrapper")
+    compile project(":threejs-wrapper")
 }
 
 kotlinFrontend {
@@ -76,5 +91,6 @@ compileTestKotlin2Js {
 //    kotlinOptions.moduleName = project.name + "-test"
     kotlinOptions.main = "call"
 }
+
 
 
