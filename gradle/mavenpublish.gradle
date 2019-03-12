@@ -1,74 +1,22 @@
 
-group 'info.laht.threekt'
-version '0.88-ALPHA-6'
+apply plugin: "maven-publish"
 
-task sourcesJar(type: Jar) {
+task sourcesJar(type: Jar, dependsOn: classes) {
     archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
 
-task javadocJar(type: Jar) {
+task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier = 'javadoc'
-    from javadoc
+    from javadoc.destinationDir
 }
 
-if (hasProperty("ossrhUsername") && hasProperty("ossrhPassword")) {
-
-    apply plugin: 'maven'
-    apply plugin: 'signing'
-
-    artifacts {
-        archives javadocJar, sourcesJar
-    }
-
-    signing {
-        sign configurations.archives
-    }
-
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-
-                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-
-                pom.project {
-                    name 'three.kt'
-                    packaging 'jar'
-                    // optionally artifactId can be defined here
-                    description 'kotlin wrappers for three.js (https://threejs.org/) '
-                    url 'https://markaren.github.io/three.kt/'
-
-                    scm {
-                        connection 'scm:git:git://github.com/markaren/three.kt.git'
-                        developerConnection 'scm:git:ssh://github.com/markaren/three.kt.git'
-                        url 'https://github.com/markaren/three.kt/tree/master'
-                    }
-
-                    licenses {
-                        license {
-                            name 'The MIT License'
-                            url 'https://opensource.org/licenses/mit-license.php'
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id 'laht'
-                            name 'Lars Ivar Hatledal'
-                            email 'larsivarhatledal@gmail.com'
-                        }
-                    }
-
-                }
-            }
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
-
 }
