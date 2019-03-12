@@ -8,8 +8,7 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/markaren/three.kt/issues)
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.laht.threekt/wrapper/badge.svg)](https://mvnrepository.com/artifact/info.laht.threekt/wrapper)
-
+[![](https://jitpack.io/v/markaren/three.kt.svg)](https://jitpack.io/#markaren/three.kt)
 
 ## HelloWorld
 
@@ -39,7 +38,7 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
         <script type="text/javascript" src="js/OrbitControls.js"></script>
 
         <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
-        <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
+        <script type="text/javascript" src="js/kt2js/threejs-wrapper.js"></script>
 
         <script type="text/javascript" src="js/kt2js/example.js"></script>
 
@@ -168,7 +167,7 @@ class HelloWorld {
 
 
         <script type="text/javascript" src="js/kt2js/kotlin.js"></script>
-        <script type="text/javascript" src="js/kt2js/wrapper.js"></script>
+        <script type="text/javascript" src="js/kt2js/threejs-wrapper.js"></script>
 
         <script type="text/javascript" src="js/kt2js/example.js"></script>
 
@@ -295,20 +294,16 @@ class LoaderTest {
 
 # How to get it
 
-## maven
-```xml
-<dependency>
-  <groupId>info.laht.threekt</groupId>
-  <artifactId>wrapper</artifactId>
-  <version>0.88-ALPHA-6</version>
-</dependency>
-```
+Use [JitPack](https://jitpack.io/#markaren/three.kt/). 
+See below for how this works using Gradle. Check the link for other builds systems. 
 
-## Gradle
 ```groovy
-compile "info.laht.threekt:wrapper:0.88-ALPHA-6"
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.markaren:three.kt:v0.88-ALPHA-7'
+}
 ```
 
-### Snapshots
-For accessing bleeding edge snapshot releases use: 
-https://oss.sonatype.org/content/repositories/snapshots/info/laht/threekt/ 
