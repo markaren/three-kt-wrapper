@@ -300,13 +300,13 @@ class LoaderTest {
 <dependency>
   <groupId>info.laht.threekt</groupId>
   <artifactId>wrapper</artifactId>
-  <version>0.88-ALPHA-5</version>
+  <version>0.88-ALPHA-6</version>
 </dependency>
 ```
 
 ## Gradle
 ```groovy
-compile "info.laht.threekt:wrapper:0.88-ALPHA-5"
+compile "info.laht.threekt:wrapper:0.88-ALPHA-6"
 ```
 
 ### Snapshots
