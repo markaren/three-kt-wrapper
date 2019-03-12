@@ -1,10 +1,10 @@
 
 dependencies {
-    compile project(":wrapper")
+    compile project(":threejs-wrapper")
 }
 
 task assembleWeb(type: Sync) {
-    configurations.compile.each { File file ->
+    configurations.compile.each { file ->
         from(zipTree(file.absolutePath), {
             includeEmptyDirs = false
             include { fileTreeElement ->
