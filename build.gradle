@@ -1,5 +1,5 @@
 
-println "Gradle version is ${GradleVersion.current().version}"
+println "Gradle version is ${gradle.getGradleVersion()}"
 
 buildscript {
 
