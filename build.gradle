@@ -3,7 +3,7 @@ println "Gradle version is ${GradleVersion.current().version}"
 
 buildscript {
 
-    ext.kotlin_version = '1.2.50'
+    ext.kotlin_version = '1.3.21'
 
     repositories {
         mavenCentral()
