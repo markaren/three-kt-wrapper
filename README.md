@@ -12,7 +12,7 @@ Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https:/
 
 ## HelloWorld
 
-![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot.PNG)
+![result](https://raw.githubusercontent.com/markaren/three-kt-wrapper/master/screenshot.PNG)
 
 ```html
 <!DOCTYPE html>
@@ -134,7 +134,7 @@ class HelloWorld {
 
 ## Loaders
 
-![result](https://raw.githubusercontent.com/markaren/three.kt/master/screenshot2.PNG)
+![result](https://raw.githubusercontent.com/markaren/three-kt-wrapper/master/screenshot2.PNG)
 
 
 ```html
@@ -294,7 +294,7 @@ class LoaderTest {
 
 # How to get it
 
-Use [JitPack](https://jitpack.io/#markaren/three.kt/). 
+Use [JitPack](https://jitpack.io/#markaren/three-kt-wrapper/). 
 See below for how this works using Gradle. Check the link for other builds systems. 
 
 ```groovy
@@ -303,7 +303,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.markaren:three.kt:v0.88-ALPHA-7'
+    implementation 'com.github.markaren:three-kt-wrapper:v0.88-ALPHA-7'
 }
 ```
 
