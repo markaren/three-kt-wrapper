@@ -1,7 +1,9 @@
-# three.kt
+# three-kt-wrapper
 Kotlin wrappers for Three.js ([r88](https://github.com/mrdoob/three.js/tree/r88))
 
 Allows you to write [Three.js](https://threejs.org/) apps using [Kotlin](https://kotlinlang.org/)
+
+For a full on Kotlin/JVM port, check out https://github.com/markaren/three.kt 
 
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
 
