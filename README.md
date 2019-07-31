@@ -10,7 +10,7 @@ For a full on Kotlin/JVM port, check out https://github.com/markaren/three.kt
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/markaren/three.kt/issues)
 
-[![](https://jitpack.io/v/markaren/three.kt.svg)](https://jitpack.io/#markaren/three.kt)
+[![](https://jitpack.io/v/markaren/three-kt-wrapper.svg)](https://jitpack.io/#markaren/three-kt-wrapper)
 
 ## HelloWorld
 
